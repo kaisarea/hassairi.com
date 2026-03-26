@@ -1,0 +1,365 @@
+/* ============================================
+   STORY PAGE — Same dark world as main page
+   One person. One identity.
+   ============================================ */
+
+:root {
+    --bg: #0a0a0a;
+    --bg-elevated: #111111;
+    --text: #e8e6e3;
+    --text-muted: #8a8a8a;
+    --text-dim: #5a5a5a;
+    --accent: #c9a96e;
+    --accent-dim: rgba(201, 169, 110, 0.15);
+    --border: #1e1e1e;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --story-max: 680px;
+}
+
+/* ============================================
+   Reset & Base
+   ============================================ */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text);
+    background-color: var(--bg);
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+.story-container {
+    max-width: var(--story-max);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: #fff;
+    letter-spacing: 0.02em;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+.nav-links a.active {
+    color: #fff;
+    font-weight: 500;
+}
+
+/* ============================================
+   Story Hero
+   ============================================ */
+
+.story-hero {
+    padding: 10rem 2rem 5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.story-hero-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    animation: storyFadeIn 0.8s ease both;
+}
+
+.story-kicker {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.story-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+/* ============================================
+   Story Body
+   ============================================ */
+
+.story-body {
+    padding: 5rem 0;
+}
+
+.story-chapter {
+    margin-bottom: 4rem;
+}
+
+.story-chapter:last-child {
+    margin-bottom: 0;
+}
+
+.story-lede {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.story-chapter p {
+    margin-bottom: 1.25rem;
+    color: var(--text-muted);
+}
+
+.story-chapter p:last-child {
+    margin-bottom: 0;
+}
+
+.story-chapter em {
+    font-style: italic;
+    color: var(--text);
+}
+
+.story-chapter strong {
+    font-weight: 500;
+    color: #fff;
+}
+
+/* ============================================
+   Story Images
+   ============================================ */
+
+.story-aside-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+}
+
+.story-image {
+    margin: 0 -3rem 2.5rem;
+}
+
+.story-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.story-image img:hover {
+    opacity: 1;
+}
+
+/* Video in story images */
+.tennis-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+    opacity: 0.9;
+}
+
+/* Zaghouan childhood photo — smaller, centered, memory-like */
+.story-image-zaghouan {
+    margin: 2.5rem auto;
+    max-width: 340px;
+    text-align: center;
+}
+
+.story-image-zaghouan img {
+    opacity: 0.85;
+    border-radius: 2px;
+}
+
+.story-image figcaption {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    margin-top: 0.75rem;
+    padding: 0 3rem;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+/* ============================================
+   Coda
+   ============================================ */
+
+.story-coda {
+    padding-top: 3rem;
+}
+
+.story-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+    margin-bottom: 3rem;
+}
+
+.story-coda p {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--text-muted);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.story-footer {
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+}
+
+.story-footer .story-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-link {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: var(--text-dim);
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+.footer-note {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes storyFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 768px) {
+    .story-hero {
+        padding: 8rem 1.5rem 3.5rem;
+    }
+
+    .story-body {
+        padding: 3rem 0;
+    }
+
+    .story-container {
+        padding: 0 1.5rem;
+    }
+
+    .story-image {
+        margin: 0 -1.5rem 2rem;
+    }
+
+    .story-image figcaption {
+        padding: 0 1.5rem;
+    }
+
+    .story-chapter {
+        margin-bottom: 3rem;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .story-footer .story-container {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
+}
