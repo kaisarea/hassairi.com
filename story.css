@@ -275,6 +275,31 @@ a:hover {
 }
 
 /* ============================================
+   Reference list (APA style)
+   ============================================ */
+
+.reference-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.reference-list li {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    line-height: 1.7;
+    padding-left: 2em;
+    text-indent: -2em;
+    margin-bottom: 0.4rem;
+}
+
+.reference-list li em {
+    color: var(--text);
+}
+
+/* ============================================
    Footer
    ============================================ */
 
