@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data at Scale &mdash; Nail Hassairi</title>
+    <meta name="description" content="Large-scale data analysis, experimentation analytics, and production econometrics. From Amazon's buy box to federal education datasets spanning millions of observations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="story.css">
+    <style>
+        .method-hero-sub {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            line-height: 1.7;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem -3rem 2.5rem;
+        }
+
+        .example-grid a,
+        .example-grid .example-card {
+            display: block;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.25rem;
+            transition: border-color 0.2s ease, background 0.2s ease;
+            text-decoration: none;
+        }
+
+        .example-grid a:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+            opacity: 1;
+        }
+
+        .example-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .example-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: #fff;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .tech-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .tech-list li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
+        .tech-list li:last-child {
+            border-bottom: none;
+        }
+
+        .tech-list li strong {
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .back-to-methods {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: var(--text-dim);
+            transition: color 0.2s ease;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .back-to-methods:hover {
+            color: #fff;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .example-grid {
+                grid-template-columns: 1fr;
+                margin: 2rem -1.5rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-name">NH</a>
+        <div class="nav-links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#research">Research</a>
+            <a href="story.html">Story</a>
+            <a href="life.html">Life</a>
+            <a href="reading.html">Reading</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="story-hero">
+        <div class="story-hero-inner">
+            <p class="story-kicker">Methods</p>
+            <h1 class="story-title">Data at Scale</h1>
+            <p class="method-hero-sub">Production econometrics, large-scale experimentation, and the infrastructure that makes analysis possible when the data no longer fits on one machine.</p>
+        </div>
+    </header>
+
+    <main class="story-body">
+        <div class="story-container">
+
+            <a href="index.html#methods" class="back-to-methods">&larr; All methods</a>
+
+            <section class="story-chapter">
+                <p class="story-lede">At Amazon, the data was not a sample. It was the population&mdash;every click, every purchase, every seller offer, every second of every day. The challenge was never whether you had enough data. It was whether your methods could survive contact with it.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Amazon&rsquo;s buy box</div>
+
+                <p>In 2014 I joined Amazon&rsquo;s Customer Behavior Analytics team as a Research Economist, working under Patrick Bajari&mdash;Amazon&rsquo;s chief economist and one of the most cited econometricians in the world&mdash;alongside Harry Paarsch, Konstantin Golyaev, and Gregory Duncan. The project was the buy box: the algorithm that decides which seller&rsquo;s offer gets the &ldquo;Add to Cart&rdquo; button when multiple sellers compete on the same product.</p>
+
+                <p>The buy box is arguably the single most consequential allocation mechanism on the internet. Every day, it routes billions of dollars in commerce. The legacy system used hand-tuned coefficients&mdash;&ldquo;magic numbers&rdquo;&mdash;set by business analysts who adjusted them based on intuition and A/B test results. The economics team&rsquo;s mandate was to replace these with econometrically estimated parameters from a structural model of consumer choice.</p>
+
+                <p>The model was a logit Manski discrete choice framework. Customers arriving at a product page face a set of seller offers that vary by price, shipping speed, seller reputation, and fulfillment channel. The model estimates the probability that a customer chooses each offer&mdash;or chooses not to buy at all&mdash;as a function of these attributes. The &ldquo;outside option&rdquo;&mdash;the probability of walking away&mdash;is what makes it a Manski model rather than a standard conditional logit.</p>
+
+                <p>My first assignment was a feasibility test. Bajari wanted to know if R could handle the estimation at Amazon&rsquo;s scale. The answer, after weeks of testing, was no. The data was too large, the iterations too slow, and R&rsquo;s memory management couldn&rsquo;t cope with the matrix operations required. We moved the estimation pipeline to Stata, which handled it. This was one of those early lessons in the difference between academic-scale computation and production-scale computation&mdash;a lesson that shaped everything I did afterward.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Regularization &amp; constraints</div>
+
+                <p>Raw coefficient estimates from a logit model at this scale are noisy. A coefficient might imply that customers prefer slower shipping or higher prices&mdash;artifacts of collinearity, sparse cells, or endogeneity in the raw data. In an academic paper, you might note these anomalies and move on. In a production system that routes billions of dollars, you cannot.</p>
+
+                <p>The solution was a post-estimation regularization step: a quadratic programming problem that takes the raw coefficients and finds the nearest set of parameters that satisfy economic constraints&mdash;monotonicity (customers prefer lower prices, faster shipping, better sellers) and box constraints (no coefficient can be absurdly large or small). The objective function minimizes the squared distance from the original estimates subject to these constraints, solved using FICO&rsquo;s Xpress optimization engine via its Mosel modeling language.</p>
+
+                <p>The experience of translating economic intuition into formal mathematical constraints&mdash;and watching a commercial solver find a feasible solution in seconds over parameter spaces that would take hours to search manually&mdash;was formative. It was my first time working at the intersection of econometrics and operations research, and the regularized parameters went into production as part of the buy box algorithm that served hundreds of millions of customers.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Experimentation at scale</div>
+
+                <p>The new econometric model didn&rsquo;t just get deployed. It was tested against the legacy system in a controlled experiment&mdash;an A/B test where a fraction of live traffic was routed to the new model while the rest continued on the old magic numbers. My role was to monitor the experiment: tracking conversion rates, revenue per session, defect rates, and customer satisfaction metrics across treatment and control.</p>
+
+                <p>The scale of Amazon experimentation is unlike anything in academic research. A &ldquo;small&rdquo; test might involve millions of customer sessions per day. Statistical significance is not the problem&mdash;everything is significant. The challenge is detecting meaningful differences in business metrics while accounting for the thousand confounds that come from a live marketplace: seasonal effects, promotional events, inventory fluctuations, competitor behavior. I chaired the weekly results meeting where we presented findings to an L6 executive&mdash;Amazon&rsquo;s equivalent of a senior director&mdash;and made recommendations about whether to expand, modify, or kill the experiment.</p>
+
+                <p>The experimentation infrastructure itself was a revelation. Every customer session was tagged with its treatment assignment. Every downstream action&mdash;click, add-to-cart, purchase, return&mdash;was linked back to that assignment through what Amazon calls &ldquo;trigger recording.&rdquo; The trigger fires at the moment the customer is exposed to the treatment, and everything that happens afterward is attributed to that exposure. The analytical pipeline processes these billions of trigger-outcome pairs into the summary statistics that land on the executive&rsquo;s desk. Understanding this pipeline&mdash;its assumptions, its failure modes, its blind spots&mdash;was as important as understanding the econometrics.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Federal datasets</div>
+
+                <p>The skills I developed at Amazon&mdash;working with data that doesn&rsquo;t fit in memory, building automated pipelines, thinking about computational efficiency&mdash;carried directly into my subsequent work with large federal datasets. The Census Bureau&rsquo;s American Community Survey Public Use Microdata Sample (ACS PUMS) contains millions of person-level records. The Common Core of Data (CCD) covers every public school in the United States. The ACF CCDF administrative data tracks childcare subsidy enrollment across all states over time.</p>
+
+                <p>For the state factsheets I produced as part of the PPI project, I built automated analysis pipelines in R and Stata that pulled ACS PUMS microdata, applied design weights, computed population estimates by income group, ethnicity, and metropolitan status, merged these with CCDF enrollment counts and NIEER pre-K data, and produced formatted output ready for visualization. The pipeline ran for each focus state&mdash;Washington, Oregon, Tennessee&mdash;with state-specific parameters but a common analytical framework.</p>
+
+                <p>This is the unglamorous heart of empirical research: building the infrastructure that turns raw data into reliable answers. It is not the econometrics or the identification strategy that takes the most time. It is the data engineering&mdash;the cleaning, the merging, the validation, the pipeline that must run correctly every time because everything downstream depends on it.</p>
+
+                <ul class="tech-list">
+                    <li><strong>Mosel / FICO Xpress</strong> &mdash; Quadratic programming for coefficient regularization with monotonicity and box constraints</li>
+                    <li><strong>Stata</strong> &mdash; Large-scale logit estimation, complex survey analysis with design weights, automated tabulation pipelines</li>
+                    <li><strong>R</strong> &mdash; Data visualization (ggplot2), ACS PUMS microdata processing, statistical computing</li>
+                    <li><strong>SQL / AWS</strong> &mdash; Amazon data warehouse queries, EC2 compute instances for estimation jobs, S3 data storage</li>
+                    <li><strong>Amazon experimentation platform</strong> &mdash; A/B testing infrastructure, trigger recording, treatment assignment, metric computation at scale</li>
+                </ul>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Examples</div>
+
+                <div class="example-grid">
+                    <div class="example-card">
+                        <div class="example-label">Production econometrics</div>
+                        <div class="example-title">Buy Box Choice Model</div>
+                        <div class="example-desc">Logit Manski discrete choice model for Amazon&rsquo;s buy box. Estimated on billions of customer sessions. Parameters regularized via quadratic programming. Amazon, 2014&ndash;2015.</div>
+                    </div>
+                    <div class="example-card">
+                        <div class="example-label">Optimization</div>
+                        <div class="example-title">Coefficient Regularization</div>
+                        <div class="example-desc">Quadratic program enforcing monotonicity and box constraints on logit coefficients. Minimizes deviation from raw estimates subject to economic priors. Amazon, 2014&ndash;2015.</div>
+                    </div>
+                    <a href="papers/wa-ece-factsheet.pdf" target="_blank">
+                        <div class="example-label">Automated pipeline</div>
+                        <div class="example-title">State Factsheet Pipeline</div>
+                        <div class="example-desc">ACS PUMS microdata &rarr; design-weighted estimates &rarr; CCDF/NIEER merge &rarr; formatted output. Reproducible across states. Cultivate Learning, 2019&ndash;2020.</div>
+                    </a>
+                    <div class="example-card">
+                        <div class="example-label">Experimentation</div>
+                        <div class="example-title">Buy Box A/B Testing</div>
+                        <div class="example-desc">Monitored live marketplace experiments comparing econometric model vs. legacy system. Millions of sessions per day. Weekly executive briefings. Amazon, 2015.</div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="story-footer">
+        <div class="story-container">
+            <a href="index.html#methods" class="back-link">&larr; Back to methods</a>
+            <span class="footer-note">&copy; 2025 Nail Hassairi &middot; Prague</span>
+        </div>
+    </footer>
+
+</body>
+</html>
