@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Causal Inference &mdash; Nail Hassairi</title>
+    <meta name="description" content="Causal mediation analysis, randomized experiments, A/B testing at scale, and quasi-experimental methods. From the Head Start Impact Study to Amazon's buy box to Mechanical Turk field experiments.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="story.css">
+    <style>
+        .method-hero-sub {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            line-height: 1.7;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem -3rem 2.5rem;
+        }
+
+        .example-grid a,
+        .example-grid .example-card {
+            display: block;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.25rem;
+            transition: border-color 0.2s ease, background 0.2s ease;
+            text-decoration: none;
+        }
+
+        .example-grid a:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+            opacity: 1;
+        }
+
+        .example-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .example-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: #fff;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .method-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .method-list li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
+        .method-list li:last-child {
+            border-bottom: none;
+        }
+
+        .method-list li strong {
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .back-to-methods {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: var(--text-dim);
+            transition: color 0.2s ease;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .back-to-methods:hover {
+            color: #fff;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .example-grid {
+                grid-template-columns: 1fr;
+                margin: 2rem -1.5rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-name">NH</a>
+        <div class="nav-links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#research">Research</a>
+            <a href="story.html">Story</a>
+            <a href="life.html">Life</a>
+            <a href="reading.html">Reading</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="story-hero">
+        <div class="story-hero-inner">
+            <p class="story-kicker">Methods</p>
+            <h1 class="story-title">Causal Inference</h1>
+            <p class="method-hero-sub">Randomized experiments, causal mediation, A/B testing at industrial scale, and the identification assumptions that make any of it credible.</p>
+        </div>
+    </header>
+
+    <main class="story-body">
+        <div class="story-container">
+
+            <a href="index.html#methods" class="back-to-methods">&larr; All methods</a>
+
+            <section class="story-chapter">
+                <p class="story-lede">Estimating a causal effect is easy. Estimating the right one&mdash;and knowing what assumptions are required for it to be the right one&mdash;is the entire discipline. My work spans randomized experiments, quasi-experimental designs, and causal mediation, always with an emphasis on identification: what exactly are we claiming, and what would have to be true for that claim to hold?</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Causal mediation: the Head Start Impact Study</div>
+
+                <p>The Head Start Impact Study (HSIS) is one of the rare large-scale randomized controlled trials in early childhood education. Random assignment of children to Head Start or a control condition provides clean identification of the program&rsquo;s total effect. But knowing that Head Start works is not the same as knowing <em>how</em> it works. Understanding mechanisms requires moving beyond simple treatment&ndash;control comparisons toward a more nuanced causal framework.</p>
+
+                <p>In this project&mdash;a collaboration with my colleague <a href="https://education.ufl.edu/faculty/park-soojin-oh/" target="_blank" style="color: rgba(255,255,255,0.7); text-decoration: underline;">Soojin Oh Park</a>, who brought the substantive expertise on dual language learners&mdash;I focused on parent&ndash;child literacy activities as a potential mechanism linking Head Start participation to children&rsquo;s language and literacy development. Conceptually, this required separating the causal pathway into two components: the effect of program participation on parenting behaviors, and the effect of those behaviors on child outcomes. This distinction is central to causal mediation analysis and introduces additional identification challenges, since the mediator&ndash;outcome relationship is no longer protected by random assignment.</p>
+
+                <p>To address this, I implemented a causal mediation framework based on potential outcomes, using the approach developed by Imai, Keele, and Tingley (2010). This included conditioning on a rich set of baseline covariates and pre-treatment measures to reduce bias in the mediator&ndash;outcome relationship, as well as conducting sensitivity analyses to assess how robust the estimated mediation effects were to potential unobserved confounding. Rather than treating mediation estimates as definitive, I explicitly quantified how strong an omitted variable would need to be to overturn the results&mdash;an approach that is still rare in applied education research.</p>
+
+                <p>A key contribution was examining heterogeneity in these mechanisms across subgroups, particularly between dual language learners (DLLs) and non-DLLs. This required extending the mediation framework to allow both the treatment&ndash;mediator and mediator&ndash;outcome relationships to vary across groups. The results revealed that similar overall impacts of Head Start could arise through different behavioral pathways&mdash;a finding that would be invisible in a standard average treatment effect analysis.</p>
+
+                <p>Finally, I decomposed the mediator into theoretically distinct components&mdash;code-focused and meaning-focused literacy practices&mdash;and traced their differential contributions to decoding and vocabulary outcomes. This allowed for a more granular interpretation of how specific types of parental engagement translate into distinct dimensions of child development. The paper was accepted at <em>Early Childhood Research Quarterly</em> in 2026.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Experimentation at Amazon</div>
+
+                <p>At Amazon, I encountered causal inference at industrial scale. The buy box team&rsquo;s new econometric model&mdash;a logit Manski discrete choice framework I helped build&mdash;was not simply deployed. It was tested against the legacy system in a controlled experiment: an A/B test where a fraction of live customer traffic was routed to the new model while the rest continued on the old hand-tuned coefficients.</p>
+
+                <p>The scale changes everything about how you think about experiments. A &ldquo;small&rdquo; test might involve millions of customer sessions per day. Statistical significance is not the problem&mdash;everything is significant at that sample size. The challenge is detecting <em>meaningful</em> differences in business metrics while accounting for the thousand confounds that come from a live marketplace: seasonal effects, promotional events, inventory fluctuations, competitor behavior.</p>
+
+                <p>I monitored the experiment and chaired the weekly results meeting where we presented findings to senior leadership. The decisions were consequential: expand the new model to more traffic, modify the parameters, or kill the experiment and go back to the legacy system. Every recommendation had to be grounded in the data, and every anomaly had to be explained&mdash;not just flagged.</p>
+
+                <p>Amazon&rsquo;s experimentation infrastructure was itself a lesson in causal thinking. Every customer session is tagged with its treatment assignment. Every downstream action&mdash;click, add-to-cart, purchase, return&mdash;is linked back to that assignment through trigger recording. The trigger fires at the moment the customer is exposed to the treatment, and everything that follows is attributed to that exposure. Understanding this pipeline&mdash;its assumptions, its failure modes, where the stable unit treatment value assumption might break down in a marketplace with network effects&mdash;was as important as understanding the econometrics.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Field experiments on Mechanical Turk</div>
+
+                <p>My dissertation work at the University of Washington used Amazon Mechanical Turk as a field laboratory for labor economics. Mechanical Turk is a real labor market&mdash;workers accept tasks, exert effort, and earn money&mdash;but with a critical advantage for causal inference: the researcher controls the wage, the task, and the information environment. This makes it possible to run randomized experiments on questions that are nearly impossible to study causally in traditional labor markets.</p>
+
+                <p>I used this setting to test competing theories of efficiency wages. The shirking model predicts that higher wages increase effort because workers have more to lose if fired. The sorting model predicts that higher wages attract more productive workers. In a standard labor market, these mechanisms are confounded&mdash;you cannot observe the counterfactual of the same worker at a different wage, or the same wage offered to a different applicant pool. On Mechanical Turk, you can randomize both.</p>
+
+                <p>The first paper tested the shirking and sorting predictions directly by randomly assigning different wages to identical tasks and measuring effort. The second, with Claus P&ouml;rtner and Michael Toomim, tested compensating wage differentials&mdash;the theory that unpleasant jobs must pay more&mdash;by randomizing workers into tasks of varying difficulty at varying wages. The third estimated labor supply elasticities in this low-friction market. Together, these papers demonstrated that online labor markets could serve as rigorous field settings for testing core economic theory, with the kind of clean identification that observational labor data rarely permits.</p>
+
+                <ul class="method-list">
+                    <li><strong>Causal mediation analysis</strong> &mdash; Average Causal Mediation Effects (ACME) via Imai, Keele &amp; Tingley (2010), sensitivity analysis for sequential ignorability</li>
+                    <li><strong>Randomized controlled trials</strong> &mdash; Intent-to-treat estimation, compliance adjustment, subgroup heterogeneity analysis</li>
+                    <li><strong>A/B testing at scale</strong> &mdash; Trigger-based attribution, multi-metric monitoring, marketplace experimentation with network effects</li>
+                    <li><strong>Field experiments</strong> &mdash; Randomized wage and task assignment on Mechanical Turk for testing labor market theory</li>
+                    <li><strong>Quasi-experimental methods</strong> &mdash; Propensity score matching, difference-in-differences, instrumental variables</li>
+                </ul>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Examples</div>
+
+                <div class="example-grid">
+                    <div class="example-card">
+                        <div class="example-label">Causal mediation</div>
+                        <div class="example-title">Head Start &amp; DLL Literacy Pathways</div>
+                        <div class="example-desc">ACME framework applied to HSIS randomized data. Subgroup-specific mediation, sensitivity analysis for sequential ignorability. Park &amp; Hassairi, ECRQ 2026.</div>
+                    </div>
+                    <div class="example-card">
+                        <div class="example-label">Industrial experimentation</div>
+                        <div class="example-title">Amazon Buy Box A/B Testing</div>
+                        <div class="example-desc">Live marketplace experiment comparing econometric model vs. legacy system. Millions of sessions per day. Weekly executive briefings. Amazon, 2015.</div>
+                    </div>
+                    <a href="papers/hassairi-2016-efficiency-wages.pdf" target="_blank">
+                        <div class="example-label">Field experiment</div>
+                        <div class="example-title">Efficiency Wages on Mechanical Turk</div>
+                        <div class="example-desc">Randomized wage assignment to test shirking vs. sorting predictions. Clean identification of effort and selection effects. Hassairi, 2016.</div>
+                    </a>
+                    <a href="papers/portner-hassairi-toomim-2016-compensating-wage-differentials.pdf" target="_blank">
+                        <div class="example-label">Field experiment</div>
+                        <div class="example-title">Compensating Wage Differentials</div>
+                        <div class="example-desc">Randomized task difficulty and wages to test hedonic wage theory. P&ouml;rtner, Hassairi &amp; Toomim, 2016.</div>
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="story-footer">
+        <div class="story-container">
+            <a href="index.html#methods" class="back-link">&larr; Back to methods</a>
+            <span class="footer-note">&copy; 2025 Nail Hassairi &middot; Prague</span>
+        </div>
+    </footer>
+
+</body>
+</html>
