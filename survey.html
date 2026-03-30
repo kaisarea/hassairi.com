@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey &amp; Measurement &mdash; Nail Hassairi</title>
+    <meta name="description" content="Survey design, complex sampling, design weights, and data visualization. Examples from Census ACS PUMS, ACF CCDF, NIEER, and original survey instruments.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="story.css">
+    <style>
+        .method-hero-sub {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            line-height: 1.7;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem -3rem 2.5rem;
+        }
+
+        .example-grid a {
+            display: block;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.25rem;
+            transition: border-color 0.2s ease, background 0.2s ease;
+            text-decoration: none;
+        }
+
+        .example-grid a:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+            opacity: 1;
+        }
+
+        .example-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .example-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: #fff;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .dataset-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .dataset-list li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
+        .dataset-list li:last-child {
+            border-bottom: none;
+        }
+
+        .dataset-list li strong {
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .back-to-methods {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: var(--text-dim);
+            transition: color 0.2s ease;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .back-to-methods:hover {
+            color: #fff;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .example-grid {
+                grid-template-columns: 1fr;
+                margin: 2rem -1.5rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-name">NH</a>
+        <div class="nav-links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#research">Research</a>
+            <a href="story.html">Story</a>
+            <a href="life.html">Life</a>
+            <a href="reading.html">Reading</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="story-hero">
+        <div class="story-hero-inner">
+            <p class="story-kicker">Methods</p>
+            <h1 class="story-title">Survey &amp; Measurement</h1>
+            <p class="method-hero-sub">Complex survey design, stratified sampling, design weights, psychometrics, and the visualizations that make the data speak.</p>
+        </div>
+    </header>
+
+    <main class="story-body">
+        <div class="story-container">
+
+            <a href="index.html#methods" class="back-to-methods">&larr; All methods</a>
+
+            <section class="story-chapter">
+                <p class="story-lede">Survey data is not like other data. Every number carries a weight&mdash;literally. The people in the sample represent different numbers of people in the population, and ignoring that produces estimates that are precise but wrong. Getting this right is the foundation of everything else.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Survey design</div>
+
+                <p>In 2021, I designed the sampling strategy for the Washington Early Childhood Workforce Survey at Cultivate Learning. The challenge was to produce representative estimates for the entire state&rsquo;s early childhood workforce&mdash;across 39 counties that range from King County (Seattle, 31.6% of the population) to Wahkiakum County (0.01%). I developed the stratified sampling frame, calculated design weights to account for differential response rates across strata, and produced population-level estimates with proper standard errors.</p>
+
+                <p>The result was a dataset that could answer questions about the entire workforce&mdash;their qualifications, working conditions, and employers&mdash;not just the subset who happened to respond. The difference between a convenience sample and a probability sample is the difference between anecdote and evidence.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Complex survey analysis</div>
+
+                <p>Much of my work uses federal datasets that come with their own complex sampling designs: the Census Bureau&rsquo;s American Community Survey (ACS PUMS), the Administration for Children and Families (ACF) CCDF enrollment data, and NIEER state pre-K yearbook data. Each requires careful handling of design weights, strata, and primary sampling units to produce valid inference.</p>
+
+                <p>For the state factsheets, I used ACS PUMS microdata to produce population estimates of children aged 3&ndash;4 by income group, ethnicity, and metro status&mdash;then compared these to preschool enrollment patterns. The analysis revealed a consistent finding across states: ethnic minorities are disproportionately represented in poverty, but their representation in preschool enrollment does not reflect those poverty rates. Rural children face a similar gap. These are not findings you can see without properly weighted data and the right comparisons.</p>
+
+                <ul class="dataset-list">
+                    <li><strong>ACS PUMS (Census)</strong> &mdash; Microdata with person-level design weights for demographic and enrollment analysis across income, ethnicity, and geography</li>
+                    <li><strong>ACF CCDF</strong> &mdash; Federal childcare subsidy enrollment data with state-level trends over time</li>
+                    <li><strong>NIEER</strong> &mdash; State pre-K enrollment and funding data for cross-state comparisons</li>
+                    <li><strong>ERS USDA</strong> &mdash; Rural-urban classification for geographic stratification</li>
+                    <li><strong>Washington Workforce Survey</strong> &mdash; Original survey instrument with self-designed stratified sampling and design weights</li>
+                </ul>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Data visualization &amp; policy communication</div>
+
+                <p>The factsheets were designed for policy audiences&mdash;state legislators, agency heads, program administrators&mdash;who need to see the story in the data without wading through regression tables. Each factsheet follows a consistent visual grammar: enrollment trends on the left, equity breakdowns in the center, and preschool access on the right. The side-by-side structure makes the gaps visible at a glance.</p>
+
+                <p>I produced these for multiple states, adapting the analysis to each state&rsquo;s specific program landscape&mdash;Head Start, ECEAP in Washington, Oregon Pre-K/Oregon Head Start, Tennessee VPK&mdash;while maintaining a consistent analytical framework that makes cross-state comparison possible.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Examples</div>
+
+                <div class="example-grid">
+                    <a href="papers/wa-workforce-survey.pdf" target="_blank">
+                        <div class="example-label">Original survey</div>
+                        <div class="example-title">Washington Workforce Survey</div>
+                        <div class="example-desc">Stratified sampling, design weights, population-level tabulations across 39 counties. Cultivate Learning, 2021.</div>
+                    </a>
+                    <a href="papers/wa-ece-factsheet.pdf" target="_blank">
+                        <div class="example-label">State factsheet</div>
+                        <div class="example-title">Washington ECE Factsheet</div>
+                        <div class="example-desc">Head Start, ECEAP, and CCDF enrollment trends. Equity analysis by income, ethnicity, and geography. ACS PUMS, ACF, NIEER.</div>
+                    </a>
+                    <a href="papers/or-ece-factsheet.pdf" target="_blank">
+                        <div class="example-label">State factsheet</div>
+                        <div class="example-title">Oregon ECE Factsheet</div>
+                        <div class="example-desc">Oregon Pre-K and Head Start enrollment. Rural-urban disparities in preschool access. ACS PUMS, ACF, NIEER.</div>
+                    </a>
+                    <a href="papers/tn-ece-factsheet.pdf" target="_blank">
+                        <div class="example-label">State factsheet</div>
+                        <div class="example-title">Tennessee ECE Factsheet</div>
+                        <div class="example-desc">VPK and Head Start coverage. CCDF enrollment volatility. Ethnic and geographic equity gaps. ACS PUMS, ACF, NIEER.</div>
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="story-footer">
+        <div class="story-container">
+            <a href="index.html#methods" class="back-link">&larr; Back to methods</a>
+            <span class="footer-note">&copy; 2025 Nail Hassairi &middot; Prague</span>
+        </div>
+    </footer>
+
+</body>
+</html>
