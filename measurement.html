@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Measurement &amp; Modeling &mdash; Nail Hassairi</title>
+    <meta name="description" content="Factor analysis, structural equation modeling, QRIS validation, multilevel modeling, and dimensionality reduction. From the Early Achievers validation study to the HSIS mediation framework.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="story.css">
+    <style>
+        .method-hero-sub {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            line-height: 1.7;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem -3rem 2.5rem;
+        }
+
+        .example-grid a,
+        .example-grid .example-card {
+            display: block;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.25rem;
+            transition: border-color 0.2s ease, background 0.2s ease;
+            text-decoration: none;
+        }
+
+        .example-grid a:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+            opacity: 1;
+        }
+
+        .example-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .example-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: #fff;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .method-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .method-list li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
+        .method-list li:last-child {
+            border-bottom: none;
+        }
+
+        .method-list li strong {
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .back-to-methods {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: var(--text-dim);
+            transition: color 0.2s ease;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .back-to-methods:hover {
+            color: #fff;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .example-grid {
+                grid-template-columns: 1fr;
+                margin: 2rem -1.5rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-name">NH</a>
+        <div class="nav-links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#research">Research</a>
+            <a href="story.html">Story</a>
+            <a href="life.html">Life</a>
+            <a href="reading.html">Reading</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="story-hero">
+        <div class="story-hero-inner">
+            <p class="story-kicker">Methods</p>
+            <h1 class="story-title">Measurement &amp; Modeling</h1>
+            <p class="method-hero-sub">Factor analysis, structural equation modeling, and the problem of turning dozens of observed items into constructs that mean something&mdash;without letting the data tell you whatever you want to hear.</p>
+        </div>
+    </header>
+
+    <main class="story-body">
+        <div class="story-container">
+
+            <a href="index.html#methods" class="back-to-methods">&larr; All methods</a>
+
+            <section class="story-chapter">
+                <p class="story-lede">Economics gives you theory first, then sends you looking for data. Education often gives you data first&mdash;dozens of items on classroom quality instruments, child assessments, parent surveys&mdash;and asks you to figure out what it means. This is the domain of structural equation modeling and factor analysis: powerful tools, and dangerous ones if you let them run without discipline.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">The problem of aggregation</div>
+
+                <p>Measurement instruments in early childhood education are high-dimensional by nature. The Classroom Assessment Scoring System (CLASS) has three domains, ten dimensions, and dozens of behavioral indicators. The Environment Rating Scales (ERS) family&mdash;ECERS-R, ITERS-R, FCCERS-R&mdash;contains hundreds of items on everything from room arrangement to the quality of teacher&ndash;child interactions. Child assessments like the PPVT (vocabulary) and Woodcock-Johnson (decoding) generate multiple subscores. The question that runs through all of this work is deceptively simple: how do you combine these items into scores that are both reliable and valid?</p>
+
+                <p>Historically, the answer in the field was the same as the &ldquo;magic numbers&rdquo; approach I encountered at Amazon: someone in charge decided. A group of items would be labeled a domain, averaged into a score, and those scores averaged into an overall rating. Whether this aggregation reflected the actual structure of the data&mdash;whether the items within a domain really measured one thing, whether different domains contributed equally to child outcomes&mdash;was rarely tested. This is where I came in.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Early Achievers: a QRIS validation</div>
+
+                <p>My first project at Cultivate Learning&mdash;then called CQEL, the Childcare Quality and Early Learning Center for Research and Professional Development at the University of Washington&mdash;was the statewide validation of Early Achievers, Washington&rsquo;s Quality Rating and Improvement System (QRIS). Every state had been incentivized by federal Race to the Top grants to create and validate such a system. The states displayed a compliance mindset in this effort: they did what was required to the letter of their contracts, no more. The question of whether their rating systems actually predicted child outcomes&mdash;whether a &ldquo;Level 4&rdquo; program was meaningfully better than a &ldquo;Level 2&rdquo;&mdash;was secondary to the question of whether the grant requirements had been met.</p>
+
+                <p>The Department of Early Learning contracted CQEL to conduct the validation. I did all of the statistical analysis. The challenge was substantial: 947 children across 156 classrooms, with massive missingness in the demographic variables (over 60% of households had incomplete data on income, education, or subsidy status), small cell sizes when the data was split by classroom type (13 infant-only classrooms, 25 blended family child care homes), and the fundamental problem that the study was observational&mdash;children were not randomly assigned to programs, so selection bias was a constant threat.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Dimensionality &amp; machine learning</div>
+
+                <p>The first problem was imputation. With so many missing demographic variables, I needed a strategy that was robust to overfitting while preserving the correlations between variables. I framed this as a prediction problem and compared four approaches: gradient boosting machines (which handle missing data natively and resist overfitting through regularization), random forests, ordinary least squares, and multivariate imputation by chained equations (MICE). I evaluated each using 10-fold cross-validation on out-of-sample predictive accuracy&mdash;not in-sample fit, which would have been misleading given the small dataset. Gradient boosting won for income and education; random forest won for subsidy status.</p>
+
+                <p>This was a deliberate choice to bring machine learning into a field that had never seen it. The Early Achievers items were a classic high-dimensional problem: many correlated predictors, small sample sizes, the constant risk of overfitting. The field&rsquo;s standard approach&mdash;confirmatory factor analysis followed by multilevel regression&mdash;was well-suited to testing pre-specified structures but poorly equipped to discover whether those structures were the right ones. I ran both: the classic factor analyses that the contract required, and the machine learning approaches&mdash;gradient boosting, random forests, LASSO, regression trees&mdash;that could reveal patterns the factor model couldn&rsquo;t see.</p>
+
+                <p>The results were sobering. The relationship between classroom quality measures and child outcomes was weak, explained less than 10% of the variance, and was concentrated at the low end of the quality scale&mdash;suggesting diminishing returns to quality improvements beyond a basic threshold. I reported this honestly, including a power analysis showing that meaningful detection of these effects would require 200&ndash;300 classrooms, not the 100&ndash;150 available. The 530-page technical report I produced contained every analysis, every sensitivity check, every robustness test&mdash;propensity score matching, spline regressions, quadratic specifications, HLM with multiple imputation&mdash;so that nothing was hidden. The published validation report condensed this into a shorter document that went to the state.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">SEM and the epistemological problem</div>
+
+                <p>Structural equation modeling is not something I learned in economics. Economics comes with theory&mdash;utility maximization, market equilibrium, rational choice&mdash;and then tests that theory against data. The relationship between theory and measurement is relatively disciplined because the theory constrains what you can claim. In education, the situation is often reversed: you have a large number of observed variables and no strong theory about how they should be related. SEM and factor analysis are designed for exactly this situation&mdash;they let you posit latent constructs that explain patterns in observed data and test whether those constructs fit.</p>
+
+                <p>The danger is real. Without strong theory, factor analysis becomes a license to find whatever structure you want. Rotate the factors differently, drop an item or two, and a different story emerges. This is the replicability problem in miniature: the analyst has too many degrees of freedom, and the data is not constraining enough to rule out bad models. I approach SEM the same way I approach any statistical method&mdash;with explicit attention to what assumptions are required, what sensitivity analyses can probe those assumptions, and what the method <em>cannot</em> tell you.</p>
+
+                <p>In the Early Achievers validation, I used confirmatory factor analysis to test whether the state&rsquo;s predetermined rating structure&mdash;its grouping of items into domains and standards&mdash;was supported by the data. I tested measurement invariance across program types and age groups. And I compared the state&rsquo;s aggregation scheme against alternative structures derived from the data itself, including proportion scoring methods for the ERS family that proved more predictive of child outcomes than the traditional scoring approach.</p>
+
+                <ul class="method-list">
+                    <li><strong>Confirmatory factor analysis</strong> &mdash; Testing latent structure of CLASS, ERS, and QRIS rating instruments; measurement invariance across groups</li>
+                    <li><strong>Structural equation modeling</strong> &mdash; Path models with latent mediators (PCLITACT in HSIS), multi-group SEM for subgroup comparisons</li>
+                    <li><strong>Multilevel modeling</strong> &mdash; HLM for children nested within classrooms within sites; random intercepts and slopes; cluster-robust inference</li>
+                    <li><strong>Dimensionality reduction</strong> &mdash; Gradient boosting, random forests, LASSO for variable selection and imputation in high-dimensional education data</li>
+                    <li><strong>Threshold &amp; nonlinearity analysis</strong> &mdash; Quadratic specifications, spline regressions, propensity score matching to detect nonlinear quality&ndash;outcome relationships</li>
+                    <li><strong>Power analysis</strong> &mdash; Minimum detectable effect size calculations for clustered designs; sample size recommendations for future validation studies</li>
+                </ul>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Examples</div>
+
+                <div class="example-grid">
+                    <div class="example-card">
+                        <div class="example-label">QRIS validation</div>
+                        <div class="example-title">Early Achievers Standards Validation</div>
+                        <div class="example-desc">Statewide validation of Washington&rsquo;s QRIS. Factor analysis, HLM, propensity score matching, machine learning for imputation. 947 children, 156 classrooms. CQEL, 2016.</div>
+                    </div>
+                    <div class="example-card">
+                        <div class="example-label">Technical report</div>
+                        <div class="example-title">Early Achievers Program Evaluation</div>
+                        <div class="example-desc">530-page analytical report with gradient boosting, random forests, MICE, splines, power analysis, regression diagnostics. Full technical foundation for the validation study.</div>
+                    </div>
+                    <div class="example-card">
+                        <div class="example-label">Causal mediation</div>
+                        <div class="example-title">PCLITACT Latent Construct</div>
+                        <div class="example-desc">Confirmatory factor analysis of parent&ndash;child literacy activities, measurement invariance testing, and latent mediation in the HSIS. Park &amp; Hassairi, ECRQ 2026.</div>
+                    </div>
+                    <div class="example-card">
+                        <div class="example-label">Dimensionality</div>
+                        <div class="example-title">ML vs. Factor Analysis</div>
+                        <div class="example-desc">Comparison of gradient boosting, random forests, LASSO, and MICE against traditional factor-analytic approaches for imputation and variable selection in education data.</div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="story-footer">
+        <div class="story-container">
+            <a href="index.html#methods" class="back-link">&larr; Back to methods</a>
+            <span class="footer-note">&copy; 2025 Nail Hassairi &middot; Prague</span>
+        </div>
+    </footer>
+
+</body>
+</html>
