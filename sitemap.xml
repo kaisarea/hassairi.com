@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+    <url>
+        <loc>https://hassairi.com/index.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/index.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/index.html"/>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://hassairi.com/cs/index.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/index.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/index.html"/>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://hassairi.com/story.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/story.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/story.html"/>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://hassairi.com/cs/story.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/story.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/story.html"/>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://hassairi.com/life.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/life.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/life.html"/>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://hassairi.com/cs/life.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/life.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/life.html"/>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://hassairi.com/reading.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/reading.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/reading.html"/>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://hassairi.com/cs/reading.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/reading.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/reading.html"/>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://hassairi.com/causal-inference.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/causal-inference.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/causal-inference.html"/>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://hassairi.com/cs/causal-inference.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/causal-inference.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/causal-inference.html"/>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://hassairi.com/survey.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/survey.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/survey.html"/>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://hassairi.com/cs/survey.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/survey.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/survey.html"/>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://hassairi.com/measurement.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/measurement.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/measurement.html"/>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://hassairi.com/cs/measurement.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/measurement.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/measurement.html"/>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://hassairi.com/data-at-scale.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/data-at-scale.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/data-at-scale.html"/>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://hassairi.com/cs/data-at-scale.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/data-at-scale.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/data-at-scale.html"/>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://hassairi.com/ml-nlp.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/ml-nlp.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/ml-nlp.html"/>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://hassairi.com/cs/ml-nlp.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/ml-nlp.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/ml-nlp.html"/>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://hassairi.com/leadership.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/leadership.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/leadership.html"/>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://hassairi.com/cs/leadership.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://hassairi.com/leadership.html"/>
+        <xhtml:link rel="alternate" hreflang="cs" href="https://hassairi.com/cs/leadership.html"/>
+        <priority>0.7</priority>
+    </url>
+
+</urlset>
