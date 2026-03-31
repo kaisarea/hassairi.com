@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kauz&aacute;ln&iacute; inference &mdash; Nail Hassairi</title>
+    <meta name="description" content="Kauz&aacute;ln&iacute; media&ccaron;n&iacute; anal&yacute;za, randomizovan&eacute; experimenty, A/B testing ve velk&eacute;m m&ecaron;&rcaron;&iacute;tku a kvazi-experiment&aacute;ln&iacute; metody. Od Head Start Impact Study p&rcaron;es buy box v Amazonu po ter&eacute;nn&iacute; experimenty na Mechanical Turk.">
+    <link rel="alternate" hreflang="en" href="../causal-inference.html">
+    <link rel="alternate" hreflang="cs" href="causal-inference.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../story.css">
+    <style>
+        .method-hero-sub {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            line-height: 1.7;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem -3rem 2.5rem;
+        }
+
+        .example-grid a,
+        .example-grid .example-card {
+            display: block;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.25rem;
+            transition: border-color 0.2s ease, background 0.2s ease;
+            text-decoration: none;
+        }
+
+        .example-grid a:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+            opacity: 1;
+        }
+
+        .example-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .example-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: #fff;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .method-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .method-list li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
+        .method-list li:last-child {
+            border-bottom: none;
+        }
+
+        .method-list li strong {
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .back-to-methods {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: var(--text-dim);
+            transition: color 0.2s ease;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .back-to-methods:hover {
+            color: #fff;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .example-grid {
+                grid-template-columns: 1fr;
+                margin: 2rem -1.5rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-name">NH</a>
+        <div class="nav-links">
+            <a href="index.html#about">O mn&ecaron;</a>
+            <a href="index.html#research">V&yacute;zkum</a>
+            <a href="story.html">P&rcaron;&iacute;b&ecaron;h</a>
+            <a href="life.html">&Zcaron;ivot</a>
+            <a href="reading.html">&Ccaron;etba</a>
+            <a href="index.html#contact">Kontakt</a>
+            <a href="../causal-inference.html" style="opacity: 0.45; font-size: 0.75rem; letter-spacing: 0.08em;">EN</a>
+        </div>
+    </nav>
+
+    <header class="story-hero">
+        <div class="story-hero-inner">
+            <p class="story-kicker">Metody</p>
+            <h1 class="story-title">Kauz&aacute;ln&iacute; inference</h1>
+            <p class="method-hero-sub">Randomizovan&eacute; experimenty, kauz&aacute;ln&iacute; mediace, A/B testing v pr&uring;myslov&eacute;m m&ecaron;&rcaron;&iacute;tku a identifika&ccaron;n&iacute; p&rcaron;edpoklady, na kter&yacute;ch to v&scaron;echno stoj&iacute;.</p>
+        </div>
+    </header>
+
+    <main class="story-body">
+        <div class="story-container">
+
+            <a href="index.html#methods" class="back-to-methods">&larr; V&scaron;echny metody</a>
+
+            <section class="story-chapter">
+                <p class="story-lede">Odhadnout kauz&aacute;ln&iacute; efekt je snadn&eacute;. Odhadnout ten spr&aacute;vn&yacute;&mdash;a v&ecaron;d&ecaron;t, jak&eacute; p&rcaron;edpoklady mus&iacute; platit, aby to byl ten spr&aacute;vn&yacute;&mdash;to je cel&aacute; discipl&iacute;na. Moje pr&aacute;ce zahrnuje randomizovan&eacute; experimenty, stepped wedge design, kvazi-experiment&aacute;ln&iacute; metody a kauz&aacute;ln&iacute; mediaci, v&zcaron;dy s d&uring;razem na identifikaci: co p&rcaron;esn&ecaron; tvrd&iacute;me a co by muselo platit, aby tento n&aacute;rok obstál?</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Kauz&aacute;ln&iacute; mediace: Head Start Impact Study</div>
+
+                <p>Head Start Impact Study (HSIS) je jednou z m&aacute;la velk&yacute;ch randomizovan&yacute;ch kontrolovan&yacute;ch studi&iacute; v oblasti p&rcaron;ed&scaron;koln&iacute;ho vzd&ecaron;l&aacute;v&aacute;n&iacute;. N&aacute;hodn&eacute; za&rcaron;azen&iacute; d&ecaron;t&iacute; do programu Head Start nebo kontroln&iacute; skupiny umo&zcaron;&ncaron;uje &ccaron;istou identifikaci celkov&eacute;ho efektu programu. V&ecaron;d&ecaron;t, &zcaron;e Head Start funguje, v&scaron;ak nen&iacute; tot&eacute;&zcaron; co v&ecaron;d&ecaron;t, <em>jak</em> funguje. Pochopen&iacute; mechanism&uring; vy&zcaron;aduje p&rcaron;ekro&ccaron;en&iacute; jednoduch&yacute;ch srovn&aacute;n&iacute; experiment&aacute;ln&iacute; a kontroln&iacute; skupiny sm&ecaron;rem k sofistikovan&ecaron;j&scaron;&iacute;mu kauz&aacute;ln&iacute;mu r&aacute;mci.</p>
+
+                <p>Tento projekt vze&scaron;el z harvardsk&eacute; disertace m&eacute; kolegyn&ecaron; <a href="https://education.ufl.edu/faculty/park-soojin-oh/" target="_blank" style="color: rgba(255,255,255,0.7); text-decoration: underline;">Soojin Oh Park</a>, kter&aacute; jako prvn&iacute; aplikovala r&aacute;mec pr&uring;m&ecaron;rn&yacute;ch kauz&aacute;ln&iacute;ch media&ccaron;n&iacute;ch efekt&uring; (ACME) na data HSIS. C&iacute;lem bylo zjistit, zda &ccaron;ten&aacute;&rcaron;sk&eacute; aktivity rodi&ccaron;&uring; s d&ecaron;tmi zprost&rcaron;edkov&aacute;vaj&iacute; vliv Head Startu na slovn&iacute; z&aacute;sobu a dek&oacute;dovac&iacute; dovednosti d&ecaron;t&iacute;&mdash;a zda se tyto mechanismy li&scaron;&iacute; u d&ecaron;t&iacute; u&ccaron;&iacute;c&iacute;ch se dva jazyky (DLL). Disertace byla ambici&oacute;zn&iacute;, srovn&aacute;vala v&iacute;ce&uacute;rov&ncaron;ov&eacute; strukturn&iacute; rovnicov&eacute; modelov&aacute;n&iacute; (MSEM) i p&rcaron;&iacute;stup ACME, ale &scaron;&iacute;&rcaron;e &scaron;la na &uacute;kor hloubky. Kdy&zcaron; jsme se Soojin za&ccaron;ali spolupracovat na publikaci, pomohl jsem p&rcaron;etvo&rcaron;it &ccaron;l&aacute;nek: srovn&aacute;n&iacute; s MSEM jsme zcela vypustili a zam&ecaron;&rcaron;ili se v&yacute;hradn&ecaron; na r&aacute;mec ACME, co&zcaron; n&aacute;m umo&zcaron;nilo j&iacute;t v&yacute;razn&ecaron; hloub&ecaron;ji v kauz&aacute;ln&iacute; identifikaci a statistick&eacute; preciznosti, kterou recenzenti vy&zcaron;aduj&iacute;.</p>
+
+                <p>Metodologick&eacute; p&rcaron;&iacute;nosy, kter&eacute; jsem do publikovan&eacute; verze p&rcaron;inesl, byly z&aacute;sadn&iacute;. Pro prvn&iacute; v&yacute;zkumnou ot&aacute;zku&mdash;zda Head Start ovliv&ncaron;uje rodi&ccaron;ovstv&iacute; a v&yacute;sledky d&ecaron;t&iacute;&mdash;jsem p&rcaron;idal odhad treatment-on-the-treated (TOT) pomoc&iacute; dvoustup&ncaron;ov&eacute; metody nejmen&scaron;&iacute;ch &ccaron;tverc&uring; (2SLS), kde n&aacute;hodn&eacute; za&rcaron;azen&iacute; slou&zcaron;ilo jako instrument pro skute&ccaron;nou &uacute;&ccaron;ast v programu. T&iacute;m jsme z&iacute;skali lok&aacute;ln&iacute; pr&uring;m&ecaron;rn&yacute; efekt l&eacute;&ccaron;by (LATE) vedle odhadu intent-to-treat, co&zcaron; je rozd&iacute;l, na kter&eacute;m z&aacute;le&zcaron;&iacute; p&rcaron;i nedokonal&eacute; komplianci (86,6 % d&ecaron;t&iacute; z experiment&aacute;ln&iacute; skupiny nav&scaron;t&ecaron;vovalo Head Start, zat&iacute;mco 14,4 % d&ecaron;t&iacute; z kontroln&iacute; skupiny p&rcaron;e&scaron;lo do programu). Tak&eacute; jsem v&scaron;ude doplnil standardizovan&eacute; velikosti efektu (Cohenovo <em>d</em>), kter&eacute; v disertaci chyb&ecaron;ly.</p>
+
+                <p>Pro srovn&aacute;n&iacute; media&ccaron;n&iacute;ch efekt&uring; mezi DLL a ne-DLL d&ecaron;tmi jsem zavedl bootstrapov&eacute; intervaly spolehlivosti pro <em>rozd&iacute;l</em> v ACME mezi podskupinami&mdash;form&aacute;ln&iacute; statistick&yacute; test, kter&yacute; disertace neobsahovala. Bez tohoto testu m&uring;&zcaron;ete pozorovat, &zcaron;e zprost&rcaron;edkovan&eacute; efekty vypadaj&iacute; mezi skupinami odli&scaron;n&ecaron;, ale nem&uring;&zcaron;ete tvrdit, &zcaron;e je rozd&iacute;l statisticky v&yacute;znamn&yacute;. Rovn&ecaron;&zcaron; jsem roz&scaron;&iacute;&rcaron;il strategii pro chyb&ecaron;j&iacute;c&iacute; data, implementoval jsem mnohon&aacute;sobnou imputaci &rcaron;et&ecaron;zov&yacute;mi rovnicemi (MICE) s bateriemi kontrol robustnosti: v&aacute;&zcaron;en&iacute; inverzn&iacute; pravd&ecaron;podobnost&iacute; pro &uacute;pravu atrice, srovn&aacute;n&iacute; vzor&uring; chyb&ecaron;j&iacute;c&iacute;ch dat podle statusu DLL a anal&yacute;zy citlivosti pro p&rcaron;edpoklad sekven&ccaron;n&iacute; ignorovatelnosti.</p>
+
+                <p>Nakonec jsme p&rcaron;idali &ccaron;tvrtou v&yacute;zkumnou ot&aacute;zku, kter&aacute; rozlo&zcaron;ila medi&aacute;tor na teoreticky odli&scaron;n&eacute; slo&zcaron;ky&mdash;&ccaron;ten&aacute;&rcaron;sk&eacute; praktiky zam&ecaron;&rcaron;en&eacute; na k&oacute;d (abeceda, hláskov&aacute;n&iacute;, r&yacute;mov&aacute;n&iacute;) a praktiky zam&ecaron;&rcaron;en&eacute; na v&yacute;znam (&ccaron;ten&iacute;, vypr&aacute;v&ecaron;n&iacute;)&mdash;a sledovala jejich diferenci&aacute;ln&iacute; p&rcaron;&iacute;sp&ecaron;vky k dek&oacute;dov&aacute;n&iacute; a slovn&iacute; z&aacute;sob&ecaron; zvl&aacute;&scaron;&tcaron; pro DLL a ne-DLL d&ecaron;ti. Tato dekompozice odhalila, &zcaron;e cesty, kter&yacute;mi rodi&ccaron;ovstv&iacute; podporuje gramotnost, nejsou jednotn&eacute; nap&rcaron;&iacute;&ccaron; jazykov&yacute;mi skupinami&mdash;zji&scaron;t&ecaron;n&iacute; s p&rcaron;&iacute;m&yacute;mi d&uring;sledky pro to, jak programy Head Start p&rcaron;izp&uring;sobuj&iacute; pr&aacute;ci s rodinami. &Ccaron;l&aacute;nek byl p&rcaron;ijat v &ccaron;asopise <em>Early Childhood Research Quarterly</em> v roce 2026.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Experimentov&aacute;n&iacute; v Amazonu</div>
+
+                <p>V Amazonu jsem se setkal s kauz&aacute;ln&iacute; inferenc&iacute; v pr&uring;myslov&eacute;m m&ecaron;&rcaron;&iacute;tku. Nov&yacute; ekonometrick&yacute; model t&yacute;mu buy box&mdash;logitov&yacute; Manski discrete choice framework, na kter&eacute;m jsem se pod&iacute;lel&mdash;nebyl prost&ecaron; nasazen. Byl testov&aacute;n proti st&aacute;vaj&iacute;c&iacute;mu syst&eacute;mu v kontrolovan&eacute;m experimentu: A/B test, kde &ccaron;&aacute;st &zcaron;iv&eacute;ho z&aacute;kaznick&eacute;ho provozu byla sm&ecaron;rov&aacute;na na nov&yacute; model, zat&iacute;mco zbytek pokra&ccaron;oval na star&yacute;ch ru&ccaron;n&ecaron; lad&ecaron;n&yacute;ch koeficientech.</p>
+
+                <p>M&ecaron;&rcaron;&iacute;tko m&ecaron;n&iacute; v&scaron;echno v tom, jak o experimentech p&rcaron;em&yacute;&scaron;l&iacute;te. &bdquo;Mal&yacute;&ldquo; test m&uring;&zcaron;e zahrnovat miliony z&aacute;kaznick&yacute;ch sezen&iacute; denn&ecaron;. Statistick&aacute; v&yacute;znamnost nen&iacute; probl&eacute;m&mdash;p&rcaron;i takov&eacute;m vzorku je v&yacute;znamn&eacute; v&scaron;echno. V&yacute;zvou je detekovat <em>smyslupln&eacute;</em> rozd&iacute;ly v obchodn&iacute;ch metrik&aacute;ch a z&aacute;rove&ncaron; zohlednit tis&iacute;c ru&scaron;iv&yacute;ch faktor&uring;, kter&eacute; p&rcaron;ich&aacute;zej&iacute; s &zcaron;iv&yacute;m tr&zcaron;i&scaron;t&ecaron;m: sez&oacute;nn&iacute; efekty, promo akce, v&yacute;kyvy z&aacute;sob, chov&aacute;n&iacute; konkurence.</p>
+
+                <p>Monitoroval jsem experiment a vedl t&yacute;denn&iacute; sch&uring;zky s v&yacute;sledky, kde jsme prezentovali zji&scaron;t&ecaron;n&iacute; vedouc&iacute;mu managementu. Rozhodnut&iacute; m&ecaron;la z&aacute;sadn&iacute; v&aacute;hu: roz&scaron;&iacute;&rcaron;it nov&yacute; model na v&ecaron;t&scaron;&iacute; provoz, upravit parametry, nebo experiment ukon&ccaron;it a vr&aacute;tit se ke star&eacute;mu syst&eacute;mu. Ka&zcaron;d&eacute; doporu&ccaron;en&iacute; muselo b&yacute;t podlo&zcaron;eno daty a ka&zcaron;d&aacute; anom&aacute;lie musela b&yacute;t vysv&ecaron;tlena&mdash;nejen ozna&ccaron;ena.</p>
+
+                <p>Experimenta&ccaron;n&iacute; infrastruktura Amazonu byla sama o sob&ecaron; lekc&iacute; v kauz&aacute;ln&iacute;m my&scaron;len&iacute;. Ka&zcaron;d&eacute; z&aacute;kaznick&eacute; sezen&iacute; je ozna&ccaron;eno p&rcaron;i&rcaron;azen&iacute;m k experiment&aacute;ln&iacute; skupin&ecaron;. Ka&zcaron;d&aacute; n&aacute;sledn&aacute; akce&mdash;kliknut&iacute;, p&rcaron;id&aacute;n&iacute; do ko&scaron;&iacute;ku, n&aacute;kup, vr&aacute;cen&iacute;&mdash;je prov&aacute;z&aacute;na s t&iacute;mto p&rcaron;i&rcaron;azen&iacute;m p&rcaron;es z&aacute;znam trigeru. Trigger se aktivuje v okam&zcaron;iku, kdy je z&aacute;kazn&iacute;k vystaven l&eacute;&ccaron;b&ecaron;, a v&scaron;e n&aacute;sleduj&iacute;c&iacute; je p&rcaron;i&rcaron;azeno t&eacute;to expozici. Pochopen&iacute; tohoto pipeline&mdash;jeho p&rcaron;edpoklad&uring;, jeho selh&aacute;n&iacute;, toho, kde m&uring;&zcaron;e b&yacute;t naru&scaron;en p&rcaron;edpoklad stabiln&iacute; hodnoty l&eacute;&ccaron;by jednotky (SUTVA) na tr&zcaron;i&scaron;ti se s&iacute;&tcaron;ov&yacute;mi efekty&mdash;bylo stejn&ecaron; d&uring;le&zcaron;it&eacute; jako pochopen&iacute; ekonometrie.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Ter&eacute;nn&iacute; experimenty na Mechanical Turk</div>
+
+                <p>Moje diserta&ccaron;n&iacute; pr&aacute;ce na University of Washington vyu&zcaron;&iacute;vala Amazon Mechanical Turk jako ter&eacute;nn&iacute; laborato&rcaron; pro ekonomii pr&aacute;ce. Mechanical Turk je re&aacute;ln&yacute; trh pr&aacute;ce&mdash;pracovn&iacute;ci p&rcaron;ij&iacute;maj&iacute; &uacute;koly, vynakl&aacute;daj&iacute; &uacute;sil&iacute; a vyd&ecaron;l&aacute;vaj&iacute; pen&iacute;ze&mdash;ale s kl&iacute;&ccaron;ovou v&yacute;hodou pro kauz&aacute;ln&iacute; inferenci: v&yacute;zkumn&iacute;k kontroluje mzdu, &uacute;kol i informa&ccaron;n&iacute; prost&rcaron;ed&iacute;. To umo&zcaron;&ncaron;uje prov&aacute;d&ecaron;t randomizovan&eacute; experimenty na ot&aacute;zky, kter&eacute; je t&eacute;m&ecaron;&rcaron; nemo&zcaron;n&eacute; kauz&aacute;ln&ecaron; zkoumat na tradi&ccaron;n&iacute;ch trz&iacute;ch pr&aacute;ce.</p>
+
+                <p>Toto prost&rcaron;ed&iacute; jsem vyu&zcaron;il k testov&aacute;n&iacute; konkuruj&iacute;c&iacute;ch teori&iacute; efektivn&iacute;ch mezd. Model &scaron;izen&iacute; (shirking model) p&rcaron;edpov&iacute;d&aacute;, &zcaron;e vy&scaron;&scaron;&iacute; mzdy zvy&scaron;uj&iacute; &uacute;sil&iacute;, proto&zcaron;e pracovn&iacute;ci maj&iacute; v&iacute;ce co ztratit, pokud jsou propust&ecaron;ni. Model t&rcaron;&iacute;d&ecaron;n&iacute; (sorting model) p&rcaron;edpov&iacute;d&aacute;, &zcaron;e vy&scaron;&scaron;&iacute; mzdy p&rcaron;it&aacute;hnou produktivn&ecaron;j&scaron;&iacute; pracovn&iacute;ky. Na standardn&iacute;m trhu pr&aacute;ce jsou tyto mechanismy konfundov&aacute;ny&mdash;nem&uring;&zcaron;ete pozorovat kontrafaktu&aacute;l t&eacute;ho&zcaron; pracovn&iacute;ka p&rcaron;i jin&eacute; mzd&ecaron; ani tut&eacute;&zcaron; mzdu nab&iacute;dnutou jin&eacute;mu souboru uchaze&ccaron;&uring;. Na Mechanical Turk m&uring;&zcaron;ete randomizovat oboj&iacute;.</p>
+
+                <p>Prvn&iacute; &ccaron;l&aacute;nek testoval predikce model&uring; &scaron;izen&iacute; a t&rcaron;&iacute;d&ecaron;n&iacute; p&rcaron;&iacute;mo t&iacute;m, &zcaron;e n&aacute;hodn&ecaron; p&rcaron;i&rcaron;adil r&uring;zn&eacute; mzdy k identick&yacute;m &uacute;kol&uring;m a m&ecaron;&rcaron;il &uacute;sil&iacute;. Druh&yacute;, s Clausem P&ouml;rtnerem a Michaelem Toomimem, testoval kompenzuj&iacute;c&iacute; mzdov&eacute; diferenci&aacute;ly&mdash;teorii, &zcaron;e nep&rcaron;&iacute;jemn&eacute; pr&aacute;ce mus&iacute; platit v&iacute;ce&mdash;randomizac&iacute; pracovn&iacute;k&uring; do &uacute;kol&uring; r&uring;zn&eacute; obt&iacute;&zcaron;nosti p&rcaron;i r&uring;zn&yacute;ch mzd&aacute;ch. T&rcaron;et&iacute; odhadoval elasticity nab&iacute;dky pr&aacute;ce na tomto n&iacute;zkofrik&ccaron;n&iacute;m trhu. Spole&ccaron;n&ecaron; tyto &ccaron;l&aacute;nky uk&aacute;zaly, &zcaron;e online trhy pr&aacute;ce mohou slou&zcaron;it jako rigor&oacute;zn&iacute; ter&eacute;nn&iacute; prost&rcaron;ed&iacute; pro testov&aacute;n&iacute; z&aacute;kladn&iacute;ch ekonomick&yacute;ch teori&iacute;, s typem &ccaron;ist&eacute; identifikace, kterou observa&ccaron;n&iacute; data z trhu pr&aacute;ce z&rcaron;&iacute;dka umo&zcaron;&ncaron;uj&iacute;.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Stepped wedge design: studie ELO</div>
+
+                <p>Studie Expanded Learning Opportunity (ELO) v Cultivate Learning p&rcaron;edstavovala jin&yacute; typ experimentu&mdash;takov&yacute;, kde jednotkou randomizace byl &ccaron;as, nikoli jednotlivci. Projekt m&ecaron;l dva c&iacute;le: vyvinout a validovat nov&yacute; n&aacute;stroj m&ecaron;&rcaron;en&iacute; kvality pro program&uring; mimo&scaron;koln&iacute;ch aktivit (Quality Seal) a otestovat, zda kou&ccaron;ovac&iacute; intervence dok&aacute;&zcaron;ou zlep&scaron;it kvalitu program&uring;. Designov&aacute; v&yacute;zva spo&ccaron;&iacute;vala v tom, &zcaron;e nem&uring;&zcaron;ete n&aacute;hodn&ecaron; odep&rcaron;&iacute;t kou&ccaron;ov&aacute;n&iacute; program&uring;m, kter&eacute; souhlasily s &uacute;&ccaron;ast&iacute; na zlep&scaron;ov&aacute;n&iacute; kvality. Stepped wedge design to &rcaron;e&scaron;&iacute;: ka&zcaron;d&yacute; program nakonec l&eacute;&ccaron;bu obdr&zcaron;&iacute;, ale <em>&ccaron;asov&aacute;n&iacute;</em> zah&aacute;jen&iacute; l&eacute;&ccaron;by je randomizov&aacute;no, &ccaron;&iacute;m&zcaron; vznik&aacute; variabilita pot&rcaron;ebn&aacute; pro kauz&aacute;ln&iacute; identifikaci.</p>
+
+                <p>Vedl jsem kvantitativn&iacute; anal&yacute;zu. Studie zah&aacute;jila dv&ecaron; kohorty mimo&scaron;koln&iacute;ch program&uring; nap&rcaron;&iacute;&ccaron; st&aacute;tem Washington se t&rcaron;emi experiment&aacute;ln&iacute;mi v&ecaron;tvemi: prezen&ccaron;n&iacute; kou&ccaron;ov&aacute;n&iacute;, online kou&ccaron;ov&aacute;n&iacute; a hybridn&iacute; kombinace obou. Programy byly blokov&aacute;ny podle typu pracovi&scaron;t&ecaron; a p&rcaron;edexperiment&aacute;ln&iacute;ch sk&oacute;re kvality (m&ecaron;&rcaron;en&yacute;ch n&aacute;strojem Program Quality Assessment) a poté randomizov&aacute;ny v r&aacute;mci blok&uring; na &ccaron;asov&aacute;n&iacute; l&eacute;&ccaron;by pomoc&iacute; ne&uacute;pln&eacute;ho blokov&eacute;ho designu. To znamenalo, &zcaron;e v jak&eacute;mkoli okam&zcaron;iku pozorování n&ecaron;kter&eacute; programy ji&zcaron; za&ccaron;aly dost&aacute;vat kou&ccaron;ov&aacute;n&iacute;, zat&iacute;mco jin&eacute; je&scaron;t&ecaron; ne&mdash;&ccaron;&iacute;m&zcaron; vznikla jak vnitroprogramov&aacute;, tak meziprogramov&aacute; variabilita v expozici l&eacute;&ccaron;b&ecaron;.</p>
+
+                <p>Analytick&yacute; r&aacute;mec tvo&rcaron;ilo hierarchick&eacute; line&aacute;rn&iacute; modelov&aacute;n&iacute; s k&rcaron;&iacute;&zcaron;en&yacute;mi n&aacute;hodn&yacute;mi efekty&mdash;pozorování vno&rcaron;en&aacute; sou&ccaron;asn&ecaron; do program&uring;, hodnotitel&uring; a typ&uring; pracovi&scaron;&tcaron;&mdash;aby se zohlednily mnoh&eacute; zdroje klastrování v datech. Prim&aacute;rn&iacute;mi v&yacute;sledky byly PQA a Expectations and Demands of Children in Care (ECDC), m&ecaron;&rcaron;en&eacute; v n&ecaron;kolika &ccaron;asov&yacute;ch bodech p&rcaron;ed a po zah&aacute;jen&iacute; kou&ccaron;ov&aacute;n&iacute;. Struktura stepped wedge znamenala, &zcaron;e kontroln&iacute; pozorování nepoch&aacute;zela od odd&ecaron;len&eacute; skupiny program&uring;, ale od t&yacute;ch&zcaron; program&uring; p&rcaron;ed zah&aacute;jen&iacute;m jejich l&eacute;&ccaron;by, co&zcaron; z definice kontroluje &ccaron;asov&ecaron; invariantn&iacute; charakteristiky program&uring;.</p>
+
+                <p>V&yacute;sledky byly pozoruhodn&eacute;. V&scaron;echny t&rcaron;i modality kou&ccaron;ov&aacute;n&iacute; p&rcaron;inesly statisticky v&yacute;znamn&aacute; zlep&scaron;en&iacute; kvality program&uring;, ale online kou&ccaron;ov&aacute;n&iacute; m&ecaron;lo nejsiln&ecaron;j&scaron;&iacute; pozitivn&iacute; efekt na sk&oacute;re PQA&mdash;kontraintuitivn&iacute; zji&scaron;t&ecaron;n&iacute; vzhledem k preferenci oboru pro osobn&iacute; interakci. Anal&yacute;za n&aacute;klad&uring; a p&rcaron;&iacute;nos&uring; ten argument je&scaron;t&ecaron; pos&iacute;lila: online kou&ccaron;ov&aacute;n&iacute; bylo t&rcaron;ikr&aacute;t a&zcaron; p&ecaron;tkr&aacute;t n&aacute;kladov&ecaron; efektivn&ecaron;j&scaron;&iacute; ne&zcaron; prezen&ccaron;n&iacute;, zejm&eacute;na proto, &zcaron;e eliminovalo &ccaron;as str&aacute;ven&yacute; cestov&aacute;n&iacute;m a umo&zcaron;nilo kou&ccaron;&uring;m obsluhovat v&iacute;ce program&uring;. Byl rok 2019, m&ecaron;s&iacute;ce p&rcaron;edt&iacute;m, ne&zcaron; COVID-19 u&ccaron;inil vzd&aacute;lenou formu nejen efektivn&iacute;, ale nezbytnou.</p>
+
+                <ul class="method-list">
+                    <li><strong>Kauz&aacute;ln&iacute; media&ccaron;n&iacute; anal&yacute;za</strong> &mdash; Pr&uring;m&ecaron;rn&eacute; kauz&aacute;ln&iacute; media&ccaron;n&iacute; efekty (ACME) dle Imai, Keele &amp; Tingley (2010), anal&yacute;za citlivosti pro sekven&ccaron;n&iacute; ignorovatelnost</li>
+                    <li><strong>Randomizovan&eacute; kontrolovan&eacute; studie</strong> &mdash; Odhad intent-to-treat, &uacute;prava pro komplianci, anal&yacute;za heterogenity podskupin</li>
+                    <li><strong>A/B testing ve velk&eacute;m m&ecaron;&rcaron;&iacute;tku</strong> &mdash; Atribuce na z&aacute;klad&ecaron; trigger&uring;, monitorov&aacute;n&iacute; v&iacute;ce metrik, experimentov&aacute;n&iacute; na tr&zcaron;i&scaron;ti se s&iacute;&tcaron;ov&yacute;mi efekty</li>
+                    <li><strong>Stepped wedge design</strong> &mdash; Randomizovan&eacute; &ccaron;asov&aacute;n&iacute; l&eacute;&ccaron;by s ne&uacute;plnou blokovou randomizac&iacute;, HLM s k&rcaron;&iacute;&zcaron;en&yacute;mi n&aacute;hodn&yacute;mi efekty</li>
+                    <li><strong>Ter&eacute;nn&iacute; experimenty</strong> &mdash; Randomizovan&eacute; p&rcaron;i&rcaron;azov&aacute;n&iacute; mezd a &uacute;kol&uring; na Mechanical Turk pro testov&aacute;n&iacute; teorie trhu pr&aacute;ce</li>
+                    <li><strong>Kvazi-experiment&aacute;ln&iacute; metody</strong> &mdash; Propensity score matching, metoda diferenc&iacute; v diferenc&iacute;ch, instrument&aacute;ln&iacute; prom&ecaron;nn&eacute;</li>
+                </ul>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">P&rcaron;&iacute;klady</div>
+
+                <div class="example-grid">
+                    <div class="example-card">
+                        <div class="example-label">Kauz&aacute;ln&iacute; mediace</div>
+                        <div class="example-title">Head Start &amp; DLL Literacy Pathways</div>
+                        <div class="example-desc">R&aacute;mec ACME, 2SLS pro TOT, bootstrapov&eacute; testy rozd&iacute;l&uring; mezi podskupinami, dekompozice na k&oacute;dov&ecaron; a v&yacute;znamov&ecaron; zam&ecaron;&rcaron;en&eacute; slo&zcaron;ky. Park &amp; Hassairi, ECRQ 2026.</div>
+                    </div>
+                    <div class="example-card">
+                        <div class="example-label">Pr&uring;myslov&eacute; experimentov&aacute;n&iacute;</div>
+                        <div class="example-title">Amazon Buy Box A/B Testing</div>
+                        <div class="example-desc">&Zcaron;iv&yacute; experiment na tr&zcaron;i&scaron;ti srovn&aacute;vaj&iacute;c&iacute; ekonometrick&yacute; model se star&yacute;m syst&eacute;mem. Miliony sezen&iacute; denn&ecaron;. T&yacute;denn&iacute; prezentace veden&iacute;. Amazon, 2015.</div>
+                    </div>
+                    <div class="example-card">
+                        <div class="example-label">Stepped wedge studie</div>
+                        <div class="example-title">ELO Coaching Intervention</div>
+                        <div class="example-desc">Stepped wedge randomizovan&yacute; design se t&rcaron;emi v&ecaron;tvemi kou&ccaron;ov&aacute;n&iacute;. Ne&uacute;pln&aacute; blokov&aacute; randomizace, HLM s k&rcaron;&iacute;&zcaron;en&yacute;mi n&aacute;hodn&yacute;mi efekty, anal&yacute;za n&aacute;klad&uring; a p&rcaron;&iacute;nos&uring;. Cultivate Learning, 2019.</div>
+                    </div>
+                    <a href="../papers/hassairi-2016-efficiency-wages.pdf" target="_blank">
+                        <div class="example-label">Ter&eacute;nn&iacute; experiment</div>
+                        <div class="example-title">Efficiency Wages on Mechanical Turk</div>
+                        <div class="example-desc">Randomizovan&eacute; p&rcaron;i&rcaron;azen&iacute; mezd pro testov&aacute;n&iacute; predikc&iacute; model&uring; &scaron;izen&iacute; a t&rcaron;&iacute;d&ecaron;n&iacute;. &Ccaron;ist&aacute; identifikace efekt&uring; &uacute;sil&iacute; a selekce. Hassairi, 2016.</div>
+                    </a>
+                    <a href="../papers/portner-hassairi-toomim-2016-compensating-wage-differentials.pdf" target="_blank">
+                        <div class="example-label">Ter&eacute;nn&iacute; experiment</div>
+                        <div class="example-title">Compensating Wage Differentials</div>
+                        <div class="example-desc">Randomizovan&aacute; obt&iacute;&zcaron;nost &uacute;kol&uring; a mzdy pro testov&aacute;n&iacute; hedonick&eacute; mzdov&eacute; teorie. P&ouml;rtner, Hassairi &amp; Toomim, 2016.</div>
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="story-footer">
+        <div class="story-container">
+            <a href="index.html#methods" class="back-link">&larr; Zp&ecaron;t k metod&aacute;m</a>
+            <span class="footer-note">&copy; 2025 Nail Hassairi &middot; Praha</span>
+        </div>
+    </footer>
+
+</body>
+</html>

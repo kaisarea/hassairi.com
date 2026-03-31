@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strojov&eacute; u&ccaron;en&iacute; &amp; NLP &mdash; Nail Hassairi</title>
+    <meta name="description" content="Tematick&eacute; modelov&aacute;n&iacute;, zpracov&aacute;n&iacute; p&rcaron;irozen&eacute;ho jazyka, ekonometrie &ccaron;asov&yacute;ch &rcaron;ad a ansámblov&eacute; metody. Od scrapov&aacute;n&iacute; 4 000 z&aacute;kon&udblac; po dynamick&eacute; panelov&eacute; GMM pro optimalizaci marketingu.">
+    <link rel="alternate" hreflang="en" href="../ml-nlp.html">
+    <link rel="alternate" hreflang="cs" href="ml-nlp.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../story.css">
+    <style>
+        .method-hero-sub {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            line-height: 1.7;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem -3rem 2.5rem;
+        }
+
+        .example-grid a,
+        .example-grid .example-card {
+            display: block;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.25rem;
+            transition: border-color 0.2s ease, background 0.2s ease;
+            text-decoration: none;
+        }
+
+        .example-grid a:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+            opacity: 1;
+        }
+
+        .example-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .example-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: #fff;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .method-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .method-list li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
+        .method-list li:last-child {
+            border-bottom: none;
+        }
+
+        .method-list li strong {
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .back-to-methods {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: var(--text-dim);
+            transition: color 0.2s ease;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .back-to-methods:hover {
+            color: #fff;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .example-grid {
+                grid-template-columns: 1fr;
+                margin: 2rem -1.5rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-name">NH</a>
+        <div class="nav-links">
+            <a href="index.html#about">O mn&ecaron;</a>
+            <a href="index.html#research">V&yacute;zkum</a>
+            <a href="story.html">P&rcaron;&iacute;b&ecaron;h</a>
+            <a href="life.html">&Zcaron;ivot</a>
+            <a href="reading.html">&Ccaron;etba</a>
+            <a href="index.html#contact">Kontakt</a>
+            <a href="../ml-nlp.html" style="opacity: 0.45; font-size: 0.75rem; letter-spacing: 0.08em;">EN</a>
+        </div>
+    </nav>
+
+    <header class="story-hero">
+        <div class="story-hero-inner">
+            <p class="story-kicker">Metody</p>
+            <h1 class="story-title">Strojov&eacute; u&ccaron;en&iacute; a NLP</h1>
+            <p class="method-hero-sub">Tematick&eacute; modelov&aacute;n&iacute;, text jako data, ekonometrie &ccaron;asov&yacute;ch &rcaron;ad a hodnota studia nad r&aacute;mec povinn&eacute;ho kurikula.</p>
+        </div>
+    </header>
+
+    <main class="story-body">
+        <div class="story-container">
+
+            <a href="index.html#methods" class="back-to-methods">&larr; V&scaron;echny metody</a>
+
+            <section class="story-chapter">
+                <p class="story-lede">Na doktorsk&eacute;m studiu mi ekonomick&yacute; PhD program dal solidn&iacute; z&aacute;klady v&nbsp;ekonometrii a teorii. Ale nebylo mi to dost. Cht&ecaron;l jsem porozum&ecaron;t metod&aacute;m, kter&eacute; m&udblac;j program neu&ccaron;il&mdash;a tak jsem je &scaron;el hledat po cel&eacute; univerzit&ecaron;.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Roz&scaron;i&rcaron;ov&aacute;n&iacute; n&aacute;stroj&udblac;</div>
+
+                <p>B&ecaron;hem sv&eacute;ho doktor&aacute;tu na University of Washington jsem absolvoval kurzy daleko za hranicemi standardn&iacute; ekonomick&eacute; sekvence: bayesovskou statistiku, regresn&iacute; splajny, prostorovou regresn&iacute; anal&yacute;zu, numerickou anal&yacute;zu, hierarchick&eacute; modelov&aacute;n&iacute;, experiment&aacute;ln&iacute; design a po&ccaron;&iacute;ta&ccaron;ov&eacute; programov&aacute;n&iacute;. Ka&zcaron;d&yacute; z&nbsp;t&ecaron;chto kurz&udblac; se pozd&ecaron;ji uk&aacute;zal u&zcaron;ite&ccaron;n&yacute;&mdash;n&ecaron;kter&eacute; okam&zcaron;it&ecaron;, jin&eacute; a&zcaron; o&nbsp;roky pozd&ecaron;ji. Kurz bayesovsk&eacute; statistiky m&ecaron; mimo jin&eacute; sezn&aacute;mil s&nbsp;Latent Dirichlet Allocation, generativn&iacute;m pravd&ecaron;podobnostn&iacute;m modelem pro odhalov&aacute;n&iacute; skryt&eacute; tematick&eacute; struktury ve velk&yacute;ch kolekc&iacute;ch textu. V&nbsp;t&eacute; dob&ecaron; to byl jen dal&scaron;&iacute; algoritmus. B&ecaron;hem n&ecaron;kolika let se z&nbsp;n&ecaron;j stal z&aacute;klad publikovan&eacute;ho &ccaron;l&aacute;nku.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Text jako data: 4&nbsp;000 z&aacute;kon&udblac;</div>
+
+                <p>P&rcaron;&iacute;b&ecaron;h za&ccaron;&iacute;n&aacute; u&nbsp;iniciativy Prenatal-to-Three (PPI) nadace Bill &amp; Melinda Gates Foundation na University of Washington. Hledal jsem ka&zcaron;d&yacute; mo&zcaron;n&yacute; dataset, kter&yacute; by mohl informovat strategii nadace v&nbsp;oblasti p&rcaron;ed&scaron;koln&iacute;ho vzd&ecaron;l&aacute;v&aacute;n&iacute;. Jedním ze zdroj&udblac;, na kter&eacute; jsem narazil, byla National Conference of State Legislatures (NCSL), kter&aacute; spravovala datab&aacute;zi sleduj&iacute;c&iacute; z&aacute;kony o&nbsp;p&eacute;&ccaron;i a&nbsp;vzd&ecaron;l&aacute;v&aacute;n&iacute; v&nbsp;ran&eacute;m d&ecaron;tstv&iacute; ve v&scaron;ech 50 st&aacute;tech. Pln&eacute; zn&ecaron;n&iacute; ka&zcaron;d&eacute;ho z&aacute;kona bylo dostupn&eacute; online&mdash;strojov&ecaron; &ccaron;iteln&eacute;, strukturovan&eacute; a pokr&yacute;vaj&iacute;c&iacute; roky legislativn&iacute; aktivity.</p>
+
+                <p>Napsal jsem program pro web scraping, kter&yacute; st&aacute;hl celou datab&aacute;zi: 9&nbsp;272 z&aacute;znam&udblac; od roku 2008 do roku 2018. Po vy&ccaron;i&scaron;t&ecaron;n&iacute;&mdash;odstran&ecaron;n&iacute; n&aacute;vrh&udblac;, kter&eacute; zanikly bez projedn&aacute;n&iacute;, deduplikaci z&aacute;znam&udblac; objevuj&iacute;c&iacute;ch se ve v&iacute;ce f&aacute;z&iacute;ch legislativn&iacute;ho procesu a filtrov&aacute;n&iacute; na n&aacute;vrhy s&nbsp;dostupn&yacute;m pln&yacute;m textem&mdash;analytick&yacute; vzorek zahrnoval 3&nbsp;203 unik&aacute;tn&iacute;ch n&aacute;vrh&udblac; z&aacute;kon&udblac;, z&nbsp;nich&zcaron; 2&nbsp;396 m&ecaron;lo ukon&ccaron;enou legislativn&iacute; cestu s&nbsp;definitivn&iacute;m v&yacute;sledkem.</p>
+
+                <p>Ot&aacute;zka byla jednoduch&aacute;: co p&rcaron;edpov&iacute;d&aacute;, zda z&aacute;kon o&nbsp;p&rcaron;ed&scaron;koln&iacute;m vzd&ecaron;l&aacute;v&aacute;n&iacute; projde do platnosti? Tradi&ccaron;n&iacute; p&rcaron;&iacute;stup v&nbsp;politologii spo&ccaron;&iacute;val ve zkoum&aacute;n&iacute; charakteristik p&rcaron;edkladatele&mdash;seniority, stranick&eacute; p&rcaron;&iacute;slu&scaron;nosti, &ccaron;lenstv&iacute; ve v&yacute;borech. Nikdo se v&scaron;ak nepod&iacute;val na to, co z&aacute;kony ve skute&ccaron;nosti <em>&rcaron;&iacute;kaj&iacute;</em>. Pr&aacute;v&ecaron; tady se vyplatil kurz bayesovsk&eacute; statistiky. Na pln&eacute; texty legislativy jsem aplikoval Latent Dirichlet Allocation, abych odhalil latentní tematickou strukturu. LDA zachází s&nbsp;ka&zcaron;d&yacute;m dokumentem jako se sm&ecaron;s&iacute; t&eacute;mat a s&nbsp;ka&zcaron;d&yacute;m t&eacute;matem jako s&nbsp;distribuc&iacute; nad slovy. P&rcaron;edem nev&iacute;, jak&aacute; t&eacute;mata existuj&iacute;&mdash;odhaluje je ze vzor&udblac; spoluv&yacute;skyt&udblac; v&nbsp;textu.</p>
+
+                <p>Algoritmus identifikoval &rcaron;e&scaron;en&iacute; se &scaron;esti t&eacute;maty jako nejlep&scaron;&iacute;: objevily se dv&ecaron; meta-priority, kter&eacute; jsme ozna&ccaron;ili jako &bdquo;ECE finance&ldquo; (zahrnuj&iacute;c&iacute; p&rcaron;&iacute;jmy, v&yacute;daje a fisk&aacute;ln&iacute; spr&aacute;vu) a &bdquo;ECE slu&zcaron;by&ldquo; (zahrnuj&iacute;c&iacute; p&rcaron;ed&scaron;koln&iacute; vzd&ecaron;l&aacute;v&aacute;n&iacute;, p&eacute;&ccaron;i o&nbsp;d&ecaron;ti a zdravotn&iacute; a soci&aacute;ln&iacute; slu&zcaron;by). Tato t&eacute;mata jsme validovali oproti expertn&iacute;m znalostem a st&aacute;vaj&iacute;c&iacute; literatu&rcaron;e o&nbsp;politice ran&eacute;ho d&ecaron;tstv&iacute;. T&eacute;mata nebyla jen statisticky koherentn&iacute;&mdash;p&rcaron;&iacute;mo odpov&iacute;dala skute&ccaron;n&yacute;m lini&iacute;m legislativn&iacute; debaty.</p>
+
+                <p>N&aacute;sledn&ecaron; jsem pou&zcaron;il Hierarchical Generalized Linear Models (HGLM) k&nbsp;predikci schv&aacute;len&iacute; z&aacute;kona z&nbsp;tematick&yacute;ch proporc&iacute;, s&nbsp;kontrolou charakteristik p&rcaron;edkladatele a vno&rcaron;en&eacute; struktury dat (z&aacute;kony uvnit&rcaron; z&aacute;konodarc&udblac; uvnit&rcaron; st&aacute;t&udblac; uvnit&rcaron; rok&udblac;). Kl&iacute;&ccaron;ov&yacute;m zji&scaron;t&ecaron;n&iacute;m bylo, &zcaron;e z&aacute;kony zam&ecaron;&rcaron;en&eacute; na zdravotn&iacute; a soci&aacute;ln&iacute; slu&zcaron;by, fisk&aacute;ln&iacute; spr&aacute;vu nebo v&yacute;daje m&ecaron;ly v&ecaron;t&scaron;&iacute; pravd&ecaron;podobnost schv&aacute;len&iacute;, zat&iacute;mco z&aacute;kony zam&ecaron;&rcaron;en&eacute; na p&rcaron;ed&scaron;koln&iacute; vzd&ecaron;l&aacute;v&aacute;n&iacute;, p&eacute;&ccaron;i o&nbsp;d&ecaron;ti nebo p&rcaron;&iacute;jmy m&ecaron;ly pravd&ecaron;podobnost ni&zcaron;&scaron;&iacute;&mdash;a &zcaron;e legislativn&iacute; efektivita p&rcaron;edkladatele tento vztah moderovala. Vysoce efektivn&iacute; z&aacute;konod&aacute;rci dok&aacute;zali prosadit z&aacute;kony bez ohledu na t&eacute;ma; m&eacute;n&ecaron; efektivn&iacute; byli vydan&iacute; napospas obsahu.</p>
+
+                <p>Soojin Oh Park p&rcaron;inesla odbornou znalost dan&eacute; oblasti&mdash;hlubok&eacute; porozum&ecaron;n&iacute; politice ran&eacute;ho d&ecaron;tstv&iacute;, kter&eacute; n&aacute;m umo&zcaron;nilo interpretovat a validovat t&eacute;mata, kter&aacute; algoritmus odhalil. J&aacute; jsem p&rcaron;inesl datovou pipeline, NLP a statistick&eacute; modelov&aacute;n&iacute;. &Ccaron;l&aacute;nek vy&scaron;el v&nbsp;&ccaron;asopise <em>PLOS ONE</em> v&nbsp;roce 2021 a podle na&scaron;ich informac&iacute; p&rcaron;edstavoval prvn&iacute; aplikaci strojov&eacute;ho u&ccaron;en&iacute; a NLP metod na studium legislativy v&nbsp;oblasti p&rcaron;ed&scaron;koln&iacute;ho vzd&ecaron;l&aacute;v&aacute;n&iacute;.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Optimalizace marketingov&eacute;ho mixu</div>
+
+                <p>Zcela odli&scaron;n&aacute; aplikace t&ecaron;chto metod p&rcaron;i&scaron;la v&nbsp;kontextu marketingov&eacute; datov&eacute; v&ecaron;dy: anal&yacute;za efektivity marketingov&yacute;ch v&yacute;daj&udblac; nap&rcaron;&iacute;&ccaron; kan&aacute;ly (Google, Facebook, afili&aacute;ti) a doporu&ccaron;en&iacute; optim&aacute;ln&iacute; alokace rozpo&ccaron;tu. Dataset pokr&yacute;val 3&nbsp;051 t&yacute;denn&iacute;ch pozorov&aacute;n&iacute; ve 26 geografick&yacute;ch trz&iacute;ch b&ecaron;hem dvou let, s&nbsp;tr&zcaron;bami jako z&aacute;vislou prom&ecaron;nnou a v&yacute;daji a impresemi podle kan&aacute;l&udblac; jako prediktory.</p>
+
+                <p>Metodologickou v&yacute;zvou bylo, &zcaron;e marketingov&eacute; efekty nejsou statick&eacute;. V&yacute;daje na Facebook tento t&yacute;den mohou ovlivnit tr&zcaron;by p&rcaron;&iacute;&scaron;t&iacute; t&yacute;den. V&yacute;daje na Google mohou vyt&ecaron;s&ncaron;ovat nebo dopl&ncaron;ovat afili&aacute;tn&iacute; imprese. Struktury zpožd&ecaron;n&iacute; se li&scaron;&iacute; podle kan&aacute;lu a geografick&aacute; heterogenita znamen&aacute;, &zcaron;e co funguje na jednom trhu, nemus&iacute; fungovat na jin&eacute;m. Jednoduch&aacute; regrese by toto v&scaron;e minula.</p>
+
+                <p>Vybudoval jsem posloupnost st&aacute;le sofistikovan&ecaron;j&scaron;&iacute;ch model&udblac;: sdru&zcaron;en&yacute; OLS jako z&aacute;kladn&iacute; linie, fixn&iacute; efekty pro kontrolu nepozorovateln&eacute; geografick&eacute; heterogenity, hierarchick&eacute; line&aacute;rn&iacute; modely umo&zcaron;&ncaron;uj&iacute;c&iacute; variabilitu efektivity podle trhu, pot&eacute; Grangerovy testy kauzality a vektorov&eacute; autoregrese (VAR) k&nbsp;odkryt&iacute; tempor&aacute;ln&iacute; dynamiky a z&aacute;vislost&iacute; mezi kan&aacute;ly. Fin&aacute;ln&iacute; specifikac&iacute; byl dynamick&yacute; panelov&yacute; model odhadnut&yacute; pomoc&iacute; Generalized Method of Moments (Arellano&ndash;Bond), kter&yacute; sou&ccaron;asn&ecaron; zachytil persistenci tr&zcaron;eb, zpo&zcaron;d&ecaron;n&eacute; marketingov&eacute; efekty a nepozorovatelnou heterogenitu, a z&aacute;rove&ncaron; &rcaron;e&scaron;il endogenitu vznikaj&iacute;c&iacute;, kdy&zcaron; minul&eacute; tr&zcaron;by ovliv&ncaron;uj&iacute; sou&ccaron;asn&eacute; v&yacute;daje.</p>
+
+                <p>Anal&yacute;za o&nbsp;138 stran&aacute;ch uk&aacute;zala, &zcaron;e Facebook byl nejefektivn&ecaron;j&scaron;&iacute;m kan&aacute;lem (nejvy&scaron;&scaron;&iacute; elasticita, nejsiln&ecaron;j&scaron;&iacute; zpo&zcaron;d&ecaron;n&eacute; efekty) navzdory tomu, &zcaron;e m&ecaron;l p&rcaron;id&ecaron;len&yacute; nejmen&scaron;&iacute; rozpo&ccaron;et&mdash;jasn&aacute; chybn&aacute; alokace. Google vykazoval kontraintuitivn&iacute; negativn&iacute; sou&ccaron;asn&eacute; efekty, ale siln&eacute; pozitivn&iacute; zpo&zcaron;d&ecaron;n&eacute; efekty, co&zcaron; naznačovalo, &zcaron;e jeho hodnota se materializuje v&nbsp;&ccaron;ase. Dynamick&yacute; GMM p&rcaron;ekon&aacute;val model s&nbsp;n&aacute;hodn&yacute;mi koeficienty v&nbsp;p&rcaron;esnosti predikce ve v&scaron;ech 26 geografi&iacute;ch, s&nbsp;52kr&aacute;t ni&zcaron;&scaron;&iacute; pr&udblac;m&ecaron;rnou chybou predikce. Doporu&ccaron;en&iacute; pro realokaci rozpo&ccaron;tu p&rcaron;&iacute;mo vypl&yacute;vala z&nbsp;ekvimargináln&iacute;ho principu: p&rcaron;esunout v&yacute;daje sm&ecaron;rem ke kan&aacute;lu s&nbsp;nejvy&scaron;&scaron;&iacute;m margin&aacute;ln&iacute;m v&yacute;nosem na dolar, dokud se elasticity nevyrovnaj&iacute;.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Strojov&eacute; u&ccaron;en&iacute; pro m&ecaron;&rcaron;en&iacute;</div>
+
+                <p>T&rcaron;et&iacute; linie pr&aacute;ce se strojov&yacute;m u&ccaron;en&iacute;m se objevila v&nbsp;projektu Early Achievers, kde v&yacute;zvou nebyl text ani &ccaron;asov&eacute; &rcaron;ady, ale chyb&ecaron;j&iacute;c&iacute; data a vysok&aacute; dimenzionalita. S&nbsp;947 d&ecaron;tmi vno&rcaron;en&yacute;mi ve 156 t&rcaron;&iacute;d&aacute;ch a masivn&iacute; absenc&iacute; dat nap&rcaron;&iacute;&ccaron; des&iacute;tkami m&ecaron;r kvality t&rcaron;&iacute;d a v&yacute;sledk&udblac; d&ecaron;t&iacute; jsem se obr&aacute;til k&nbsp;imputaci pomoc&iacute; strojov&eacute;ho u&ccaron;en&iacute;: gradient boosting machines, random forests a LASSO, srovn&aacute;van&eacute; s&nbsp;tradi&ccaron;n&iacute; v&iacute;cen&aacute;sobnou imputac&iacute; pomoc&iacute; z&rcaron;et&ecaron;zen&yacute;ch rovnic (MICE). Desetin&aacute;sobn&aacute; k&rcaron;&iacute;&zcaron;ov&aacute; validace uk&aacute;zala, kde kter&aacute; metoda p&rcaron;ekon&aacute;vala ostatn&iacute;&mdash;a kde ans&aacute;mblov&yacute; p&rcaron;&iacute;stup p&rcaron;in&aacute;&scaron;el nejd&udblac;v&ecaron;ryhodn&ecaron;j&scaron;&iacute; predikce mimo vzorek. Podrobnosti jsou na str&aacute;nce <a href="measurement.html" style="color: rgba(255,255,255,0.7); text-decoration: underline;">M&ecaron;&rcaron;en&iacute; a modelov&aacute;n&iacute;</a>.</p>
+
+                <ul class="method-list">
+                    <li><strong>Tematick&eacute; modelov&aacute;n&iacute;</strong> &mdash; Latent Dirichlet Allocation (LDA), distribuce dokument-t&eacute;ma a t&eacute;ma-slovo, v&yacute;b&ecaron;r modelu pomoc&iacute; koherence a shody</li>
+                    <li><strong>Zpracov&aacute;n&iacute; p&rcaron;irozen&eacute;ho jazyka</strong> &mdash; Web scraping, p&rcaron;edzpracov&aacute;n&iacute; textu, anal&yacute;za legislativn&iacute;ch text&udblac; ve velk&eacute;m m&ecaron;&rcaron;&iacute;tku</li>
+                    <li><strong>Ekonometrie &ccaron;asov&yacute;ch &rcaron;ad</strong> &mdash; Vektorov&aacute; autoregrese (VAR), Grangerova kauzalita, impulzn&iacute; odezvy, dekompozice variance</li>
+                    <li><strong>Dynamick&eacute; panelov&eacute; metody</strong> &mdash; Arellano&ndash;Bond GMM estimace, dynamick&eacute; multiplik&aacute;tory, v&yacute;po&ccaron;et dlouhodob&yacute;ch efekt&udblac;</li>
+                    <li><strong>Ans&aacute;mblov&eacute; metody</strong> &mdash; Gradient boosting, random forests, LASSO pro imputaci a v&yacute;b&ecaron;r prom&ecaron;nn&yacute;ch</li>
+                    <li><strong>Bayesovsk&eacute; metody</strong> &mdash; Generativn&iacute; pravd&ecaron;podobnostn&iacute; modely, posteriorn&iacute; inference, porovn&aacute;n&iacute; model&udblac;</li>
+                </ul>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">P&rcaron;&iacute;klady</div>
+
+                <div class="example-grid">
+                    <a href="https://doi.org/10.1371/journal.pone.0246730" target="_blank">
+                        <div class="example-label">NLP a tematick&eacute; modelov&aacute;n&iacute;</div>
+                        <div class="example-title">ECE Legislative Success</div>
+                        <div class="example-desc">LDA na 2&nbsp;396 st&aacute;tn&iacute;ch ECE z&aacute;konech z&nbsp;NCSL. &Rcaron;e&scaron;en&iacute; se &scaron;esti t&eacute;maty, HGLM pro predikci schv&aacute;len&iacute;, legislativn&iacute; efektivita jako moder&aacute;tor. Park &amp; Hassairi, PLOS ONE 2021.</div>
+                    </a>
+                    <div class="example-card">
+                        <div class="example-label">Marketingov&aacute; ekonometrie</div>
+                        <div class="example-title">Marketing Mix Optimization</div>
+                        <div class="example-desc">Dynamick&yacute; panelov&yacute; GMM, VAR, Grangerova kauzalita nap&rcaron;&iacute;&ccaron; 26 trhy. Elasticity kan&aacute;l&udblac;, realokace rozpo&ccaron;tu pomoc&iacute; ekvimargináln&iacute;ho principu. Anal&yacute;za o&nbsp;138 stran&aacute;ch, 2024.</div>
+                    </div>
+                    <div class="example-card">
+                        <div class="example-label">ML pro imputaci</div>
+                        <div class="example-title">Early Achievers Validation</div>
+                        <div class="example-desc">GBM, random forests, LASSO vs. MICE pro imputaci chyb&ecaron;j&iacute;c&iacute;ch dat o&nbsp;kvalit&ecaron; t&rcaron;&iacute;d. Desetin&aacute;sobn&aacute; k&rcaron;&iacute;&zcaron;ov&aacute; validace, 947 d&ecaron;t&iacute; ve 156 t&rcaron;&iacute;d&aacute;ch.</div>
+                    </div>
+                    <div class="example-card">
+                        <div class="example-label">Doktorsk&eacute; studium</div>
+                        <div class="example-title">Beyond the Curriculum</div>
+                        <div class="example-desc">Bayesovsk&aacute; statistika, regresn&iacute; splajny, prostorov&aacute; regrese, numerick&aacute; anal&yacute;za, hierarchick&eacute; modelov&aacute;n&iacute;, experiment&aacute;ln&iacute; design. University of Washington.</div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="story-footer">
+        <div class="story-container">
+            <a href="index.html#methods" class="back-link">&larr; Zp&ecaron;t k&nbsp;metod&aacute;m</a>
+            <span class="footer-note">&copy; 2025 Nail Hassairi &middot; Praha</span>
+        </div>
+    </footer>
+
+</body>
+</html>

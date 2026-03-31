@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data ve velk&eacute;m m&ecaron;&rcaron;&iacute;tku &mdash; Nail Hassairi</title>
+    <meta name="description" content="Anal&yacute;za dat ve velk&eacute;m m&ecaron;&rcaron;&iacute;tku, analytika experiment&uring; a produk&ccaron;n&iacute; ekonometrie. Od buy boxu Amazonu po feder&aacute;ln&iacute; datov&eacute; sady s miliony pozorov&aacute;n&iacute;.">
+    <link rel="alternate" hreflang="en" href="../data-at-scale.html">
+    <link rel="alternate" hreflang="cs" href="data-at-scale.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../story.css">
+    <style>
+        .method-hero-sub {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            line-height: 1.7;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem -3rem 2.5rem;
+        }
+
+        .example-grid a,
+        .example-grid .example-card {
+            display: block;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.25rem;
+            transition: border-color 0.2s ease, background 0.2s ease;
+            text-decoration: none;
+        }
+
+        .example-grid a:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+            opacity: 1;
+        }
+
+        .example-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .example-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: #fff;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .tech-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .tech-list li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
+        .tech-list li:last-child {
+            border-bottom: none;
+        }
+
+        .tech-list li strong {
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .back-to-methods {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: var(--text-dim);
+            transition: color 0.2s ease;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .back-to-methods:hover {
+            color: #fff;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .example-grid {
+                grid-template-columns: 1fr;
+                margin: 2rem -1.5rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-name">NH</a>
+        <div class="nav-links">
+            <a href="index.html#about">O mn&ecaron;</a>
+            <a href="index.html#research">V&yacute;zkum</a>
+            <a href="story.html">P&rcaron;&iacute;b&ecaron;h</a>
+            <a href="life.html">&Zcaron;ivot</a>
+            <a href="reading.html">&Ccaron;etba</a>
+            <a href="index.html#contact">Kontakt</a>
+            <a href="../data-at-scale.html" style="opacity: 0.45; font-size: 0.75rem; letter-spacing: 0.08em;">EN</a>
+        </div>
+    </nav>
+
+    <header class="story-hero">
+        <div class="story-hero-inner">
+            <p class="story-kicker">Metody</p>
+            <h1 class="story-title">Data ve velk&eacute;m m&ecaron;&rcaron;&iacute;tku</h1>
+            <p class="method-hero-sub">Produk&ccaron;n&iacute; ekonometrie, experimentov&aacute;n&iacute; ve velk&eacute;m m&ecaron;&rcaron;&iacute;tku a infrastruktura, kter&aacute; umo&zcaron;&ncaron;uje anal&yacute;zu, kdy&zcaron; se data u&zcaron; nevejdou na jeden stroj.</p>
+        </div>
+    </header>
+
+    <main class="story-body">
+        <div class="story-container">
+
+            <a href="index.html#methods" class="back-to-methods">&larr; V&scaron;echny metody</a>
+
+            <section class="story-chapter">
+                <p class="story-lede">V Amazonu data nebyla v&yacute;b&ecaron;rem. Byla to cel&aacute; populace&mdash;ka&zcaron;d&eacute; kliknut&iacute;, ka&zcaron;d&yacute; n&aacute;kup, ka&zcaron;d&aacute; nab&iacute;dka prodejce, ka&zcaron;d&aacute; sekunda ka&zcaron;d&eacute;ho dne. V&yacute;zvou nikdy nebylo, zda m&aacute;te dostatek dat. V&yacute;zvou bylo, zda va&scaron;e metody p&rcaron;e&zcaron;ij&iacute; st&rcaron;et s&nbsp;nimi.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Buy box Amazonu</div>
+
+                <p>V roce 2014 jsem nastoupil do t&yacute;mu Customer Behavior Analytics v Amazonu jako v&yacute;zkumn&yacute; ekonom. Pracoval jsem pod veden&iacute;m Patricka Bajariho&mdash;hlavn&iacute;ho ekonoma Amazonu a jednoho z&nbsp;nejcitovan&ecaron;j&scaron;&iacute;ch ekonometr&uring; na sv&ecaron;t&ecaron;&mdash;spole&ccaron;n&ecaron; s&nbsp;Harrym Paarchem, Konstantinem Golyaevem a Gregorym Duncanem. Projektem byl buy box: algoritmus, kter&yacute; rozhoduje, &ccaron;&iacute; nab&iacute;dka z&iacute;sk&aacute; tla&ccaron;&iacute;tko &bdquo;P&rcaron;idat do ko&scaron;&iacute;ku&ldquo;, kdy&zcaron; na stejn&eacute;m produktu sout&ecaron;&zcaron;&iacute; v&iacute;ce prodejc&uring;.</p>
+
+                <p>Buy box je bezesporu nejd&uring;le&zcaron;it&ecaron;j&scaron;&iacute; aloka&ccaron;n&iacute; mechanismus na internetu. Ka&zcaron;d&yacute; den sm&ecaron;ruje miliardy dolar&uring; v&nbsp;obchodu. Star&scaron;&iacute; syst&eacute;m pou&zcaron;&iacute;val ru&ccaron;n&ecaron; lad&ecaron;n&eacute; koeficienty&mdash;&bdquo;magick&aacute; &ccaron;&iacute;sla&ldquo;&mdash;nastaven&eacute; obchodn&iacute;mi analytiky, kte&rcaron;&iacute; je upravovali na z&aacute;klad&ecaron; intuice a&nbsp;v&yacute;sledk&uring; A/B test&uring;. &Uacute;kolem ekonomick&eacute;ho t&yacute;mu bylo nahradit je ekonometricky odhadnut&yacute;mi parametry ze struktur&aacute;ln&iacute;ho modelu spot&rcaron;ebitelsk&eacute; volby.</p>
+
+                <p>Model byl logitov&yacute; diskr&eacute;tn&iacute; model volby podle Manskiho. Z&aacute;kazn&iacute;ci p&rcaron;ich&aacute;zej&iacute;c&iacute; na str&aacute;nku produktu &ccaron;el&iacute; sad&ecaron; nab&iacute;dek prodejc&uring;, kter&eacute; se li&scaron;&iacute; cenou, rychlost&iacute; doru&ccaron;en&iacute;, reputac&iacute; prodejce a&nbsp;kan&aacute;lem pln&ecaron;n&iacute;. Model odhaduje pravd&ecaron;podobnost, &zcaron;e z&aacute;kazn&iacute;k zvol&iacute; ka&zcaron;dou nab&iacute;dku&mdash;nebo se rozhodne nenakoupit v&uring;bec&mdash;jako funkci t&ecaron;chto atribut&uring;. &bdquo;Vn&ecaron;j&scaron;&iacute; alternativa&ldquo;&mdash;pravd&ecaron;podobnost odchodu&mdash;je to, co z&nbsp;n&ecaron;j d&ecaron;l&aacute; Manskiho model na rozd&iacute;l od standardn&iacute;ho podm&iacute;n&ecaron;n&eacute;ho logitu.</p>
+
+                <p>M&yacute;m prvn&iacute;m &uacute;kolem byl test proveditelnosti. Bajari cht&ecaron;l v&ecaron;d&ecaron;t, zda R zvl&aacute;dne odhad v&nbsp;m&ecaron;&rcaron;&iacute;tku Amazonu. Odpov&ecaron;&dstrok; po t&yacute;dnech testov&aacute;n&iacute; zn&ecaron;la ne. Data byla p&rcaron;&iacute;li&scaron; velk&aacute;, iterace p&rcaron;&iacute;li&scaron; pomal&eacute; a&nbsp;spr&aacute;va pam&ecaron;ti v&nbsp;R nezvl&aacute;dala pot&rcaron;ebn&eacute; maticov&eacute; operace. P&rcaron;esunuli jsme odhadovou pipeline do Staty, kter&aacute; to zvl&aacute;dla. Byla to jedna z&nbsp;prvn&iacute;ch lekc&iacute; o&nbsp;rozd&iacute;lu mezi akademick&yacute;m a&nbsp;produk&ccaron;n&iacute;m v&yacute;po&ccaron;etn&iacute;m m&ecaron;&rcaron;&iacute;tkem&mdash;lekce, kter&aacute; formovala v&scaron;e, co jsem d&ecaron;lal pot&eacute;.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Regularizace a&nbsp;omezen&iacute;</div>
+
+                <p>Surov&eacute; odhady koeficient&uring; z&nbsp;logitov&eacute;ho modelu v&nbsp;tomto m&ecaron;&rcaron;&iacute;tku jsou za&scaron;um&ecaron;l&eacute;. Koeficient m&uring;&zcaron;e nazna&ccaron;ovat, &zcaron;e z&aacute;kazn&iacute;ci preferuj&iacute; pomalej&scaron;&iacute; doru&ccaron;en&iacute; nebo vy&scaron;&scaron;&iacute; ceny&mdash;artefakty kolinearity, &rcaron;&iacute;dk&yacute;ch bun&ecaron;k nebo endogenity v&nbsp;surov&yacute;ch datech. V&nbsp;akademick&eacute;m &ccaron;l&aacute;nku byste tyto anom&aacute;lie zaznamenali a&nbsp;pokra&ccaron;ovali d&aacute;l. V&nbsp;produk&ccaron;n&iacute;m syst&eacute;mu, kter&yacute; sm&ecaron;ruje miliardy dolar&uring;, to nen&iacute; mo&zcaron;n&eacute;.</p>
+
+                <p>&Rcaron;e&scaron;en&iacute;m byl post-estima&ccaron;n&iacute; regulariza&ccaron;n&iacute; krok: &uacute;loha kvadratick&eacute;ho programov&aacute;n&iacute;, kter&aacute; vezme surov&eacute; koeficienty a&nbsp;najde nejbli&zcaron;&scaron;&iacute; sadu parametr&uring; spl&ncaron;uj&iacute;c&iacute;ch ekonomick&aacute; omezen&iacute;&mdash;monotonii (z&aacute;kazn&iacute;ci preferuj&iacute; ni&zcaron;&scaron;&iacute; ceny, rychlej&scaron;&iacute; doru&ccaron;en&iacute;, lep&scaron;&iacute; prodejce) a&nbsp;box omezen&iacute; (&zcaron;&aacute;dn&yacute; koeficient nesm&iacute; b&yacute;t absurdn&ecaron; velk&yacute; &ccaron;i mal&yacute;). &Uacute;&ccaron;elov&aacute; funkce minimalizuje &ccaron;tvercovou vzd&aacute;lenost od p&uring;vodn&iacute;ch odhad&uring; za t&ecaron;chto omezen&iacute;, &rcaron;e&scaron;enou pomoc&iacute; optimaliza&ccaron;n&iacute;ho engine FICO Xpress p&rcaron;es modelovac&iacute; jazyk Mosel.</p>
+
+                <p>Zku&scaron;enost s&nbsp;p&rcaron;ekladem ekonomick&eacute; intuice do form&aacute;ln&iacute;ch matematick&yacute;ch omezen&iacute;&mdash;a&nbsp;sledov&aacute;n&iacute;, jak komer&ccaron;n&iacute; solver najde p&rcaron;&iacute;pustn&eacute; &rcaron;e&scaron;en&iacute; za sekundy v&nbsp;prostorech parametr&uring;, jejich&zcaron; ru&ccaron;n&iacute; prohled&aacute;n&iacute; by trvalo hodiny&mdash;byla formativn&iacute;. Bylo to poprv&eacute;, co jsem pracoval na pr&uring;se&ccaron;&iacute;ku ekonometrie a&nbsp;opera&ccaron;n&iacute;ho v&yacute;zkumu, a&nbsp;regularizovan&eacute; parametry &scaron;ly do produkce jako sou&ccaron;&aacute;st algoritmu buy boxu, kter&yacute; obsluhoval stovky milion&uring; z&aacute;kazn&iacute;k&uring;.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Experimentov&aacute;n&iacute; ve velk&eacute;m</div>
+
+                <p>Nov&yacute; ekonometrick&yacute; model nebyl jen nasazen. Byl testov&aacute;n proti star&scaron;&iacute;mu syst&eacute;mu v&nbsp;kontrolovan&eacute;m experimentu&mdash;A/B testu, kde &ccaron;&aacute;st &zcaron;iv&eacute;ho provozu byla sm&ecaron;rov&aacute;na na nov&yacute; model, zat&iacute;mco zbytek pokra&ccaron;oval na star&yacute;ch magick&yacute;ch &ccaron;&iacute;slech. Mou rol&iacute; bylo monitorovat experiment: sledovat konverzn&iacute; m&iacute;ry, tr&zcaron;by na relaci, m&iacute;ry z&aacute;vad a&nbsp;metriky spokojenosti z&aacute;kazn&iacute;k&uring; nap&rcaron;&iacute;&ccaron; treatment a&nbsp;kontrolou.</p>
+
+                <p>M&ecaron;&rcaron;&iacute;tko experimentov&aacute;n&iacute; v&nbsp;Amazonu se nep&rcaron;ipodob&ncaron;uje ni&ccaron;emu v&nbsp;akademick&eacute;m v&yacute;zkumu. &bdquo;Mal&yacute;&ldquo; test m&uring;&zcaron;e zahrnovat miliony z&aacute;kaznick&yacute;ch relac&iacute; denn&ecaron;. Statistick&aacute; v&yacute;znamnost nen&iacute; probl&eacute;m&mdash;v&scaron;e je v&yacute;znamn&eacute;. V&yacute;zvou je detekce smyslupln&yacute;ch rozd&iacute;l&uring; v&nbsp;obchodn&iacute;ch metrik&aacute;ch p&rcaron;i zohledn&ecaron;n&iacute; tis&iacute;c&uring; matou&ccaron;&iacute;ch faktor&uring; &zcaron;iv&eacute;ho tr&zcaron;i&scaron;t&ecaron;: sez&oacute;nn&iacute;ch efekt&uring;, promo akc&iacute;, v&yacute;kyv&uring; z&aacute;sob, chov&aacute;n&iacute; konkurence. P&rcaron;edsedal jsem t&yacute;denn&iacute;mu setk&aacute;n&iacute; nad v&yacute;sledky, kde jsme prezentovali zji&scaron;t&ecaron;n&iacute; vedouc&iacute;mu pracovn&iacute;kovi na &uacute;rovni L6&mdash;amazonsk&yacute; ekvivalent senior &rcaron;editele&mdash;a&nbsp;doporu&ccaron;ovali, zda experiment roz&scaron;&iacute;&rcaron;it, upravit, nebo ukon&ccaron;it.</p>
+
+                <p>Samotn&aacute; infrastruktura experimentov&aacute;n&iacute; byla zjevn&iacute;m. Ka&zcaron;d&aacute; z&aacute;kaznick&aacute; relace byla ozna&ccaron;ena sv&yacute;m za&rcaron;azen&iacute;m do treatment skupiny. Ka&zcaron;d&aacute; n&aacute;sledn&aacute; akce&mdash;kliknut&iacute;, p&rcaron;id&aacute;n&iacute; do ko&scaron;&iacute;ku, n&aacute;kup, vr&aacute;cen&iacute;&mdash;byla propojena zp&ecaron;t k&nbsp;tomuto za&rcaron;azen&iacute; prost&rcaron;ednictv&iacute;m toho, co Amazon naz&yacute;v&aacute; &bdquo;trigger recording&ldquo;. Trigger se spust&iacute; v&nbsp;okam&zcaron;iku, kdy je z&aacute;kazn&iacute;k vystaven treatment, a&nbsp;v&scaron;e, co n&aacute;sleduje, je p&rcaron;i&rcaron;azeno t&eacute;to expozici. Analytick&aacute; pipeline zpracov&aacute;v&aacute; miliardy t&ecaron;chto p&aacute;r&uring; trigger&ndash;v&yacute;sledek do souhrnn&yacute;ch statistik, kter&eacute; p&rcaron;istanou na stole vedouc&iacute;ho. Porozum&ecaron;n&iacute; t&eacute;to pipeline&mdash;jej&iacute;m p&rcaron;edpoklad&uring;m, zp&uring;sob&uring;m selh&aacute;n&iacute;, slep&yacute;m m&iacute;st&uring;m&mdash;bylo stejn&ecaron; d&uring;le&zcaron;it&eacute; jako porozum&ecaron;n&iacute; ekonometrii.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Feder&aacute;ln&iacute; datov&eacute; sady</div>
+
+                <p>Dovednosti, kter&eacute; jsem z&iacute;skal v&nbsp;Amazonu&mdash;pr&aacute;ce s&nbsp;daty, kter&aacute; se nevejdou do pam&ecaron;ti, budov&aacute;n&iacute; automatizovan&yacute;ch pipeline, p&rcaron;em&yacute;&scaron;len&iacute; o&nbsp;v&yacute;po&ccaron;etn&iacute; efektivit&ecaron;&mdash;se p&rcaron;&iacute;mo p&rcaron;enesly do m&eacute; n&aacute;sledn&eacute; pr&aacute;ce s&nbsp;velk&yacute;mi feder&aacute;ln&iacute;mi datov&yacute;mi sadami. American Community Survey Public Use Microdata Sample (ACS PUMS) od Census Bureau obsahuje miliony z&aacute;znam&uring; na &uacute;rovni jednotlivc&uring;. Common Core of Data (CCD) pokr&yacute;v&aacute; ka&zcaron;dou ve&rcaron;ejnou &scaron;kolu ve Spojen&yacute;ch st&aacute;tech. Administrativn&iacute; data ACF CCDF sleduj&iacute; zapojov&aacute;n&iacute; do dotac&iacute; na p&eacute;&ccaron;i o&nbsp;d&ecaron;ti ve v&scaron;ech st&aacute;tech v&nbsp;pr&uring;b&ecaron;hu &ccaron;asu.</p>
+
+                <p>Pro st&aacute;tn&iacute; p&rcaron;ehledov&eacute; listy, kter&eacute; jsem vytv&aacute;&rcaron;el v&nbsp;r&aacute;mci projektu PPI, jsem vybudoval automatizovan&eacute; analytick&eacute; pipeline v&nbsp;R a&nbsp;Stat&ecaron;, kter&eacute; sta&zcaron;ily mikrodata ACS PUMS, aplikovaly v&aacute;hy designu v&yacute;b&ecaron;ru, vypo&ccaron;&iacute;taly popula&ccaron;n&iacute; odhady podle p&rcaron;&iacute;jmov&eacute; skupiny, etnicity a&nbsp;metropolitn&iacute;ho statusu, slou&ccaron;ily je s&nbsp;&uacute;daji o&nbsp;zapojov&aacute;n&iacute; CCDF a&nbsp;daty NIEER o&nbsp;p&rcaron;ed&scaron;koln&iacute;ch programech a&nbsp;produkovaly form&aacute;tovan&yacute; v&yacute;stup p&rcaron;ipraven&yacute; k&nbsp;vizualizaci. Pipeline b&ecaron;&zcaron;ela pro ka&zcaron;d&yacute; c&iacute;lov&yacute; st&aacute;t&mdash;Washington, Oregon, Tennessee&mdash;se st&aacute;tn&ecaron; specifick&yacute;mi parametry, ale spole&ccaron;n&yacute;m analytick&yacute;m r&aacute;mcem.</p>
+
+                <p>Toto je neokouzluj&iacute;c&iacute; srdce empirick&eacute;ho v&yacute;zkumu: budov&aacute;n&iacute; infrastruktury, kter&aacute; prom&ecaron;&ncaron;uje surov&aacute; data ve spolehliv&eacute; odpov&ecaron;di. Nejv&iacute;ce &ccaron;asu nezab&iacute;r&aacute; ekonometrie ani identifika&ccaron;n&iacute; strategie. Je to datov&eacute; in&zcaron;en&yacute;rstv&iacute;&mdash;&ccaron;i&scaron;t&ecaron;n&iacute;, spojov&aacute;n&iacute;, validace, pipeline, kter&aacute; mus&iacute; fungovat spr&aacute;vn&ecaron; poka&zcaron;d&eacute;, proto&zcaron;e v&scaron;e dal&scaron;&iacute; na n&iacute; z&aacute;vis&iacute;.</p>
+
+                <ul class="tech-list">
+                    <li><strong>Mosel / FICO Xpress</strong> &mdash; Kvadratick&eacute; programov&aacute;n&iacute; pro regularizaci koeficient&uring; s&nbsp;omezen&iacute;mi monotonie a&nbsp;box omezen&iacute;mi</li>
+                    <li><strong>Stata</strong> &mdash; Odhad logitov&yacute;ch model&uring; ve velk&eacute;m m&ecaron;&rcaron;&iacute;tku, anal&yacute;za komplexn&iacute;ch &scaron;et&rcaron;en&iacute; s&nbsp;v&aacute;hami designu, automatizovan&eacute; tabula&ccaron;n&iacute; pipeline</li>
+                    <li><strong>R</strong> &mdash; Vizualizace dat (ggplot2), zpracov&aacute;n&iacute; mikrodat ACS PUMS, statistick&eacute; v&yacute;po&ccaron;ty</li>
+                    <li><strong>SQL / AWS</strong> &mdash; Dotazy do datov&eacute;ho skladu Amazonu, v&yacute;po&ccaron;etn&iacute; instance EC2 pro odhadov&eacute; &uacute;lohy, &uacute;lo&zcaron;i&scaron;t&ecaron; dat S3</li>
+                    <li><strong>Experimenta&ccaron;n&iacute; platforma Amazonu</strong> &mdash; Infrastruktura A/B testov&aacute;n&iacute;, trigger recording, za&rcaron;azov&aacute;n&iacute; do treatment skupin, v&yacute;po&ccaron;et metrik ve velk&eacute;m m&ecaron;&rcaron;&iacute;tku</li>
+                </ul>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">P&rcaron;&iacute;klady</div>
+
+                <div class="example-grid">
+                    <div class="example-card">
+                        <div class="example-label">Produk&ccaron;n&iacute; ekonometrie</div>
+                        <div class="example-title">Model volby pro buy box</div>
+                        <div class="example-desc">Logitov&yacute; diskr&eacute;tn&iacute; model volby podle Manskiho pro buy box Amazonu. Odhadnut&yacute; na miliard&aacute;ch z&aacute;kaznick&yacute;ch relac&iacute;. Parametry regularizov&aacute;ny kvadratick&yacute;m programov&aacute;n&iacute;m. Amazon, 2014&ndash;2015.</div>
+                    </div>
+                    <div class="example-card">
+                        <div class="example-label">Optimalizace</div>
+                        <div class="example-title">Regularizace koeficient&uring;</div>
+                        <div class="example-desc">Kvadratick&yacute; program vynucuj&iacute;c&iacute; monotonii a&nbsp;box omezen&iacute; na logitov&yacute;ch koeficientech. Minimalizuje odchylku od surov&yacute;ch odhad&uring; za ekonomick&yacute;ch p&rcaron;edpoklad&uring;. Amazon, 2014&ndash;2015.</div>
+                    </div>
+                    <a href="../papers/wa-ece-factsheet.pdf" target="_blank">
+                        <div class="example-label">Automatizovan&aacute; pipeline</div>
+                        <div class="example-title">Pipeline st&aacute;tn&iacute;ch p&rcaron;ehledov&yacute;ch list&uring;</div>
+                        <div class="example-desc">Mikrodata ACS PUMS &rarr; v&aacute;&zcaron;en&eacute; odhady &rarr; slou&ccaron;en&iacute; CCDF/NIEER &rarr; form&aacute;tovan&yacute; v&yacute;stup. Reprodukovateln&eacute; nap&rcaron;&iacute;&ccaron; st&aacute;ty. Cultivate Learning, 2019&ndash;2020.</div>
+                    </a>
+                    <div class="example-card">
+                        <div class="example-label">Experimentov&aacute;n&iacute;</div>
+                        <div class="example-title">A/B testov&aacute;n&iacute; buy boxu</div>
+                        <div class="example-desc">Monitorov&aacute;n&iacute; &zcaron;iv&yacute;ch experiment&uring; na tr&zcaron;i&scaron;ti porovn&aacute;vaj&iacute;c&iacute;ch ekonometrick&yacute; model se star&scaron;&iacute;m syst&eacute;mem. Miliony relac&iacute; denn&ecaron;. T&yacute;denn&iacute; briefing pro veden&iacute;. Amazon, 2015.</div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="story-footer">
+        <div class="story-container">
+            <a href="index.html#methods" class="back-link">&larr; Zp&ecaron;t k&nbsp;metod&aacute;m</a>
+            <span class="footer-note">&copy; 2025 Nail Hassairi &middot; Praha</span>
+        </div>
+    </footer>
+
+</body>
+</html>

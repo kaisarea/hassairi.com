@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M&ecaron;&rcaron;en&iacute; a modelov&aacute;n&iacute; &mdash; Nail Hassairi</title>
+    <meta name="description" content="Faktorov&aacute; anal&yacute;za, strukturn&iacute; modelov&aacute;n&iacute;, validace QRIS, v&iacute;ce&uacute;rov&ncaron;ov&eacute; modelov&aacute;n&iacute; a redukce dimenzionality. Od valida&ccaron;n&iacute; studie Early Achievers po media&ccaron;n&iacute; r&aacute;mec HSIS.">
+    <link rel="alternate" hreflang="en" href="../measurement.html">
+    <link rel="alternate" hreflang="cs" href="measurement.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../story.css">
+    <style>
+        .method-hero-sub {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            line-height: 1.7;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem -3rem 2.5rem;
+        }
+
+        .example-grid a,
+        .example-grid .example-card {
+            display: block;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.25rem;
+            transition: border-color 0.2s ease, background 0.2s ease;
+            text-decoration: none;
+        }
+
+        .example-grid a:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+            opacity: 1;
+        }
+
+        .example-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .example-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: #fff;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .method-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .method-list li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
+        .method-list li:last-child {
+            border-bottom: none;
+        }
+
+        .method-list li strong {
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .back-to-methods {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: var(--text-dim);
+            transition: color 0.2s ease;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .back-to-methods:hover {
+            color: #fff;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .example-grid {
+                grid-template-columns: 1fr;
+                margin: 2rem -1.5rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-name">NH</a>
+        <div class="nav-links">
+            <a href="index.html#about">O mn&ecaron;</a>
+            <a href="index.html#research">V&yacute;zkum</a>
+            <a href="story.html">P&rcaron;&iacute;b&ecaron;h</a>
+            <a href="life.html">&Zcaron;ivot</a>
+            <a href="reading.html">&Ccaron;etba</a>
+            <a href="index.html#contact">Kontakt</a>
+            <a href="../measurement.html" style="opacity: 0.45; font-size: 0.75rem; letter-spacing: 0.08em;">EN</a>
+        </div>
+    </nav>
+
+    <header class="story-hero">
+        <div class="story-hero-inner">
+            <p class="story-kicker">Metody</p>
+            <h1 class="story-title">M&ecaron;&rcaron;en&iacute; a modelov&aacute;n&iacute;</h1>
+            <p class="method-hero-sub">Faktorov&aacute; anal&yacute;za, struktur&aacute;ln&iacute; modelov&aacute;n&iacute; a probl&eacute;m, jak z des&iacute;tek pozorov&aacute;n&iacute; vytvo&rcaron;it konstrukty, kter&eacute; n&ecaron;co znamen&aacute;j&iacute;&mdash;ani&zcaron; byste nechali data &rcaron;&iacute;ct, cokoli se jim zachce.</p>
+        </div>
+    </header>
+
+    <main class="story-body">
+        <div class="story-container">
+
+            <a href="index.html#methods" class="back-to-methods">&larr; V&scaron;echny metody</a>
+
+            <section class="story-chapter">
+                <p class="story-lede">Ekonomie v&aacute;m d&aacute; nejd&rcaron;&iacute;v teorii a pak v&aacute;s po&scaron;le hledat data. Vzd&ecaron;l&aacute;v&aacute;n&iacute; v&aacute;m &ccaron;asto d&aacute; nejd&rcaron;&iacute;v data&mdash;des&iacute;tky polo&zcaron;ek v n&aacute;stroj&iacute;ch pro hodnocen&iacute; kvality t&rcaron;&iacute;d, v d&ecaron;tsk&yacute;ch testech, v rodi&ccaron;ovsk&yacute;ch dotazn&iacute;c&iacute;ch&mdash;a po&zcaron;&aacute;d&aacute; v&aacute;s, abyste p&rcaron;i&scaron;li na to, co to v&scaron;echno znamen&aacute;. Pr&aacute;v&ecaron; tady p&rcaron;ich&aacute;z&iacute; ke slovu struktur&aacute;ln&iacute; modelov&aacute;n&iacute; a faktorov&aacute; anal&yacute;za: mocn&eacute; n&aacute;stroje, ale nebezpe&ccaron;n&eacute;, pokud je nech&aacute;te b&ecaron;&zcaron;et bez discipl&iacute;ny.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Probl&eacute;m agregace</div>
+
+                <p>M&ecaron;&rcaron;ic&iacute; n&aacute;stroje v p&rcaron;ed&scaron;koln&iacute;m vzd&ecaron;l&aacute;v&aacute;n&iacute; jsou sv&yacute;m charakterem vysoko-dimenzion&aacute;ln&iacute;. Classroom Assessment Scoring System (CLASS) m&aacute; t&rcaron;i dom&eacute;ny, deset dimenz&iacute; a des&iacute;tky behavior&aacute;ln&iacute;ch indik&aacute;tor&uring;. Rodina Environment Rating Scales (ERS)&mdash;ECERS-R, ITERS-R, FCCERS-R&mdash;obsahuje stovky polo&zcaron;ek pokr&yacute;vaj&iacute;c&iacute;ch v&scaron;e od uspo&rcaron;&aacute;d&aacute;n&iacute; m&iacute;stnosti po kvalitu interakc&iacute; u&ccaron;itel&ndash;d&iacute;t&ecaron;. D&ecaron;tsk&eacute; testy jako PPVT (slovn&iacute; z&aacute;soba) a Woodcock-Johnson (dek&oacute;dov&aacute;n&iacute;) generuj&iacute; n&ecaron;kolik subsk&oacute;r&uring;. Ot&aacute;zka, kter&aacute; se vine celou touto prac&iacute;, je klamn&ecaron; jednoduch&aacute;: jak tyto polo&zcaron;ky zkombinovat do sk&oacute;r&uring;, kter&eacute; jsou z&aacute;rove&ncaron; reliabiln&iacute; i validn&iacute;?</p>
+
+                <p>Historicky byla odpov&ecaron;&dcaron; v oboru stejn&aacute; jako p&rcaron;&iacute;stup &bdquo;magick&yacute;ch &ccaron;&iacute;sel&ldquo;, na kter&yacute; jsem narazil v Amazonu: n&ecaron;kdo nad&rcaron;&iacute;zen&yacute; rozhodl. Skupina polo&zcaron;ek se ozna&ccaron;ila jako dom&eacute;na, zpr&uring;m&ecaron;rovala do sk&oacute;re a tato sk&oacute;re se zpr&uring;m&ecaron;rovala do celkov&eacute;ho hodnocen&iacute;. Zda tato agregace odr&aacute;&zcaron;ela skute&ccaron;nou strukturu dat&mdash;zda polo&zcaron;ky v r&aacute;mci dom&eacute;ny opravdu m&ecaron;&rcaron;ily jednu v&ecaron;c, zda r&uring;zn&eacute; dom&eacute;ny p&rcaron;isp&iacute;valy k v&yacute;sledk&uring;m d&ecaron;t&iacute; stejnou m&ecaron;rou&mdash;se testovalo z&rcaron;&iacute;dka. A pr&aacute;v&ecaron; tady jsem p&rcaron;i&scaron;el j&aacute;.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Early Achievers: validace QRIS</div>
+
+                <p>M&uring;j prvn&iacute; projekt v Cultivate Learning&mdash;tehdy pod n&aacute;zvem CQEL, Childcare Quality and Early Learning Center for Research and Professional Development na University of Washington&mdash;byla celost&aacute;tn&iacute; validace Early Achievers, washingtonsk&eacute;ho syst&eacute;mu hodnocen&iacute; a zlep&scaron;ov&aacute;n&iacute; kvality (QRIS). Ka&zcaron;d&yacute; st&aacute;t byl motivov&aacute;n feder&aacute;ln&iacute;mi granty Race to the Top k vytvo&rcaron;en&iacute; a validaci takov&eacute;ho syst&eacute;mu. St&aacute;ty p&rcaron;istoupily k t&eacute;to snaze s mentalitou pln&ecaron;n&iacute; po&zcaron;adavk&uring;: ud&ecaron;laly p&rcaron;esn&ecaron; to, co vy&zcaron;adovaly jejich smlouvy, nic nav&iacute;c. Ot&aacute;zka, zda jejich hodnoticl syst&eacute;my skute&ccaron;n&ecaron; predikovaly v&yacute;sledky d&ecaron;t&iacute;&mdash;zda program &bdquo;&uacute;rovn&ecaron; 4&ldquo; byl smyslupln&ecaron; lep&scaron;&iacute; ne&zcaron; &bdquo;&uacute;rove&ncaron; 2&ldquo;&mdash;byla druho&rcaron;ad&aacute; oproti ot&aacute;zce, zda byly spln&ecaron;ny po&zcaron;adavky grantu.</p>
+
+                <p>Department of Early Learning zadal CQEL proveden&iacute; validace. Ve&scaron;kerou statistickou anal&yacute;zu jsem d&ecaron;lal j&aacute;. V&yacute;zva byla zna&ccaron;n&aacute;: 947 d&ecaron;t&iacute; ve 156 t&rcaron;&iacute;d&aacute;ch, s masivn&iacute; chyb&ecaron;j&iacute;c&iacute; hodnotou v demografick&yacute;ch prom&ecaron;nn&yacute;ch (p&rcaron;es 60 % dom&aacute;cnost&iacute; m&ecaron;lo ne&uacute;pln&aacute; data o p&rcaron;&iacute;jmu, vzd&ecaron;l&aacute;n&iacute; &ccaron;i statusu dotac&iacute;), mal&eacute; po&ccaron;ty ve skupin&aacute;ch po rozd&ecaron;len&iacute; podle typu t&rcaron;&iacute;dy (13 t&rcaron;&iacute;d pouze pro kojence, 25 sm&iacute;&scaron;en&yacute;ch rodinn&yacute;ch za&rcaron;&iacute;zen&iacute;) a z&aacute;kladn&iacute; probl&eacute;m, &zcaron;e studie byla observa&ccaron;n&iacute;&mdash;d&ecaron;ti nebyly n&aacute;hodn&ecaron; za&rcaron;azeny do program&uring;, tak&zcaron;e selekce byla st&aacute;lou hrozbou.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Dimenzionalita a strojov&eacute; u&ccaron;en&iacute;</div>
+
+                <p>Prvn&iacute;m probl&eacute;mem byla imputace. P&rcaron;i tolika chyb&ecaron;j&iacute;c&iacute;ch demografick&yacute;ch prom&ecaron;nn&yacute;ch jsem pot&rcaron;eboval strategii robustn&iacute; v&uring;&ccaron;i overfittingu a z&aacute;rove&ncaron; zachov&aacute;vaj&iacute;c&iacute; korelace mezi prom&ecaron;nn&yacute;mi. Formuloval jsem to jako predik&ccaron;n&iacute; probl&eacute;m a porovnal &ccaron;ty&rcaron;i p&rcaron;&iacute;stupy: gradient boosting (kter&yacute; nativn&ecaron; pracuje s chyb&ecaron;j&iacute;c&iacute;mi daty a od&oacute;l&aacute;v&aacute; overfittingu d&iacute;ky regularizaci), random forests, metodu nejmen&scaron;&iacute;ch &ccaron;tverc&uring; a multivariantl imputaci &rcaron;et&ecaron;zen&yacute;mi rovnicemi (MICE). Ka&zcaron;d&yacute; p&rcaron;&iacute;stup jsem vyhodnotil pomoc&iacute; 10-fold k&rcaron;&iacute;&zcaron;ov&eacute; validace na prediktivn&iacute; p&rcaron;esnosti mimo vzorek&mdash;nikoli na fitov&aacute;n&iacute; v r&aacute;mci vzorku, co&zcaron; by p&rcaron;i tak mal&eacute;m datasetu bylo zav&aacute;d&ecaron;j&iacute;c&iacute;. Gradient boosting vyhr&aacute;l pro p&rcaron;&iacute;jem a vzd&ecaron;l&aacute;n&iacute;; random forest pro status dotac&iacute;.</p>
+
+                <p>&Scaron;lo o z&aacute;m&ecaron;rn&eacute; rozhodnut&iacute; p&rcaron;in&eacute;st strojov&eacute; u&ccaron;en&iacute; do oboru, kter&yacute; ho nikdy nevid&ecaron;l. Polo&zcaron;ky Early Achievers p&rcaron;edstavovaly klasick&yacute; vysoko-dimenzion&aacute;ln&iacute; probl&eacute;m: mnoho korelovan&yacute;ch prediktor&uring;, mal&eacute; vzorky, st&aacute;l&eacute; riziko overfittingu. Standardn&iacute; p&rcaron;&iacute;stup oboru&mdash;konfirma&ccaron;n&iacute; faktorov&aacute; anal&yacute;za n&aacute;sledovan&aacute; v&iacute;ce&uacute;rov&ncaron;ovou regres&iacute;&mdash;byl vhodn&yacute; k testov&aacute;n&iacute; p&rcaron;edem specifikovan&yacute;ch struktur, ale &scaron;patn&ecaron; vybaven k odhalov&aacute;n&iacute;, zda tyto struktury jsou ty spr&aacute;vn&eacute;. Provedl jsem oboj&iacute;: klasick&eacute; faktorov&eacute; anal&yacute;zy, kter&eacute; vy&zcaron;adovala smlouva, i p&rcaron;&iacute;stupy strojov&eacute;ho u&ccaron;en&iacute;&mdash;gradient boosting, random forests, LASSO, regresn&iacute; stromy&mdash;kter&eacute; mohly odhalit vzorce, je&zcaron; faktorov&yacute; model nevidl.</p>
+
+                <p>V&yacute;sledky byly st&rcaron;&iacute;zliv&eacute;. Vztah mezi m&ecaron;&rcaron;en&iacute;m kvality t&rcaron;&iacute;dy a v&yacute;sledky d&ecaron;t&iacute; byl slab&yacute;, vysv&ecaron;tloval m&eacute;n&ecaron; ne&zcaron; 10 % variance a koncentroval se na spodn&iacute;m konci &scaron;k&aacute;ly kvality&mdash;co&zcaron; nazna&ccaron;ovalo klesaj&iacute;c&iacute; v&yacute;nosy ze zlep&scaron;ov&aacute;n&iacute; kvality nad ur&ccaron;it&yacute; z&aacute;kladn&iacute; pr&aacute;h. Uvedl jsem to poc&iacute;tiv&ecaron;, v&ccaron;etn&ecaron; anal&yacute;zy s&iacute;ly ukazuj&iacute;c&iacute;, &zcaron;e smyslupln&aacute; detekce t&ecaron;chto efekt&uring; by vy&zcaron;adovala 200&ndash;300 t&rcaron;&iacute;d, nikoli dostupn&yacute;ch 100&ndash;150. Technick&aacute; zpr&aacute;va o 530 stran&aacute;ch, kterou jsem vytvo&rcaron;il, obsahovala ka&zcaron;dou anal&yacute;zu, ka&zcaron;d&yacute; test citlivosti, ka&zcaron;d&yacute; test robustnosti&mdash;propensity score matching, spline regrese, kvadratick&eacute; specifikace, HLM s mnohon&aacute;sobnou imputac&iacute;&mdash;aby nic nez&uring;stalo skryto. Publkovan&aacute; valida&ccaron;n&iacute; zpr&aacute;va to zkondenzovala do krat&scaron;&iacute;ho dokumentu, kter&yacute; &scaron;el st&aacute;tu.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">SEM a epistemologick&yacute; probl&eacute;m</div>
+
+                <p>Struktur&aacute;ln&iacute; modelov&aacute;n&iacute; (SEM) nen&iacute; n&ecaron;co, co jsem se nau&ccaron;il v ekonomii. Ekonomie p&rcaron;ich&aacute;z&iacute; s teori&iacute;&mdash;maximalizace u&zcaron;itku, tr&zcaron;n&iacute; rovnov&aacute;ha, racion&aacute;ln&iacute; volba&mdash;a pak tuto teorii testuje oproti dat&uring;m. Vztah mezi teori&iacute; a m&ecaron;&rcaron;en&iacute;m je relativn&ecaron; disciplinovan&yacute;, proto&zcaron;e teorie omezuje, co m&uring;&zcaron;ete tvrdit. Ve vzd&ecaron;l&aacute;v&aacute;n&iacute; je situace &ccaron;asto opa&ccaron;n&aacute;: m&aacute;te velk&yacute; po&ccaron;et pozorov&aacute;n&iacute; a &zcaron;&aacute;dnou silnou teorii o tom, jak by spolu m&ecaron;ly souviset. SEM a faktorov&aacute; anal&yacute;za jsou navr&zcaron;eny p&rcaron;esn&ecaron; pro tuto situaci&mdash;umo&zcaron;&ncaron;uj&iacute; postulovat latentn&iacute; konstrukty, kter&eacute; vysv&ecaron;tluj&iacute; vzorce v pozorov&aacute;n&iacute;ch, a testovat, zda tyto konstrukty sed&iacute;.</p>
+
+                <p>Nebezpe&ccaron;&iacute; je re&aacute;ln&eacute;. Bez siln&eacute; teorie se faktorov&aacute; anal&yacute;za st&aacute;v&aacute; licenc&iacute; k nalezen&iacute; jak&eacute;koli struktury, kterou chcete. Zrotujte faktory jinak, vypus&tcaron;te polo&zcaron;ku &ccaron;i dv&ecaron; a vyjde jin&yacute; p&rcaron;&iacute;b&ecaron;h. To je probl&eacute;m replikovatelnosti v mal&eacute;m: analytik m&aacute; p&rcaron;&iacute;li&scaron; mnoho stup&ncaron;&uring; volnosti a data nejsou dostate&ccaron;n&ecaron; omezuj&iacute;c&iacute;, aby vylou&ccaron;ila &scaron;patn&eacute; modely. K SEM p&rcaron;istupuji stejn&ecaron; jako ke ka&zcaron;d&eacute; statistick&eacute; metod&ecaron;&mdash;s explicitn&iacute; pozornost&iacute; k tomu, jak&eacute; p&rcaron;edpoklady jsou pot&rcaron;eba, jak&eacute; anal&yacute;zy citlivosti mohou tyto p&rcaron;edpoklady prov&ecaron;&rcaron;it a co metoda <em>nem&uring;&zcaron;e</em> &rcaron;&iacute;ct.</p>
+
+                <p>Ve validaci Early Achievers jsem pou&zcaron;il konfirma&ccaron;n&iacute; faktorovou anal&yacute;zu k testov&aacute;n&iacute;, zda p&rcaron;edem stanoven&aacute; struktura hodnocen&iacute; st&aacute;tu&mdash;seskupen&iacute; polo&zcaron;ek do dom&eacute;n a standard&uring;&mdash;je podpo&rcaron;ena daty. Testoval jsem invarianci m&ecaron;&rcaron;en&iacute; nap&rcaron;&iacute;&ccaron; typy program&uring; a v&ecaron;kov&yacute;mi skupinami. A porovnal jsem st&aacute;tn&iacute; agrega&ccaron;n&iacute; sch&eacute;ma s alternativn&iacute;mi strukturami odvozen&yacute;mi z dat samotn&yacute;ch, v&ccaron;etn&ecaron; metody propor&ccaron;n&iacute;ho sk&oacute;rov&aacute;n&iacute; pro rodinu ERS, kter&aacute; se uk&aacute;zala jako prediktivn&ecaron;j&scaron;&iacute; pro v&yacute;sledky d&ecaron;t&iacute; ne&zcaron; tradi&ccaron;n&iacute; p&rcaron;&iacute;stup ke sk&oacute;rov&aacute;n&iacute;.</p>
+
+                <ul class="method-list">
+                    <li><strong>Konfirma&ccaron;n&iacute; faktorov&aacute; anal&yacute;za</strong> &mdash; Testov&aacute;n&iacute; latentn&iacute; struktury n&aacute;stroj&uring; CLASS, ERS a QRIS; invariance m&ecaron;&rcaron;en&iacute; nap&rcaron;&iacute;&ccaron; skupinami</li>
+                    <li><strong>Struktur&aacute;ln&iacute; modelov&aacute;n&iacute;</strong> &mdash; Cestovn&iacute; modely s latentn&iacute;mi medi&aacute;tory (PCLITACT v HSIS), v&iacute;ceskupinov&eacute; SEM pro porovn&aacute;n&iacute; podskupin</li>
+                    <li><strong>V&iacute;ce&uacute;rov&ncaron;ov&eacute; modelov&aacute;n&iacute;</strong> &mdash; HLM pro d&ecaron;ti vno&rcaron;en&eacute; v t&rcaron;&iacute;d&aacute;ch v r&aacute;mci center; n&aacute;hodn&eacute; intercepty a sm&ecaron;rnice; clusterov&ecaron; robustn&iacute; inference</li>
+                    <li><strong>Redukce dimenzionality</strong> &mdash; Gradient boosting, random forests, LASSO pro v&yacute;b&ecaron;r prom&ecaron;nn&yacute;ch a imputaci ve vysoko-dimenzion&aacute;ln&iacute;ch vzd&ecaron;l&aacute;vac&iacute;ch datech</li>
+                    <li><strong>Anal&yacute;za prah&uring; a nelinearit</strong> &mdash; Kvadratick&eacute; specifikace, spline regrese, propensity score matching pro detekci neline&aacute;rn&iacute;ch vztah&uring; kvality a v&yacute;sledk&uring;</li>
+                    <li><strong>Anal&yacute;za s&iacute;ly</strong> &mdash; V&yacute;po&ccaron;ty minim&aacute;ln&iacute; detekovateln&eacute; velikosti efektu pro clusterov&eacute; designy; doporu&ccaron;en&iacute; velikosti vzorku pro budouc&iacute; valida&ccaron;n&iacute; studie</li>
+                </ul>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">P&rcaron;&iacute;klady</div>
+
+                <div class="example-grid">
+                    <div class="example-card">
+                        <div class="example-label">Validace QRIS</div>
+                        <div class="example-title">Early Achievers Standards Validation</div>
+                        <div class="example-desc">Celost&aacute;tn&iacute; validace washingtonsk&eacute;ho QRIS. Faktorov&aacute; anal&yacute;za, HLM, propensity score matching, strojov&eacute; u&ccaron;en&iacute; pro imputaci. 947 d&ecaron;t&iacute;, 156 t&rcaron;&iacute;d. CQEL, 2016.</div>
+                    </div>
+                    <div class="example-card">
+                        <div class="example-label">Technick&aacute; zpr&aacute;va</div>
+                        <div class="example-title">Early Achievers Program Evaluation</div>
+                        <div class="example-desc">Analytick&aacute; zpr&aacute;va o 530 stran&aacute;ch zahrnuj&iacute;c&iacute; gradient boosting, random forests, MICE, splines, anal&yacute;zu s&iacute;ly a regresn&iacute; diagnostiku. Kompletn&iacute; technick&yacute; z&aacute;klad valida&ccaron;n&iacute; studie.</div>
+                    </div>
+                    <div class="example-card">
+                        <div class="example-label">Kauz&aacute;ln&iacute; mediace</div>
+                        <div class="example-title">PCLITACT Latent Construct</div>
+                        <div class="example-desc">Konfirma&ccaron;n&iacute; faktorov&aacute; anal&yacute;za &ccaron;ten&aacute;&rcaron;sk&yacute;ch aktivit rodi&ccaron;&ndash;d&iacute;t&ecaron;, testov&aacute;n&iacute; invariance m&ecaron;&rcaron;en&iacute; a latentn&iacute; mediace v HSIS. Park &amp; Hassairi, ECRQ 2026.</div>
+                    </div>
+                    <div class="example-card">
+                        <div class="example-label">Dimenzionalita</div>
+                        <div class="example-title">ML vs. Factor Analysis</div>
+                        <div class="example-desc">Porovn&aacute;n&iacute; gradient boosting, random forests, LASSO a MICE s tradi&ccaron;n&iacute;mi faktorov&ecaron;-analytick&yacute;mi p&rcaron;&iacute;stupy pro imputaci a v&yacute;b&ecaron;r prom&ecaron;nn&yacute;ch ve vzd&ecaron;l&aacute;vac&iacute;ch datech.</div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="story-footer">
+        <div class="story-container">
+            <a href="index.html#methods" class="back-link">&larr; Zp&ecaron;t k metod&aacute;m</a>
+            <span class="footer-note">&copy; 2025 Nail Hassairi &middot; Praha</span>
+        </div>
+    </footer>
+
+</body>
+</html>

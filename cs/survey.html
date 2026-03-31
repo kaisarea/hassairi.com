@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N&aacute;vrh dotazn&iacute;k&#367; &mdash; Nail Hassairi</title>
+    <meta name="description" content="N&aacute;vrh dotazn&iacute;k&#367;, komplexn&iacute; vzorkov&aacute;n&iacute;, v&aacute;hy n&aacute;vrhu, psychometrie a vizualizace dat. P&#345;&iacute;klady z Census ACS PUMS, ACF CCDF, NIEER a origin&aacute;ln&iacute;ch dotazn&iacute;kov&yacute;ch n&aacute;stroj&#367;.">
+    <link rel="alternate" hreflang="en" href="../survey.html">
+    <link rel="alternate" hreflang="cs" href="survey.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../story.css">
+    <style>
+        .method-hero-sub {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            line-height: 1.7;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem -3rem 2.5rem;
+        }
+
+        .example-grid a {
+            display: block;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.25rem;
+            transition: border-color 0.2s ease, background 0.2s ease;
+            text-decoration: none;
+        }
+
+        .example-grid a:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+            opacity: 1;
+        }
+
+        .example-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .example-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: #fff;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .dataset-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .dataset-list li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
+        .dataset-list li:last-child {
+            border-bottom: none;
+        }
+
+        .dataset-list li strong {
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .back-to-methods {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: var(--text-dim);
+            transition: color 0.2s ease;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .back-to-methods:hover {
+            color: #fff;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .example-grid {
+                grid-template-columns: 1fr;
+                margin: 2rem -1.5rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-name">NH</a>
+        <div class="nav-links">
+            <a href="index.html#about">O&nbsp;mn&#283;</a>
+            <a href="index.html#research">V&yacute;zkum</a>
+            <a href="story.html">P&#345;&iacute;b&#283;h</a>
+            <a href="life.html">&#381;ivot</a>
+            <a href="reading.html">&#268;etba</a>
+            <a href="index.html#contact">Kontakt</a>
+            <a href="../survey.html" style="opacity: 0.45; font-size: 0.75rem; letter-spacing: 0.08em;">EN</a>
+        </div>
+    </nav>
+
+    <header class="story-hero">
+        <div class="story-hero-inner">
+            <p class="story-kicker">Metody</p>
+            <h1 class="story-title">N&aacute;vrh dotazn&iacute;k&#367;</h1>
+            <p class="method-hero-sub">Komplexn&iacute; n&aacute;vrh dotazn&iacute;k&#367;, stratifikovan&eacute; vzorkov&aacute;n&iacute;, v&aacute;hy n&aacute;vrhu, psychometrie a vizualizace, kter&eacute; nechaj&iacute; data promluvit.</p>
+        </div>
+    </header>
+
+    <main class="story-body">
+        <div class="story-container">
+
+            <a href="index.html#methods" class="back-to-methods">&larr; V&#353;echny metody</a>
+
+            <section class="story-chapter">
+                <p class="story-lede">Dotazn&iacute;kov&aacute; data nejsou jako jin&aacute; data. Ka&#382;d&eacute; &#269;&iacute;slo nese v&aacute;hu&mdash;doslova. Lid&eacute; ve vzorku zastupuj&iacute; r&#367;zn&eacute; po&#269;ty lid&iacute; v populaci, a ignorov&aacute;n&iacute; tohoto faktu produkuje odhady, kter&eacute; jsou p&#345;esn&eacute;, ale chybn&eacute;. Spr&aacute;vn&eacute; zvl&aacute;dnut&iacute; t&eacute;to problematiky je z&aacute;kladem v&#353;eho ostatn&iacute;ho.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">N&aacute;vrh dotazn&iacute;k&#367;</div>
+
+                <p>N&aacute;vrh dotazn&iacute;k&#367; jsem se nenau&#269;il v kurzech ekonometrie nebo statistiky na vysok&eacute; &#353;kole. Nau&#269;il jsem se ho v praxi na Cultivate Learning a poprv&eacute; jsem byl po&#382;&aacute;d&aacute;n o n&aacute;vrh vzorkovac&iacute; strategie na projektu PPI&mdash;v&iacute;cest&aacute;tn&iacute;m partnerstv&iacute; financovan&eacute;m Nadac&iacute; Billa a Melindy Gatesov&yacute;ch.</p>
+
+                <p>Gatesova nadace cht&#283;la, aby ka&#382;d&yacute; st&aacute;t v partnerstv&iacute; poskytl data CLASS a ECERS reprezentuj&iacute;c&iacute; v&#353;echny st&aacute;tn&iacute; p&#345;ed&#353;koln&iacute; t&#345;&iacute;dy a programy v dan&eacute;m st&aacute;t&#283;. V&yacute;zva byla zna&#269;n&aacute;: k n&aacute;vrhu spr&aacute;vn&eacute; vzorkovac&iacute; strategie je pot&#345;eba kompletn&iacute; seznam v&#353;ech program&#367; a t&#345;&iacute;d&mdash;vzorkovac&iacute; r&aacute;mec&mdash;kter&yacute; jsem nedostal. V&yacute;zkumn&iacute; partne&#345;i v ka&#382;d&eacute;m st&aacute;t&#283; m&#283;li vlastn&iacute; p&#345;edstavy o sb&#283;ru dat a p&#345;&iacute;li&#353; si necenili, kdy&#382; jim n&#283;kdo &#345;&iacute;kal, co maj&iacute; d&#283;lat, zat&iacute;mco statistick&aacute; odbornost pro tento typ pr&aacute;ce v t&#283;chto st&aacute;tech z velk&eacute; &#269;&aacute;sti chyb&#283;la.</p>
+
+                <p>Napsal jsem tedy 64str&aacute;nkov&yacute; <a href="../papers/ppi-sampling-plan.pdf" target="_blank" style="color: rgba(255,255,255,0.7); text-decoration: underline;">vzorkovac&iacute; pl&aacute;n</a>, kter&yacute; fungoval jako technick&yacute; pr&#367;vodce i diplomatick&yacute; dokument&mdash;pomohl st&aacute;tn&iacute;m partner&#367;m zachovat flexibilitu ve zp&#367;sobu sb&#283;ru dat a z&aacute;rove&#328; sb&iacute;rat data reprezentativn&iacute;m zp&#367;sobem, kter&yacute; mohl informovat celkovou strategii Gatesovy nadace. Pl&aacute;n pokr&yacute;val vhodn&eacute; vzorkovac&iacute; strategie, v&yacute;b&#283;rov&eacute; zkreslen&iacute;, definice stratifikace, anal&yacute;zy s&iacute;ly pro ka&#382;d&yacute; c&iacute;lov&yacute; st&aacute;t (Tennessee, Oregon, Washington), protokoly hodnocen&iacute; CLASS a obsahoval kompletn&iacute; tutori&aacute;l dotazn&iacute;kov&eacute;ho vzorkov&aacute;n&iacute; jako p&#345;&iacute;lohu.</p>
+
+                <p>O dva roky pozd&#283;ji jsem navrhl vzorkovac&iacute; strategii pro Washington Early Childhood Workforce Survey. Tentokr&aacute;t jsem m&#283;l v&#283;t&#353;&iacute; kontrolu. V&yacute;zvou bylo vytvo&#345;it reprezentativn&iacute; odhady pro celou pracovn&iacute; s&iacute;lu ran&eacute;ho d&#283;tstv&iacute; st&aacute;tu Washington&mdash;nap&#345;&iacute;&#269; 39 okresy, kter&eacute; se pohybuj&iacute; od King County (Seattle, 31,6 % populace) po Wahkiakum County (0,01 %). Vyvinul jsem stratifikovan&yacute; vzorkovac&iacute; r&aacute;mec, vypo&#269;&iacute;tal v&aacute;hy n&aacute;vrhu zohled&#328;uj&iacute;c&iacute; rozd&iacute;ln&eacute; m&iacute;ry odezvy mezi straty a vytvo&#345;il popula&#269;n&iacute; odhady se spr&aacute;vn&yacute;mi standardn&iacute;mi chybami.</p>
+
+                <p>V&yacute;sledkem byl dataset, kter&yacute; dok&aacute;zal odpov&#283;d&#283;t na ot&aacute;zky o cel&eacute; pracovn&iacute; s&iacute;le&mdash;jejich kvalifikaci, pracovn&iacute;ch podm&iacute;nk&aacute;ch a zam&#283;stnavatel&iacute;ch&mdash;nejen o podskupin&#283;, kter&aacute; n&aacute;hodou odpov&#283;d&#283;la. Rozd&iacute;l mezi vzorek z pohodl&iacute; a pravd&#283;podobnostn&iacute;m vzorkem je rozd&iacute;l mezi anekdotou a d&#367;kazem.</p>
+
+                <p>Data z pr&#367;zkumu pracovn&iacute; s&iacute;ly tak&eacute; otev&#345;ela neo&#269;ek&aacute;van&yacute; v&yacute;zkumn&yacute; sm&#283;r. Pr&#367;zkum pracovn&iacute; s&iacute;ly WA DCYF vy&#353;el v prosinci 2019, t&#283;sn&#283; p&#345;ed prvn&iacute;mi p&#345;&iacute;pady COVID-19. N&aacute;sledn&yacute; pr&#367;zkum byl rozesl&aacute;n v dubnu 2020, &#269;ty&#345;i m&#283;s&iacute;ce po za&#269;&aacute;tku pandemie. Reprezentativn&iacute; data z obou stran historick&eacute;ho &#353;oku n&aacute;m poskytla p&#345;irozen&yacute; experiment. Vedl jsem t&yacute;m v&yacute;zkumn&iacute;k&#367; p&#345;i anal&yacute;ze dopadu na du&#353;evn&iacute; zdrav&iacute; pedagog&#367; ran&eacute;ho d&#283;tstv&iacute; a zjistili jsme, &#382;e pr&#367;m&#283;rn&yacute; v&yacute;skyt symptom&#367; deprese vzrostl o 35 % a pravd&#283;podobnost p&#345;ekro&#269;en&iacute; diagnostick&eacute;ho prahu deprese se zv&yacute;&#353;ila o 114 %. Studie&mdash;zakotven&aacute; v teorie sebeur&#269;en&iacute; Deciho a Ryana&mdash;byla <a href="https://searchworks.stanford.edu/view/14731900" target="_blank" style="color: rgba(255,255,255,0.7); text-decoration: underline;">publikov&aacute;na jako kapitola v knize</a> v roce 2023. Nic z toho by nebylo mo&#382;n&eacute; bez vzorkovac&iacute;ho n&aacute;vrhu, kter&yacute; u&#269;inil data reprezentativn&iacute;mi.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Od vzorkov&aacute;n&iacute; p&#345;es datasety k v&yacute;zkumu</div>
+
+                <p>V r&aacute;mci projektu PPI jsem byl p&#345;i&#345;azen k finan&#269;n&iacute; v&#283;tvi strategie Gatesovy nadace. V&#283;t&#353;ina projektu byla zalo&#382;ena na kvalitativn&iacute;m v&yacute;zkumu&mdash;rozhovorech s vedouc&iacute;mi st&aacute;tn&iacute;ch p&#345;ed&#353;koln&iacute;ch program&#367;, v&yacute;zkumn&#283;-praktick&yacute;mi partnery a st&aacute;tn&iacute;mi politiky. J&aacute; jsem byl jednomanov&yacute; kvantitativn&iacute; analytick&yacute; t&yacute;m. &#352;&eacute;f mi dal volnou ruku&mdash;nebo sp&iacute;&#353;e absenci sm&#283;ru&mdash;tak&#382;e jsem si nebyl zcela jist&yacute;, jak zapadnout do strategie, kde finan&#269;n&iacute; data se p&#345;irozen&#283; nehodila ke kvalitativn&iacute; anal&yacute;ze a nikdo mi nedal &#382;&aacute;dn&aacute; kvantitativn&iacute; data, se kter&yacute;mi bych pracoval.</p>
+
+                <p>Za&#269;al jsem proto hledat datasety s&aacute;m. Vytvo&#345;il jsem mapu ve&#345;ejn&#283; dostupn&yacute;ch dataset&#367; o vzd&#283;l&aacute;v&aacute;n&iacute; v ran&eacute;m d&#283;tstv&iacute; a to se nakonec zkrystalizovalo do st&aacute;tn&iacute;ch p&#345;ehled&#367;. B&#283;hem tohoto procesu jsem narazil na National Survey of Early Care and Education (NSECE)&mdash;bohat&yacute;, n&aacute;rodn&#283; reprezentativn&iacute; dataset o pracovn&iacute; s&iacute;le v ECE. Jak jsem se s n&iacute;m seznamoval, propojil jsem svou mentorskou &#269;innost se znalost&iacute; dat a vedl svou mlad&#353;&iacute; kolegyn&#283; Liu Liu k publikov&aacute;n&iacute; &#269;l&aacute;nku <a href="https://www.researchgate.net/publication/375522024_Early_Childhood_Educators_Pay_Equity_A_Dream_Deferred" target="_blank" style="color: rgba(255,255,255,0.7); text-decoration: underline;">&bdquo;Early childhood educators&rsquo; pay equity: A dream deferred&ldquo;</a>&mdash;pr&aacute;ce, kter&aacute; se v&#283;novala t&eacute;matu, o kter&eacute; se m&#367;j &#353;&eacute;f zaj&iacute;mal, ale nikdy ho neformuloval jako konkr&eacute;tn&iacute; v&yacute;zkumnou ot&aacute;zku.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Komplexn&iacute; dotazn&iacute;kov&aacute; anal&yacute;za</div>
+
+                <p>Velk&aacute; &#269;&aacute;st m&eacute; pr&aacute;ce vyu&#382;&iacute;v&aacute; feder&aacute;ln&iacute; datasety s vlastn&iacute;mi komplexn&iacute;mi vzorkovac&iacute;mi n&aacute;vrhy: American Community Survey (ACS PUMS) od Census Bureau, data o z&aacute;pisech CCDF od Administration for Children and Families (ACF) a data NIEER o st&aacute;tn&iacute;ch pre-K programech. Ka&#382;d&yacute; vy&#382;aduje pe&#269;liv&eacute; nakl&aacute;d&aacute;n&iacute; s v&aacute;hami n&aacute;vrhu, straty a prim&aacute;rn&iacute;mi vzorkovac&iacute;mi jednotkami pro validn&iacute; inferenci.</p>
+
+                <p>Pro st&aacute;tn&iacute; p&#345;ehledy jsem pou&#382;il mikrodata ACS PUMS k vytvo&#345;en&iacute; popula&#269;n&iacute;ch odhad&#367; d&#283;t&iacute; ve v&#283;ku 3&ndash;4 roky podle p&#345;&iacute;jmov&eacute; skupiny, etnicity a m&#283;stsk&eacute;ho statusu&mdash;a n&aacute;sledn&#283; je porovnal se vzorci z&aacute;pis&#367; do p&#345;ed&#353;koln&iacute;ch za&#345;&iacute;zen&iacute;. Anal&yacute;za odhalila konzistentn&iacute; zji&#353;t&#283;n&iacute; nap&#345;&iacute;&#269; st&aacute;ty: etnick&eacute; men&#353;iny jsou neproporcion&aacute;ln&#283; zastoupeny v chudob&#283;, ale jejich zastoupen&iacute; v z&aacute;pisech do p&#345;ed&#353;koln&iacute;ch za&#345;&iacute;zen&iacute; tyto m&iacute;ry chudoby neodpov&iacute;d&aacute;. D&#283;ti na venkov&#283; &#269;el&iacute; podobn&eacute; mezery. To jsou zji&#353;t&#283;n&iacute;, kter&aacute; nelze vid&#283;t bez spr&aacute;vn&#283; v&aacute;&#382;en&yacute;ch dat a spr&aacute;vn&yacute;ch srovn&aacute;n&iacute;.</p>
+
+                <ul class="dataset-list">
+                    <li><strong>ACS PUMS (Census)</strong> &mdash; Mikrodata s v&aacute;hami na &uacute;rovni osob pro demografickou anal&yacute;zu a anal&yacute;zu z&aacute;pis&#367; podle p&#345;&iacute;jmu, etnicity a geografie</li>
+                    <li><strong>ACF CCDF</strong> &mdash; Feder&aacute;ln&iacute; data o z&aacute;pisech do dotac&iacute; na p&eacute;&#269;i o d&#283;ti s trendy na &uacute;rovni st&aacute;t&#367; v &#269;ase</li>
+                    <li><strong>NIEER</strong> &mdash; Data o z&aacute;pisech a financov&aacute;n&iacute; st&aacute;tn&iacute;ch pre-K program&#367; pro srovn&aacute;n&iacute; mezi st&aacute;ty</li>
+                    <li><strong>ERS USDA</strong> &mdash; Klasifikace venkov-m&#283;sto pro geografickou stratifikaci</li>
+                    <li><strong>NSECE</strong> &mdash; National Survey of Early Care and Education, n&aacute;rodn&#283; reprezentativn&iacute; data o pracovn&iacute; s&iacute;le pou&#382;it&aacute; pro studii o mzdov&eacute; rovnosti</li>
+                    <li><strong>Washington Workforce Survey</strong> &mdash; Origin&aacute;ln&iacute; dotazn&iacute;kov&yacute; n&aacute;stroj s vlastn&#283; navr&#382;en&yacute;m stratifikovan&yacute;m vzorkov&aacute;n&iacute;m a v&aacute;hami n&aacute;vrhu</li>
+                </ul>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Vizualizace dat a komunikace politik</div>
+
+                <p>St&aacute;tn&iacute; p&#345;ehledy byly navr&#382;eny pro politick&eacute; publikum&mdash;st&aacute;tn&iacute; z&aacute;konod&aacute;rce, vedouc&iacute; agentur, spr&aacute;vce program&#367;&mdash;kte&#345;&iacute; pot&#345;ebuj&iacute; vid&#283;t p&#345;&iacute;b&#283;h v datech, ani&#382; by se museli brod&iacute;t regresn&iacute;mi tabulkami. Ka&#382;d&yacute; p&#345;ehled sleduje konzistentn&iacute; vizu&aacute;ln&iacute; gramatiku: trendy z&aacute;pis&#367; vlevo, rozklady rovnosti uprost&#345;ed a p&#345;&iacute;stup k p&#345;ed&#353;koln&iacute;mu vzd&#283;l&aacute;v&aacute;n&iacute; vpravo. Uspo&#345;&aacute;d&aacute;n&iacute; vedle sebe &#269;in&iacute; mezery viditeln&yacute;mi na prvn&iacute; pohled.</p>
+
+                <p>Vytvo&#345;il jsem je pro v&iacute;ce st&aacute;t&#367;, p&#345;i&#269;em&#382; jsem anal&yacute;zu p&#345;izp&#367;sobil specifick&eacute;mu programov&eacute;mu prost&#345;ed&iacute; ka&#382;d&eacute;ho st&aacute;tu&mdash;Head Start, ECEAP ve Washingtonu, Oregon Pre-K/Oregon Head Start, Tennessee VPK&mdash;a z&aacute;rove&#328; zachoval konzistentn&iacute; analytick&yacute; r&aacute;mec umo&#382;&#328;uj&iacute;c&iacute; srovn&aacute;n&iacute; mezi st&aacute;ty.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">P&#345;&iacute;klady</div>
+
+                <div class="example-grid">
+                    <a href="../papers/ppi-sampling-plan.pdf" target="_blank">
+                        <div class="example-label">Vzorkovac&iacute; pl&aacute;n</div>
+                        <div class="example-title">PPI CLASS &amp; IDM Sampling Plan</div>
+                        <div class="example-desc">64str&aacute;nkov&yacute; pr&#367;vodce pro v&iacute;cest&aacute;tn&iacute; partnerstv&iacute; Gatesovy nadace. Stratifikace, anal&yacute;za s&iacute;ly, tutori&aacute;l vzorkov&aacute;n&iacute;. Cultivate Learning, 2019.</div>
+                    </a>
+                    <a href="../papers/wa-workforce-survey.pdf" target="_blank">
+                        <div class="example-label">Origin&aacute;ln&iacute; pr&#367;zkum</div>
+                        <div class="example-title">Washington Workforce Survey</div>
+                        <div class="example-desc">Stratifikovan&eacute; vzorkov&aacute;n&iacute;, v&aacute;hy n&aacute;vrhu, popula&#269;n&iacute; tabelace nap&#345;&iacute;&#269; 39 okresy. Cultivate Learning, 2021.</div>
+                    </a>
+                    <a href="../papers/wa-ece-factsheet.pdf" target="_blank">
+                        <div class="example-label">St&aacute;tn&iacute; p&#345;ehled</div>
+                        <div class="example-title">Washington ECE Factsheet</div>
+                        <div class="example-desc">Trendy z&aacute;pis&#367; Head Start, ECEAP a CCDF. Anal&yacute;za rovnosti podle p&#345;&iacute;jmu, etnicity a geografie. ACS PUMS, ACF, NIEER.</div>
+                    </a>
+                    <a href="../papers/or-ece-factsheet.pdf" target="_blank">
+                        <div class="example-label">St&aacute;tn&iacute; p&#345;ehled</div>
+                        <div class="example-title">Oregon ECE Factsheet</div>
+                        <div class="example-desc">Z&aacute;pisy do Oregon Pre-K a Head Start. Rozd&iacute;ly venkov-m&#283;sto v p&#345;&iacute;stupu k p&#345;ed&#353;koln&iacute;mu vzd&#283;l&aacute;v&aacute;n&iacute;. ACS PUMS, ACF, NIEER.</div>
+                    </a>
+                    <a href="../papers/tn-ece-factsheet.pdf" target="_blank">
+                        <div class="example-label">St&aacute;tn&iacute; p&#345;ehled</div>
+                        <div class="example-title">Tennessee ECE Factsheet</div>
+                        <div class="example-desc">Pokryt&iacute; VPK a Head Start. Volatilita z&aacute;pis&#367; CCDF. Etnick&eacute; a geografick&eacute; mezery v rovnosti. ACS PUMS, ACF, NIEER.</div>
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="story-footer">
+        <div class="story-container">
+            <a href="index.html#methods" class="back-link">&larr; Zp&#283;t k metod&aacute;m</a>
+            <span class="footer-note">&copy; 2025 Nail Hassairi &middot; Praha</span>
+        </div>
+    </footer>
+
+</body>
+</html>
