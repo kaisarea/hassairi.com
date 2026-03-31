@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning &amp; NLP &mdash; Nail Hassairi</title>
+    <meta name="description" content="Topic modeling, natural language processing, time series econometrics, and ensemble methods. From scraping 4,000 pieces of legislation to dynamic panel GMM for marketing optimization.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="story.css">
+    <style>
+        .method-hero-sub {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            margin-top: 1.5rem;
+            line-height: 1.7;
+            max-width: 540px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem -3rem 2.5rem;
+        }
+
+        .example-grid a,
+        .example-grid .example-card {
+            display: block;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 1.25rem;
+            transition: border-color 0.2s ease, background 0.2s ease;
+            text-decoration: none;
+        }
+
+        .example-grid a:hover {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+            opacity: 1;
+        }
+
+        .example-label {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .example-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: #fff;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .method-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .method-list li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border);
+            line-height: 1.6;
+        }
+
+        .method-list li:last-child {
+            border-bottom: none;
+        }
+
+        .method-list li strong {
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .back-to-methods {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: var(--text-dim);
+            transition: color 0.2s ease;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .back-to-methods:hover {
+            color: #fff;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .example-grid {
+                grid-template-columns: 1fr;
+                margin: 2rem -1.5rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-name">NH</a>
+        <div class="nav-links">
+            <a href="index.html#about">About</a>
+            <a href="index.html#research">Research</a>
+            <a href="story.html">Story</a>
+            <a href="life.html">Life</a>
+            <a href="reading.html">Reading</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="story-hero">
+        <div class="story-hero-inner">
+            <p class="story-kicker">Methods</p>
+            <h1 class="story-title">Machine Learning &amp; NLP</h1>
+            <p class="method-hero-sub">Topic modeling, text as data, time series econometrics, and the value of studying beyond your required curriculum.</p>
+        </div>
+    </header>
+
+    <main class="story-body">
+        <div class="story-container">
+
+            <a href="index.html#methods" class="back-to-methods">&larr; All methods</a>
+
+            <section class="story-chapter">
+                <p class="story-lede">In graduate school, the economics PhD curriculum gave me a strong foundation in econometrics and theory. But I was restless. I wanted to understand methods that my program did not teach&mdash;so I went looking for them across the university.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Expanding the toolkit</div>
+
+                <p>Over the course of my PhD at the University of Washington, I took classes far outside the standard economics sequence: Bayesian statistics, regression splines, spatial regression analysis, numerical analysis, hierarchical modeling, experimental design, and computer programming. Each of these would prove useful&mdash;some immediately, some years later. The Bayesian statistics course, in particular, introduced me to Latent Dirichlet Allocation, a generative probabilistic model for discovering hidden thematic structure in large collections of text. At the time, it was just another algorithm. Within a few years, it would become the basis of a published paper.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Text as data: 4,000 pieces of legislation</div>
+
+                <p>The story begins with the Bill &amp; Melinda Gates Foundation&rsquo;s Prenatal-to-Three (PPI) initiative at the University of Washington. I was scrounging for every possible dataset that could inform the foundation&rsquo;s strategy on early childhood education policy. One of the sources I stumbled on was the National Conference of State Legislatures (NCSL), which maintained a tracking database of early care and education bills across all 50 states. The full text of each piece of legislation was available online&mdash;machine-readable, structured, and covering years of legislative activity.</p>
+
+                <p>I wrote a web scraping program to download the entire database: 9,272 records spanning 2008 to 2018. After cleaning&mdash;removing bills that died without deliberation, deduplicating records that appeared at multiple stages of the legislative process, and filtering to bills with full text available&mdash;the analytic sample included 3,203 unique bills, of which 2,396 had concluded their legislative journey with a definitive outcome.</p>
+
+                <p>The question was simple: what predicts whether an early childhood education bill passes into law? The traditional approach in political science was to look at characteristics of the bill&rsquo;s sponsor&mdash;seniority, party affiliation, committee membership. But nobody had looked at what the bills actually <em>said</em>. This is where the Bayesian statistics course paid off. I applied Latent Dirichlet Allocation to the full text of the legislation to discover the latent topic structure. LDA treats each document as a mixture of topics, and each topic as a distribution over words. It does not know what the topics are in advance&mdash;it discovers them from the patterns of co-occurrence in the text.</p>
+
+                <p>The algorithm identified a six-topic solution as the best fit: two meta-priorities emerged, which we labeled &ldquo;ECE finance&rdquo; (comprising revenues, expenditures, and fiscal governance) and &ldquo;ECE services&rdquo; (comprising PreK, child care, and Health and Human Services). We validated these topics against expert knowledge and the existing literature on early childhood policy. The topics were not just statistically coherent&mdash;they mapped directly onto the real fault lines of legislative debate.</p>
+
+                <p>I then used Hierarchical Generalized Linear Models (HGLM) to predict bill passage from the topic proportions, controlling for sponsor characteristics and the nested structure of the data (bills within legislators within states within years). The key finding was that bills focused on HHS, fiscal governance, or expenditures were more likely to pass, while bills focused on PreK, child care, or revenues were less likely&mdash;and that the sponsor&rsquo;s legislative effectiveness moderated this relationship. Highly effective legislators could pass bills regardless of topic; less effective ones were at the mercy of content.</p>
+
+                <p>Soojin Oh Park brought the subject-matter expertise&mdash;the deep knowledge of early childhood policy that allowed us to interpret and validate the topics the algorithm discovered. I brought the data pipeline, the NLP, and the statistical modeling. The paper was published in <em>PLOS ONE</em> in 2021 and, to our knowledge, represented the first application of machine learning and NLP methods to the study of early childhood education legislation.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Marketing mix optimization</div>
+
+                <p>A very different application of these methods came in a marketing data science context: analyzing the effectiveness of marketing expenditures across channels (Google, Facebook, affiliates) and recommending optimal budget allocation. The dataset covered 3,051 weekly observations across 26 geographic markets over two years, with revenue as the outcome and channel-specific spending and impressions as predictors.</p>
+
+                <p>The methodological challenge was that marketing effects are not static. Spending on Facebook this week may affect revenue next week. Google spend may crowd out or complement affiliate impressions. The lag structures vary by channel, and the geographic heterogeneity means that what works in one market may not work in another. A simple regression would miss all of this.</p>
+
+                <p>I built a progression of increasingly sophisticated models: pooled OLS as a baseline, fixed effects to control for unobserved geographic heterogeneity, hierarchical linear models to allow effectiveness to vary by market, then Granger causality tests and vector autoregressions (VAR) to uncover the temporal dynamics and cross-channel dependencies. The final specification was a dynamic panel model estimated via Generalized Method of Moments (Arellano&ndash;Bond), which captured revenue persistence, lagged marketing effects, and unobserved heterogeneity simultaneously while addressing the endogeneity that arises when past revenue influences current spending.</p>
+
+                <p>The 138-page analysis showed that Facebook was the most effective channel (highest elasticity, strongest lag effects) despite being allocated the least budget&mdash;a clear misallocation. Google showed counterintuitive negative contemporaneous effects but strong positive lag effects, suggesting that its value materializes over time. The dynamic GMM outperformed the random coefficients model in prediction accuracy across all 26 geographies, with 52 times lower average prediction error. The budget reallocation recommendations followed directly from the equimarginal principle: shift spending toward the channel with the highest marginal return per dollar until the elasticities equalize.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Machine learning for measurement</div>
+
+                <p>A third strand of ML work emerged in the Early Achievers project, where the challenge was not text or time series but missing data and high dimensionality. With 947 children nested in 156 classrooms and massive missingness across dozens of classroom quality and child outcome measures, I turned to machine learning imputation: gradient boosting machines, random forests, and LASSO, benchmarked against traditional multiple imputation by chained equations (MICE). Ten-fold cross-validation showed where each method outperformed&mdash;and where the ensemble approach yielded the most trustworthy out-of-sample predictions. The details are on the <a href="measurement.html" style="color: rgba(255,255,255,0.7); text-decoration: underline;">Measurement &amp; Modeling</a> page.</p>
+
+                <ul class="method-list">
+                    <li><strong>Topic modeling</strong> &mdash; Latent Dirichlet Allocation (LDA), document-topic and topic-word distributions, model selection via coherence and fit</li>
+                    <li><strong>Natural language processing</strong> &mdash; Web scraping, text preprocessing, legislative text analysis at scale</li>
+                    <li><strong>Time series econometrics</strong> &mdash; Vector autoregression (VAR), Granger causality, impulse response functions, variance decomposition</li>
+                    <li><strong>Dynamic panel methods</strong> &mdash; Arellano&ndash;Bond GMM estimation, dynamic multipliers, long-run effect computation</li>
+                    <li><strong>Ensemble methods</strong> &mdash; Gradient boosting, random forests, LASSO for imputation and variable selection</li>
+                    <li><strong>Bayesian methods</strong> &mdash; Generative probabilistic models, posterior inference, model comparison</li>
+                </ul>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Examples</div>
+
+                <div class="example-grid">
+                    <a href="https://doi.org/10.1371/journal.pone.0246730" target="_blank">
+                        <div class="example-label">NLP &amp; topic modeling</div>
+                        <div class="example-title">ECE Legislative Success</div>
+                        <div class="example-desc">LDA on 2,396 state ECE bills from NCSL. Six-topic solution, HGLM for predicting passage, legislative effectiveness as moderator. Park &amp; Hassairi, PLOS ONE 2021.</div>
+                    </a>
+                    <div class="example-card">
+                        <div class="example-label">Marketing econometrics</div>
+                        <div class="example-title">Marketing Mix Optimization</div>
+                        <div class="example-desc">Dynamic panel GMM, VAR, Granger causality across 26 markets. Channel elasticities, budget reallocation via equimarginal principle. 138-page analysis, 2024.</div>
+                    </div>
+                    <div class="example-card">
+                        <div class="example-label">ML for imputation</div>
+                        <div class="example-title">Early Achievers Validation</div>
+                        <div class="example-desc">GBM, random forests, LASSO vs. MICE for imputing missing classroom quality data. 10-fold cross-validation, 947 children across 156 classrooms.</div>
+                    </div>
+                    <div class="example-card">
+                        <div class="example-label">Graduate training</div>
+                        <div class="example-title">Beyond the Curriculum</div>
+                        <div class="example-desc">Bayesian statistics, regression splines, spatial regression, numerical analysis, hierarchical modeling, experimental design. University of Washington.</div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="story-footer">
+        <div class="story-container">
+            <a href="index.html#methods" class="back-link">&larr; Back to methods</a>
+            <span class="footer-note">&copy; 2025 Nail Hassairi &middot; Prague</span>
+        </div>
+    </footer>
+
+</body>
+</html>
