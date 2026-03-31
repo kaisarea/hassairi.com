@@ -142,7 +142,7 @@
             <a href="index.html#methods" class="back-to-methods">&larr; All methods</a>
 
             <section class="story-chapter">
-                <p class="story-lede">Estimating a causal effect is easy. Estimating the right one&mdash;and knowing what assumptions are required for it to be the right one&mdash;is the entire discipline. My work spans randomized experiments, quasi-experimental designs, and causal mediation, always with an emphasis on identification: what exactly are we claiming, and what would have to be true for that claim to hold?</p>
+                <p class="story-lede">Estimating a causal effect is easy. Estimating the right one&mdash;and knowing what assumptions are required for it to be the right one&mdash;is the entire discipline. My work spans randomized experiments, stepped wedge designs, quasi-experimental methods, and causal mediation, always with an emphasis on identification: what exactly are we claiming, and what would have to be true for that claim to hold?</p>
             </section>
 
             <section class="story-chapter">
@@ -179,11 +179,24 @@
                 <p>I used this setting to test competing theories of efficiency wages. The shirking model predicts that higher wages increase effort because workers have more to lose if fired. The sorting model predicts that higher wages attract more productive workers. In a standard labor market, these mechanisms are confounded&mdash;you cannot observe the counterfactual of the same worker at a different wage, or the same wage offered to a different applicant pool. On Mechanical Turk, you can randomize both.</p>
 
                 <p>The first paper tested the shirking and sorting predictions directly by randomly assigning different wages to identical tasks and measuring effort. The second, with Claus P&ouml;rtner and Michael Toomim, tested compensating wage differentials&mdash;the theory that unpleasant jobs must pay more&mdash;by randomizing workers into tasks of varying difficulty at varying wages. The third estimated labor supply elasticities in this low-friction market. Together, these papers demonstrated that online labor markets could serve as rigorous field settings for testing core economic theory, with the kind of clean identification that observational labor data rarely permits.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Stepped wedge design: the ELO study</div>
+
+                <p>The Expanded Learning Opportunity (ELO) study at Cultivate Learning was a different kind of experiment&mdash;one where the unit of randomization was time, not individuals. The project had two goals: develop and validate a new quality measurement tool for after-school programs (the Quality Seal), and test whether coaching interventions could improve program quality. The design challenge was that you cannot randomly deny coaching to programs that have agreed to participate in a quality improvement effort. The stepped wedge design solves this: every program eventually receives treatment, but the <em>timing</em> of treatment onset is randomized, creating the variation needed for causal identification.</p>
+
+                <p>I led the quantitative analysis. The study enrolled two cohorts of after-school programs across Washington state, with three treatment arms: in-person coaching, online coaching, and a hybrid of both. Programs were blocked on site type and pre-experimental quality scores (measured by the Program Quality Assessment), then randomized within blocks to treatment timing using an incomplete block design. This meant that at any given observation point, some programs had already begun receiving coaching while others had not&mdash;providing both within-program and between-program variation in treatment exposure.</p>
+
+                <p>The analytical framework was hierarchical linear modeling with crossed random effects&mdash;observations nested simultaneously in programs, raters, and site types&mdash;to account for the multiple sources of clustering in the data. The primary outcomes were the PQA and the Expectations and Demands of Children in Care (ECDC), measured at multiple time points before and after coaching onset. The stepped wedge structure meant that control observations came not from a separate group of programs but from the same programs before their treatment began, which controls for time-invariant program characteristics by design.</p>
+
+                <p>The results were striking. All three coaching modalities produced statistically significant improvements in program quality, but online coaching had the strongest positive effect on PQA scores&mdash;a counterintuitive finding given the field&rsquo;s bias toward in-person interaction. The cost-benefit analysis made the case even clearer: online coaching was three to five times more cost-effective than in-person delivery, primarily because it eliminated travel time and allowed coaches to serve more programs. This was 2019, months before COVID-19 would make remote delivery not just efficient but necessary.</p>
 
                 <ul class="method-list">
                     <li><strong>Causal mediation analysis</strong> &mdash; Average Causal Mediation Effects (ACME) via Imai, Keele &amp; Tingley (2010), sensitivity analysis for sequential ignorability</li>
                     <li><strong>Randomized controlled trials</strong> &mdash; Intent-to-treat estimation, compliance adjustment, subgroup heterogeneity analysis</li>
                     <li><strong>A/B testing at scale</strong> &mdash; Trigger-based attribution, multi-metric monitoring, marketplace experimentation with network effects</li>
+                    <li><strong>Stepped wedge designs</strong> &mdash; Randomized treatment timing with incomplete block randomization, HLM with crossed random effects</li>
                     <li><strong>Field experiments</strong> &mdash; Randomized wage and task assignment on Mechanical Turk for testing labor market theory</li>
                     <li><strong>Quasi-experimental methods</strong> &mdash; Propensity score matching, difference-in-differences, instrumental variables</li>
                 </ul>
@@ -202,6 +215,11 @@
                         <div class="example-label">Industrial experimentation</div>
                         <div class="example-title">Amazon Buy Box A/B Testing</div>
                         <div class="example-desc">Live marketplace experiment comparing econometric model vs. legacy system. Millions of sessions per day. Weekly executive briefings. Amazon, 2015.</div>
+                    </div>
+                    <div class="example-card">
+                        <div class="example-label">Stepped wedge trial</div>
+                        <div class="example-title">ELO Coaching Intervention</div>
+                        <div class="example-desc">Stepped wedge randomized design with three coaching arms. Incomplete block randomization, HLM with crossed random effects, cost-benefit analysis. Cultivate Learning, 2019.</div>
                     </div>
                     <a href="papers/hassairi-2016-efficiency-wages.pdf" target="_blank">
                         <div class="example-label">Field experiment</div>
