@@ -37,7 +37,7 @@
             <a href="../life.html">Life</a>
             <a href="../reading.html">Reading</a>
             <a href="../index.html#contact">Contact</a>
-            <a href="../blog/head-start-dual-language-learners.html" class="active">Blog</a>
+            <a href="index.html" class="active">Blog</a>
         </div>
     </nav>
 
@@ -176,7 +176,15 @@
 
                 <p>We resubmitted the restructured manuscript to <em>Early Childhood Research Quarterly</em>&mdash;the journal that had redirected Soojin years earlier. This time, with a focused applied contribution and a cleaner analytical framework, the paper landed squarely in ECRQ&rsquo;s wheelhouse.</p>
 
-                <p>The difference in the review process was striking. The ECRQ reviewers were detailed, technically informed, and&mdash;most importantly&mdash;actionable. They identified specific areas where the analysis could be strengthened and where interpretations needed to be more carefully qualified. One reviewer pushed us to explicitly reconcile differences between graphical and statistical representations of subgroup effects. Another highlighted the need to more clearly separate first-stage (treatment &rarr; mediator) and second-stage (mediator &rarr; outcome) interpretations.</p>
+                <p>The difference in the review process was striking. The ECRQ reviewers were detailed, technically informed, and&mdash;most importantly&mdash;actionable. Let me give you some concrete examples, because I think they illustrate what good peer review actually looks like.</p>
+
+                <p><strong>Reframing noise as substance.</strong> Our estimates for DLL children had wider confidence intervals than for non-DLL children. We had treated this as a statistical limitation&mdash;smaller sample, noisier estimates. One reviewer pushed back: maybe the &ldquo;noise&rdquo; wasn&rsquo;t noise at all. DLL families are not a monolithic group. They vary in generational status, Spanish proficiency, cultural practices. The wider intervals might reflect genuine heterogeneity <em>within</em> DLL families, not just imprecision. This reframing didn&rsquo;t just change a paragraph&mdash;it changed how we thought about the findings.</p>
+
+                <p><strong>A new analysis we hadn&rsquo;t planned.</strong> The same reviewer asked us to formally test whether the mediation effects actually differed between DLL and non-DLL children, rather than just comparing estimates by eye. This led us to run 1,000 bootstrap iterations computing the difference in ACME between the two groups&mdash;a completely new analysis that wasn&rsquo;t in the original submission. The bootstrap test confirmed a statistically significant difference for decoding skills, turning what had been an informal comparison into a rigorous finding.</p>
+
+                <p><strong>A simple addition that changed the story.</strong> Another suggestion was to add treatment-on-the-treated (TOT) estimates alongside our intent-to-treat (ITT) results. This was straightforward to implement using two-stage least squares, and the result was revealing: the first-stage F-statistic was 3,679 (astronomically strong compliance), and the TOT effects were roughly 40 percent larger than the ITT effects. One additional analysis, one sentence of code&mdash;and the paper became substantially more informative about what Head Start actually does for the children who attend.</p>
+
+                <p><strong>Testing the limits of our own claims.</strong> A reviewer pointed us to a sensitivity analysis framework by Keele, Tingley, and Yamamoto for assessing how robust our mediation results were to unobserved confounding. We ran it, and the answer was sobering: the mediation effects were sensitive to even modest confounding (a correlation of about 0.1 between unmeasured confounders of the mediator&ndash;outcome relationship). This didn&rsquo;t invalidate our findings, but it forced us to reframe them as <em>suggestive rather than definitive</em>&mdash;which is the honest way to present causal mediation results when the sequential ignorability assumption cannot be tested directly.</p>
 
                 <p>These were not vague objections. They were the kind of comments that make you think, &ldquo;Yes, that is exactly what this paper needs.&rdquo; <strong>Good reviewers are collaborators in disguise.</strong> The best feedback doesn&rsquo;t just critique&mdash;it shows you how to make the paper better. The ECRQ reviewers did that.</p>
             </section>
@@ -184,9 +192,13 @@
             <section class="story-chapter">
                 <div class="story-aside-label">What changed</div>
 
-                <p>By the time of the final revision, the paper had changed substantially from its original form. The analytical framework was more focused. The interpretation was more cautious. The contribution was more clearly articulated. The final version made explicit the limits of causal mediation analysis, including sensitivity to unobserved confounding and the need to interpret mechanisms as suggestive rather than definitive.</p>
+                <p>The second round of reviews pushed the paper even further. One reviewer noticed that the factor loadings on our parent&ndash;child literacy activities scale were uneven&mdash;code-focused items (like teaching letters and numbers) loaded more heavily than meaning-focused items (like reading stories together). Rather than treating this as a measurement nuisance, they suggested we decompose the scale into subscales and see if the mediation pathways differed. This observation spawned an entirely new research question&mdash;what became RQ4 in the final paper&mdash;and one of its most interesting findings: the parenting pathway operated differently depending on <em>what kind</em> of literacy activity parents were doing.</p>
 
-                <p>At the same time, the paper became conceptually stronger. What began as a general question about program impacts evolved into a more precise insight: similar overall effects can arise through different behavioral pathways, and understanding those pathways requires careful attention to both measurement and heterogeneity. That sentence didn&rsquo;t exist in the first draft. It emerged from the process.</p>
+                <p>Another reviewer caught something we had missed: our Figure 2 showed overlapping confidence intervals between DLL and non-DLL groups, but Table 5 reported a statistically significant bootstrap difference between them. The visual and the statistical test were telling different stories. Rather than try to explain the discrepancy, we removed the figure entirely. Better to have one clear representation than two contradictory ones.</p>
+
+                <p>There were also hard truths. A measurement invariance test across DLL groups showed poor fit (RMSEA = .145), meaning we could not assume the literacy activities scale was measuring the same construct the same way for DLL and non-DLL families. This didn&rsquo;t kill the paper, but it required us to add careful language about interpreting cross-group comparisons with caution. The reviewers also pushed us to document missing data patterns by DLL status, leading to a new supplemental table showing that missingness was similar across groups for key variables&mdash;a small addition that meaningfully strengthened the paper&rsquo;s credibility.</p>
+
+                <p>By the time of the final revision, the paper had changed substantially from its original form. The analytical framework was more focused. The interpretation was more cautious. The contribution was more clearly articulated. What began as a general question about program impacts evolved into a more precise insight: similar overall effects can arise through different behavioral pathways, and understanding those pathways requires careful attention to both measurement and heterogeneity. That sentence didn&rsquo;t exist in the first draft. It emerged from the process.</p>
             </section>
 
             <!-- ============================================
@@ -246,7 +258,7 @@
 
     <footer class="story-footer">
         <div class="story-container">
-            <a href="../index.html" class="back-link">&larr; Back to hassairi.com</a>
+            <a href="index.html" class="back-link">&larr; All posts</a>
             <span class="footer-note">&copy; 2025 Nail Hassairi &middot; Prague</span>
         </div>
     </footer>
