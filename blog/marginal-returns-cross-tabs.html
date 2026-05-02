@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>They Asked About Marginal Returns. The Data Could Only Tell Them Cross-Tabs. &mdash; Nail Hassairi</title>
+    <meta name="description" content="Why dashboarding has replaced analytics in most data teams &mdash; and what would fix it. Notes from forty interviews in Prague and a decade of working in the US data industry.">
+    <link rel="canonical" href="https://hassairi.com/blog/marginal-returns-cross-tabs.html">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <!-- Open Graph -->
+    <meta property="og:title" content="They Asked About Marginal Returns. The Data Could Only Tell Them Cross-Tabs.">
+    <meta property="og:description" content="Why dashboarding has replaced analytics in most data teams &mdash; and what would fix it.">
+    <meta property="og:url" content="https://hassairi.com/blog/marginal-returns-cross-tabs.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Nail Hassairi">
+    <meta property="article:published_time" content="2026-05-02">
+    <meta property="article:author" content="Nail Hassairi">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@nhassairi">
+    <meta name="twitter:title" content="They Asked About Marginal Returns. The Data Could Only Tell Them Cross-Tabs.">
+    <meta name="twitter:description" content="Why dashboarding has replaced analytics in most data teams &mdash; and what would fix it.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../story.css">
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="../index.html" class="nav-name">NH</a>
+        <div class="nav-links">
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#research">Research</a>
+            <a href="../story.html">Story</a>
+            <a href="../life.html">Life</a>
+            <a href="../reading.html">Reading</a>
+            <a href="../index.html#contact">Contact</a>
+            <a href="index.html" class="active">Blog</a>
+        </div>
+    </nav>
+
+    <header class="story-hero">
+        <div class="story-hero-inner">
+            <p class="story-kicker">Essay &middot; May 2026</p>
+            <h1 class="story-title">They Asked About Marginal Returns. The Data Could Only Tell Them Cross-Tabs.</h1>
+        </div>
+    </header>
+
+    <main class="story-body">
+        <div class="story-container">
+
+            <section class="story-chapter">
+                <p class="story-lede">Why dashboarding has replaced analytics in most data teams &mdash; and what would fix it. Notes from forty interviews in Prague and a decade of working in the US data industry.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">The assignment that broke itself</div>
+
+                <p>The take-home test arrived in March. A digital marketing company in Prague had reached out about a senior data analyst role, and after the screening call they sent me a parquet file with about a quarter-million rows &mdash; event-level data from January and February 2026, covering digital ad campaigns across Google, Meta, Sklik, Microsoft, and a handful of smaller platforms.</p>
+
+                <p>The business context they provided was sophisticated. The company runs a two-stage funnel: media buying acquires users at a loss (the direct margin on acquisition is negative), and remarketing &mdash; SMS, email, voicebot &mdash; re-engages those users to generate revenue over time. The instructions asked me to investigate cost efficiency, diminishing returns, and traffic-source performance. Which platforms deliver the best return on ad spend? Should spend be reallocated? Where are returns flattening?</p>
+
+                <p>These are good questions. Real questions. The kind of questions that can move millions of dollars.</p>
+
+                <p>I opened the file and started looking around. And then I noticed something.</p>
+
+                <p>The dataset included a <code>click_id</code> column that linked all events from a single user session &mdash; visit, lead submission, lead-tier assignment, eventual revenue or cost. But the documentation contained one quiet sentence: <em>&ldquo;Remarketing activities for a user are linked to different click_ids and are not connected to the original acquisition session in this dataset.&rdquo;</em></p>
+
+                <p>That sentence broke the assignment.</p>
+
+                <p>The most important business question &mdash; <em>which acquisition source produces users with the highest lifetime value?</em> &mdash; was structurally unanswerable in the data they had given me. I could compute cost per lead by platform. I could compute revenue per acquisition session. But the entire revenue-generating side of the business &mdash; the remarketing channel that turned a money-losing acquisition funnel into a profitable enterprise &mdash; could not be attributed back to the platform that had originally acquired each user.</p>
+
+                <p>The questions were about marginal returns. The data could only tell me cross-tabs.</p>
+
+                <p>I did the analysis they asked for. I computed cost per lead and revenue per lead by platform. I built a marginal cost curve. I identified one platform that should be paused immediately (471,000 visits, five leads). I flagged Google&rsquo;s top three campaigns as suspicious outliers consuming 50% of total spend at 51% higher cost per lead than the rest. Then I wrote them a follow-up section: <em>here is what the analysis would actually look like if your data could be linked end-to-end</em>. I simulated the linkage, showed how the platform ranking shifts when remarketing lifetime value is included, and walked through a marginal-optimization framework where you fund campaigns from most to least efficient until the next dollar stops paying off.</p>
+
+                <p>I did not get the job. I did not, exactly, play it safe in the interview &mdash; I told them the assignment was boring, because the data could not answer the questions it was asking. I&rsquo;ll come back to why I pushed that hard. First, the broader pattern.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">It wasn&rsquo;t a one-off</div>
+
+                <p>I have spent the past few months interviewing for data roles in Prague. About forty companies. Banks, e-commerce platforms, gaming firms, sports betting, retailers, telecoms, consultancies, automotive, insurance, media. A representative cross-section of the local data market.</p>
+
+                <p>What I found, with a few notable exceptions, was a pattern I&rsquo;ve now seen often enough that I can describe it from memory.</p>
+
+                <p>The job posting asks for a &ldquo;data analyst&rdquo; or &ldquo;data scientist.&rdquo; During the interview, the hiring manager asks how I would measure incrementality, attribute conversions, or estimate the effect of a campaign. The role description lists Python, SQL, statistical modeling, A/B testing.</p>
+
+                <p>Then the test assignment arrives, or the work gets described in detail, and the truth becomes visible: the actual job is building dashboards in Power BI, writing SQL for cross-tabs, monitoring KPIs week-over-week, and producing reports that describe what happened. The questions during the interview were aspirational. The work is something else.</p>
+
+                <p>Another company sent me a take-home assignment with a dataset that could only support frequency tables and conditional means. Another wanted me to &ldquo;tell a story with the data&rdquo; but the data couldn&rsquo;t support causal claims of any kind. Another asked me about A/B testing methodology in the interview, then explained that the team had never actually run an experiment.</p>
+
+                <p>This is not a Czech problem. I&rsquo;ll get to that in a moment. But it is a problem.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Three modes of data work</div>
+
+                <p>It helps to name what we&rsquo;re talking about. Most data work in industry falls into one of three modes.</p>
+
+                <p><strong>Dashboarding</strong> is descriptive and retrospective. It answers the question <em>what happened?</em> Power BI, Tableau, Looker, KPI reports, weekly cross-tabs, executive summaries. This is real work. Done well, it produces the shared situational awareness an organization needs to function. But on its own, dashboarding cannot tell you why something happened, what to do about it, or what would have happened under a different decision.</p>
+
+                <p><strong>Analytics</strong>, in the precise sense I want to use here, is explanatory and prescriptive. It answers <em>why did this happen, and what should we do?</em> Causal inference, A/B testing, lift studies, attribution, mediation analysis, structural econometric models, marginal optimization. These techniques require careful identification assumptions, thoughtful experimental or quasi-experimental design, and &mdash; critically &mdash; data infrastructure built to support counterfactual questions. Linked sessions, longitudinal panels, randomized treatments, controlled exposures.</p>
+
+                <p><strong>Data science</strong>, in its predictive form, answers <em>what will happen?</em> &mdash; or builds systems that automate decisions. Forecasting, classification, recommender systems, NLP, computer vision, more recently large language models. Predictive modeling has its own well-developed methodology and is genuinely valuable for the right problems.</p>
+
+                <p>These three modes are not in competition with each other. Mature organizations do all three. The question is whether the organization has the architecture and the talent to do all three, and whether decision-makers know which mode is appropriate for which question.</p>
+
+                <p>What I have observed in most companies &mdash; both in Prague and globally &mdash; is that mode 1 has eaten everything. Mode 2 barely exists. Mode 3 exists but is often misapplied, asked to answer counterfactual questions that prediction cannot answer.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">This is not a Prague problem</div>
+
+                <p>I want to be careful here, because it would be easy to read this as criticism of the Czech data market. It isn&rsquo;t. The same pattern is overwhelmingly true in the US, in Western Europe, and across most of the global tech ecosystem.</p>
+
+                <p>In the US, the companies that genuinely integrate causal inference into decision-making are rare and disproportionately influential: Amazon, Uber (where John List served as Chief Economist), eBay (where Steve Tadelis built an economics team), Microsoft Research, Zillow. These firms hire economists alongside computer scientists. They run thousands of experiments. They treat attribution and lift measurement as first-class problems. Their data infrastructure is designed from the ground up to answer counterfactual questions.</p>
+
+                <p>Most other firms &mdash; including very large, very well-funded ones &mdash; do not. They have dashboards. They have ML models. They do not have a coherent program for causal estimation, and when leadership asks &ldquo;what would happen if we changed X?&rdquo; the analytical team answers with descriptive statistics or predictive forecasts that cannot support the claim.</p>
+
+                <p>In Prague, the same pattern holds. Out of the forty-odd companies I interviewed with, three stood out as taking analytics seriously: <strong>Yieldigo</strong>, which builds dynamic pricing systems and lives or dies by causal estimates of price elasticity; <strong>Ematiq</strong>, in sports betting, where margins are thin enough that lift measurement is an existential concern; and <strong>Allegro</strong>, the e-commerce platform, which has invested in real experimentation and attribution infrastructure. None of them are unicorns or outliers. They are simply organizations where someone in leadership understood that the questions they wanted to answer required a different kind of infrastructure.</p>
+
+                <p>The proportion of firms that get this right in Prague is, as best I can tell, roughly the same as the proportion in the US. Which is to say: small.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Why is this so rare?</div>
+
+                <p>The answer, I think, is mostly about training.</p>
+
+                <p>Most data scientists and analysts are recruited from computer science programs &mdash; and computer science programs train students in prediction. Supervised learning, neural networks, classification, regression as a fitting exercise. These are valuable techniques. But they are designed to answer the question <em>what will happen given what I have observed?</em> &mdash; not <em>what would happen if I changed something?</em></p>
+
+                <p>Causal inference is its own field, with its own intellectual lineage: Donald Rubin&rsquo;s potential outcomes framework, Judea Pearl&rsquo;s causal graphs, Joshua Angrist and Guido Imbens on instrumental variables, James Heckman on selection. Hanssens, Parsons, and Schultz on marketing response models. These ideas live in economics and biostatistics departments, not in most CS programs. A data scientist who knows XGBoost cold may have never seen a directed acyclic graph, never run a difference-in-differences, never thought hard about identification.</p>
+
+                <p>The current AI cycle is making this worse, not better. Every organization wants an &ldquo;AI strategy.&rdquo; The phrase &ldquo;data-driven&rdquo; gets attached to anything involving a model. But the techniques that actually answer business questions about causal effects &mdash; the techniques that justify a recommendation to shift four million dollars from Google to Meta &mdash; are not the same techniques that power chatbots and image generators. The hype is pulling talent and attention toward generative models and predictive ML, and away from the less glamorous but more decision-relevant work of causal estimation.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Prediction and causal inference are different tools for different jobs</div>
+
+                <p>I want to be careful not to set up a false opposition. Predictive ML and causal inference are not competing paradigms. They are different tools that answer different questions, and the most sophisticated organizations use both &mdash; often together.</p>
+
+                <p>If I want to predict next quarter&rsquo;s demand for a product, a gradient boosting model trained on historical sales, seasonality, and macro indicators is exactly the right tool. The question is associative: <em>given everything I know, what is the best estimate of next quarter&rsquo;s demand?</em> Predictive ML excels at this.</p>
+
+                <p>But if I want to know what happens to demand if I raise prices by 10%, no amount of training data on past prices and past demand will give me the right answer &mdash; because past prices were not set randomly, and the same observed correlation between price and demand can be generated by very different causal structures. This is a counterfactual question. It requires either a randomized experiment, a natural experiment, an instrumental variable, or a structural model that explicitly identifies the price elasticity I am after.</p>
+
+                <p>Sophisticated marketing analytics &mdash; the kind of work that Hanssens, Parsons, and Schultz describe in <em>Market Response Models</em> &mdash; uses both. A demand forecast from a GBM can feed into a structural marketing mix model that decomposes revenue into baseline demand, advertising effects, promotional lifts, and seasonality. The predictive component handles the data-rich, associative part. The structural component handles the causal decomposition. Together, they answer questions neither one could answer alone.</p>
+
+                <p>The mistake is not using ML. The mistake is using ML to answer questions it cannot answer, because nobody on the team knew the question was causal in the first place.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Why I pushed</div>
+
+                <p>I should be honest about something. I escalated in that interview. I told them, in plain terms, that the assignment was boring &mdash; not because the questions were uninteresting, but because the data they had given me could not answer them. I asked whether their production data was structured the same way as the assignment data, or whether the broken linkage was something they had introduced for the test. They told me their production data could be linked end-to-end. Which left me with a question I could not put down: why send a candidate a dataset that prevents the analyses you are asking for? Were they testing whether candidates would notice? Did they not realize themselves what format their own data needed to be in to answer the business questions they kept raising?</p>
+
+                <p>I pushed harder than I had to. I knew it. I have my reasons.</p>
+
+                <p>I spent the last decade at a previous organization &mdash; a serious institution doing serious work &mdash; where leadership routinely demanded data-driven decisions while the underlying infrastructure could not support them, and where any suggestion that the architecture itself needed investment was treated as complaining rather than as useful information. Data, in that environment, was not a tool for learning. It was a marketing instrument &mdash; something to point at, not something to be tested by. After ten years of trying to shift that culture from the inside, I had nothing to show for it.</p>
+
+                <p>My time at Amazon taught me the opposite lesson. A confrontational style there was not a flaw to be smoothed over &mdash; it was how the organization got to the right answer fast. If a colleague&rsquo;s analysis had a problem, you said so. If a leader was about to make a decision based on a number that did not mean what they thought it meant, you stopped them. The discomfort was the point. The discomfort produced the work.</p>
+
+                <p>I sent the company my follow-up report not just as analysis but as a diagnostic. If they read it and said <em>yes, this is exactly the kind of thinking we need</em>, I would have wanted to work with them. If they read it and got defensive, I had my answer either way. The fact that I did not hear back is a result, not a failure.</p>
+
+                <p>I will turn forty next year. I do not have another ten years to spend at organizations that mistake dashboarding for analytics, or where the architectural conversation is treated as criticism instead of contribution. I am being more careful now about whom I lend my time to. That selectivity is a luxury I did not have a decade ago.</p>
+
+                <p>If I get rejected by Yieldigo, Ematiq, or Allegro, it will be because they operate above my current skill level. That kind of rejection I would accept gratefully, treat as a signal to grow, and use to plan what to study next. But rejection from a company that did not engage with the diagnostic I was offering is not really a rejection. It is a filter, and it filtered the right way.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">What would help</div>
+
+                <p>A few concrete moves, in rough order of leverage.</p>
+
+                <p><strong>Hire economists alongside CS-trained data scientists.</strong> This is what Amazon, Uber, eBay, and Microsoft Research figured out. Economists are trained from day one to think about identification &mdash; to ask &ldquo;what would I need to assume in order to interpret this estimate causally?&rdquo; That habit of mind is rare among CS-trained data scientists, not because they are incapable of learning it, but because their training did not emphasize it.</p>
+
+                <p><strong>Design data infrastructure for causal questions.</strong> Linked sessions across acquisition and retention. Longitudinal user panels. Randomized treatments wherever feasible. Controlled exposure logs. Holdout groups for measurement. These design choices need to happen upstream of the analyst, not after the fact. The Scalepunk-style assignment I described &mdash; analytical questions on top of dashboarding-grade data &mdash; is the predictable consequence of skipping this step.</p>
+
+                <p><strong>Treat attribution and lift measurement as first-class problems.</strong> Most marketing organizations have an attribution model that nobody fully trusts. Most product organizations have an A/B testing platform but lack the statistical sophistication to detect the effects they care about. These are solvable problems, but they require investment and serious engineering, not a single senior hire.</p>
+
+                <p><strong>Match the question to the tool.</strong> A demand forecast is a prediction problem. A pricing decision is a causal problem. A recommender system is a prediction problem. An ad-spend reallocation is a causal problem. This sounds obvious. It is routinely violated.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">The opportunity</div>
+
+                <p>The companies that figure this out first &mdash; globally, and in Prague &mdash; will pull ahead in ways that are hard to overstate. Better attribution means better marketing budgets. Better lift measurement means faster product iteration. Better causal models for pricing, retention, and cross-sell mean millions of dollars unlocked from data the company is already collecting.</p>
+
+                <p>The talent is there. The appetite is there. What is missing is the architectural shift &mdash; and a hiring philosophy that sees economists and statisticians as core to the data function, not peripheral to it.</p>
+
+                <p>To the digital marketing company that gave me the take-home test: I did the analysis you asked for. And I wrote you a follow-up explaining what the analysis would look like if your data could be linked end-to-end. That follow-up was, in a way, the first draft of this essay. The next time someone hands you a parquet file and asks you to find marginal returns, ask first whether the data architecture even allows the question to be answered.</p>
+
+                <p>If it doesn&rsquo;t &mdash; that&rsquo;s where the real work begins.</p>
+            </section>
+
+            <section class="story-chapter story-coda">
+                <div class="story-divider"></div>
+                <p>If this resonates &mdash; or if you&rsquo;re building a data team and want to talk about what causal infrastructure looks like in practice &mdash; reach out on <a href="https://www.linkedin.com/in/nail-hassairi-8722845a/" target="_blank" rel="noopener">LinkedIn</a> or at <a href="mailto:nail@hassairi.com">nail@hassairi.com</a>.</p>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="story-footer">
+        <div class="story-container">
+            <a href="index.html" class="back-link">&larr; All posts</a>
+            <span class="footer-note">&copy; 2025 Nail Hassairi &middot; Prague</span>
+        </div>
+    </footer>
+
+</body>
+</html>
