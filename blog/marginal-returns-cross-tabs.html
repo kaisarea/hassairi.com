@@ -126,9 +126,27 @@
             </section>
 
             <section class="story-chapter">
-                <div class="story-aside-label">Why is this so rare?</div>
+                <div class="story-aside-label">The management gap</div>
 
-                <p>The answer, I think, is mostly about training.</p>
+                <p>Why is this so rare? The answer is partly historical.</p>
+
+                <p>The data revolution of the past two decades was largely about <em>products that use data</em> &mdash; recommender systems, search ranking, ad bidding, content feeds, fraud detection. These are predictive systems embedded in software. They generate revenue automatically once deployed. Management never had to understand the math behind them. They hired computer scientists, gave them latitude, and watched the metrics improve. The expertise sat behind an API. The business captured the value without ever having to learn the language.</p>
+
+                <p>Analytics in the sense I&rsquo;ve been describing &mdash; causal estimation, attribution, lift measurement, the Hanssens marketing-mix tradition &mdash; does not work that way. It requires a partnership between the analyst and the executive. The analyst cannot do the work in isolation, because the questions are interpretive. <em>Which counterfactual do we want? What assumptions are we willing to defend? What decision will this estimate actually inform?</em> The executive cannot delegate the work entirely, because they have to be able to formulate the question, understand the answer, and act on it.</p>
+
+                <p>That partnership requires shared vocabulary. The executive does not need to know how to run a regression. But they do need to know what a confidence interval is, what statistical significance means and does not mean, what a p-value is and is not, and &mdash; most importantly &mdash; the difference between <em>accounting</em> and <em>analytics</em>. Accounting describes what happened. Analytics explains why, and predicts what would happen under a different decision.</p>
+
+                <p>Management schools do not teach this. Most MBAs take a single statistics course that fades within months. Executives rise through marketing, finance, operations, engineering. They learn to demand &ldquo;data-driven&rdquo; decisions without learning the vocabulary that would let them evaluate whether the data is actually telling them what they think it is.</p>
+
+                <p>I saw the consequence of this gap up close in another Prague take-home assignment. An analytics consultancy sent me e-shop transaction data and asked, among other questions: <em>did increasing the marketing budget on Google Ads, Sklik, and Facebook on a specific date lead to a change in sales?</em> Average daily orders fell 55% after the budget increase. To an accounting eye, that looks bad &mdash; the budget went up, sales went down. But after controlling for trend and seasonality with both OLS and Poisson regression, the decline was not statistically distinguishable from background variation. A power analysis showed the dataset could reliably detect changes of only ±38%; anything subtler would have been invisible. The honest answer was: <em>the data can neither confirm nor deny that the budget change had an effect. To know, you would need session-level analytics data, or better, a controlled experiment next time.</em></p>
+
+                <p>I wrote it up with a section explicitly distinguishing the <em>accounting view</em> (the raw numbers) from the <em>statistical view</em> (what we can defensibly conclude). I did not hear back. I suspect the report read as inconvenient. The manager wanted a clear yes-or-no. The honest answer was <em>we don&rsquo;t know, and here is why we don&rsquo;t know.</em> That answer required understanding what the dataset could and could not support &mdash; and not every reader is prepared for that.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">The training gap</div>
+
+                <p>The management gap is compounded by a training gap.</p>
 
                 <p>Most data scientists and analysts are recruited from computer science programs &mdash; and computer science programs train students in prediction. Supervised learning, neural networks, classification, regression as a fitting exercise. These are valuable techniques. But they are designed to answer the question <em>what will happen given what I have observed?</em> &mdash; not <em>what would happen if I changed something?</em></p>
 
