@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel All the Way Down: Building an FP&amp;A Data Platform with Power Query, Power Pivot, and CUBE Functions &mdash; Nail Hassairi</title>
+    <meta name="description" content="After a decade of SQL, Python, and R, I took a finance role where none of them is available. What I found inside the Microsoft stack surprised me: a full dimensional data warehouse, hiding in plain sight.">
+    <link rel="canonical" href="https://hassairi.com/blog/excel-all-the-way-down.html">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Excel All the Way Down: Building an FP&amp;A Data Platform with Power Query, Power Pivot, and CUBE Functions">
+    <meta property="og:description" content="After a decade of SQL, Python, and R, I took a finance role where none of them is available. What I found inside the Microsoft stack surprised me.">
+    <meta property="og:url" content="https://hassairi.com/blog/excel-all-the-way-down.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Nail Hassairi">
+    <meta property="article:published_time" content="2026-07-05">
+    <meta property="article:author" content="Nail Hassairi">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@nhassairi">
+    <meta name="twitter:title" content="Excel All the Way Down: Building an FP&amp;A Data Platform with Power Query, Power Pivot, and CUBE Functions">
+    <meta name="twitter:description" content="After a decade of SQL, Python, and R, I took a finance role where none of them is available. What I found inside the Microsoft stack surprised me.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../story.css">
+</head>
+<body>
+
+    <nav class="nav">
+        <a href="../index.html" class="nav-name">NH</a>
+        <div class="nav-links">
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#research">Research</a>
+            <a href="../story.html">Story</a>
+            <a href="../life.html">Life</a>
+            <a href="../reading.html">Reading</a>
+            <a href="../index.html#contact">Contact</a>
+            <a href="index.html" class="active">Blog</a>
+        </div>
+    </nav>
+
+    <header class="story-hero">
+        <div class="story-hero-inner">
+            <p class="story-kicker">Essay &middot; July 2026</p>
+            <h1 class="story-title">Excel All the Way Down: Building an FP&amp;A Data Platform with Power Query, Power Pivot, and CUBE Functions</h1>
+        </div>
+    </header>
+
+    <main class="story-body">
+        <div class="story-container">
+
+            <section class="story-chapter">
+                <p class="story-lede">After a decade of SQL, Python, and R, I took a finance role where none of them is available. What I found inside the Microsoft stack surprised me: a full dimensional data warehouse, hiding in plain sight &mdash; with Excel as both the kitchen and the dining room.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">A different country</div>
+
+                <p>Earlier this year I joined the FP&amp;A function of a multinational, in a regional role covering several Central European markets. Financial planning and analysis was a new field for me. My previous decade &mdash; Amazon, research institutions, marketing analytics &mdash; ran on a familiar stack: SQL for the data, Python and R for the analysis, AWS when the work outgrew the laptop, LaTeX for the write-up, git for version control underneath it all, and the quiet assumption that if you need a database, someone will provision one.</p>
+
+                <p>FP&amp;A, I quickly learned, is a different country. They speak a different dialect and they use different tools, and the two facts are connected.</p>
+
+                <p>The dialect first. The atomic object of FP&amp;A is the P&amp;L statement &mdash; revenue at the top, operating profit at the bottom, a fixed canonical order in between. The core activity is comparing <em>versions</em> of it: actuals against budget, this month&rsquo;s forecast against last month&rsquo;s, this year against last year. And the native way of consuming those comparisons is the <em>bridge</em> &mdash; the waterfall chart that decomposes a variance into named drivers. Volume did this, price and mix did that, costs did the rest. A well-built bridge is genuinely a beautiful thing: a decomposition exercise, an accounting identity, and an executive summary all at once.</p>
+
+                <p>Then the tools. The corporate software catalog does not include PostgreSQL or SQL Server access for finance teams. Corporate policy blocks Python package installation on work machines. This is not malice; it is IT governance at scale, and finance sits far from the engineering side of the house. The perimeter of what you can actually run is, to a first approximation, Microsoft 365. Excel, Power BI, SharePoint, and whatever lives inside them.</p>
+
+                <p>So the problem statement wrote itself. The team needed a central data repository &mdash; one trusted place where every version of every market&rsquo;s P&amp;L lives &mdash; and the entire modern data stack I would normally reach for was unavailable. What I had was Excel, Power BI, and SharePoint. That third one matters more than it sounds: with workbooks living on SharePoint rather than on anyone&rsquo;s hard drive, Power BI can consume them in the cloud, and Excel can consume Power BI right back. The pieces could talk to each other cloud-to-cloud, no file ever attached to an email. That is not a spreadsheet with delusions &mdash; that is a data platform waiting to be assembled.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">The monster workbook</div>
+
+                <p>Before describing the fix, it&rsquo;s worth describing the disease, because the FP&amp;A community knows it well. I first heard this pattern articulated in <em>The FP&amp;A Guy</em> podcast, and it showed up everywhere once I started paying attention.</p>
+
+                <p>When your storage format is a spreadsheet, data accumulates in <em>reporting layout</em>: P&amp;L lines down the side, months across the top, merged headers, embedded subtotals. That layout is excellent for reading and terrible for storing. Every new forecast version needs a new column block or a new sheet. Every new market needs another. Formulas reference row positions, so inserting a line breaks everything downstream. Within a few planning cycles you have the monster workbook: a file that takes ten seconds to open, holds a dozen versions of the truth across thirty sheets, and is maintained through a mixture of muscle memory and fear.</p>
+
+                <p>The analogy that unlocked it for my colleagues: a relational database stores customer orders as rows in a table, not as formatted invoices. The invoice is generated from the data when needed. Nobody argues the database should store invoices. A P&amp;L statement <em>is an invoice</em>. It is a view, a presentation of the data &mdash; not the data. Storing your data as stacks of formatted P&amp;Ls works fine when you have three of them. It collapses when you have eight markets times twelve months times five plan versions, because now you are curating hundreds of hand-maintained invoices and calling it a repository.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">The shape of the fix</div>
+
+                <p>The fix is the oldest idea in data warehousing, and it survives the loss of the warehouse. Store everything as one tidy, long-format table, schema-locked: every single value gets its own row, with columns identifying what it is &mdash; market, product, P&amp;L line, period, plan version, value. Around that fact table, a small star of dimension tables in the Kimball fashion: one describing markets, one describing products, one describing metrics, one describing periods, one describing versions.</p>
+
+                <p>Two design choices matter more than the rest.</p>
+
+                <p><strong>Version is data, not structure.</strong> In the monster workbook, a new forecast version is a structural event &mdash; new columns, new sheets, new formula ranges. In the long format, a version is just another value in a column. Comparing budget to latest estimate is a filter on two values and a subtraction. The bridge &mdash; FP&amp;A&rsquo;s native artifact &mdash; stops being a hand-built sheet and becomes a query.</p>
+
+                <p><strong>Snapshots, not overwrites.</strong> A team that forecasts monthly produces many versions of the same underlying fact, and the instinct is to keep only the latest. That destroys exactly the information a planning function should treasure: forecast drift. Every load appends rows stamped with a snapshot date; nothing is ever overwritten. The economist in me recognized this immediately &mdash; it is vintage data, the same discipline macroeconomists apply to real-time GDP revisions. You cannot audit how your view of the year evolved if you keep painting over it.</p>
+
+                <p>None of this required SQL. It required the <em>ideas</em> that SQL taught me. That distinction turned out to be the theme of the whole project.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">A database in disguise</div>
+
+                <p>Here is the discovery that made the architecture possible: the Microsoft stack contains a real database. It is just not called one.</p>
+
+                <p>The Power BI semantic model &mdash; the same engine that appears inside Excel as Power Pivot, the &ldquo;data model&rdquo; &mdash; is an in-memory, columnar, tabular store. It holds millions of rows without complaint, understands relationships between tables, and exposes a full analytical language (DAX) for defining measures. Power Query, sitting in front of it, is a genuine ETL layer: it ingests folders of files, unpivots reporting layouts into long format, merges, types, and cleans &mdash; every transformation recorded as an auditable step. Nothing to install. Nothing to provision. No ticket to IT. It ships inside the tools finance already has open all day.</p>
+
+                <p>Once you see it, the layered architecture that data engineers would recognize falls out naturally. Raw market files land in a SharePoint folder &mdash; the bronze layer. Power Query transforms them into the canonical long-format tables inside the semantic model &mdash; the silver layer. And reporting surfaces consume the model &mdash; the gold layer. The same medallion pattern the big data platforms advertise, executed entirely within the Office perimeter, by one finance analyst, without a single privilege escalation.</p>
+
+                <p>The part that still amuses me is the circularity. Excel is the data collection instrument at one end and the presentation surface at the other, with the semantic model in the middle. Data flows <em>from</em> Excel, through Power Query, into the model &mdash; and streams <em>back into</em> Excel through Power Pivot and CUBE functions. Excel in, Excel out. Excel all the way down.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Excel in: the template is the contract</div>
+
+                <p>The collection side deserves its own paragraph, because it is the highest-leverage and least glamorous piece.</p>
+
+                <p>Markets report their numbers in Excel files. That is not going to change, and after some reflection I stopped wanting it to change &mdash; a market&rsquo;s own working file is richer, better maintained, and more trusted by its owners than any template you could impose. The realistic move is to make the interface explicit. Where the region defines the format, the input template becomes a contract: a protected workbook with locked structure, unlocked entry cells, data validation on every input, and hidden signature cells the ingestion layer reads to detect the template version. Power Query then trusts that structure absolutely &mdash; a file that doesn&rsquo;t match is a process violation, not a data-cleaning exercise. Where markets keep their native formats, the mapping into the canonical schema lives in per-market Power Query logic instead, written once and rerun every month.</p>
+
+                <p>Either way, the principle is the same one I preached in my <a href="marginal-returns-cross-tabs.html">last essay</a> from the other side of the fence: data quality is decided upstream, at the point of collection, not downstream at the point of analysis. If the intake is clean, everything after it is arithmetic.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Excel out: three surfaces, not one</div>
+
+                <p>The consumption side taught me the single most useful framing of the project: a planning team needs <strong>three distinct kinds of output, with different design constraints, and conflating them is precisely what produces monster workbooks</strong>.</p>
+
+                <p><strong>The exploration surface</strong> is for the analyst in the meeting. It is a PivotTable connected to the data model, with slicers for market, version, and period. Optimized for speed of iteration: drag fields, slice, drill, refresh. Nobody prints it. It is a thinking tool, and the classic PivotTable &mdash; unfashionable as it is &mdash; remains unbeatable at this job.</p>
+
+                <p><strong>The reporting surface</strong> is for the director and everyone above. It is a hand-laid-out sheet in strict financial-reporting convention: canonical P&amp;L order, parentheses for negatives, bold totals. The layout is hand-controlled; the <em>numbers</em> are not. In its first incarnation every value cell holds a SUMIFS against the long-format table, driven by filter cells at the top &mdash; change the version filter, the whole statement recalculates. The mature incarnation replaces SUMIFS with CUBE functions.</p>
+
+                <p><strong>The input surface</strong> is the protected template described above. Its design constraint is neither flexibility nor polish but <em>enforcement</em>.</p>
+
+                <p>Most broken workbooks I have inherited are one of these surfaces that accreted features of the other two &mdash; the report that grew pivot tables, the exploration file that grew hand-formatted summaries someone started depending on. Each accretion is individually reasonable. The accumulated mess is not. The discipline is to recognize when a request is asking the wrong surface to do the wrong job, and route it to the right one instead.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">CUBE functions, the unsung heroes</div>
+
+                <p>CUBE functions deserve a section, because almost nobody outside corporate finance seems to know they exist, and they are the most elegant thing in this entire architecture.</p>
+
+                <p><code>CUBEVALUE</code> and its siblings (<code>CUBEMEMBER</code>, <code>CUBESET</code>) let an ordinary worksheet cell query the data model directly. You define a measure once in the model &mdash; Gross Margin, Operating Profit, Variance vs. Last Year, each with its business logic encoded in DAX &mdash; and then any cell, anywhere, in any layout, can ask for that measure filtered to any combination of dimensions. The sheet looks hand-typed. Underneath, every number is data-bound to a single governed definition.</p>
+
+                <p>What this buys you is the separation that report builders in every BI tool take for granted and Excel historically never had: <em>layout and logic live in different places</em>. The formatting, the row order, the white space that makes a P&amp;L readable to a finance director &mdash; all hand-controlled on the sheet. The calculation &mdash; defined once, tested once, reused everywhere. When the definition of a measure changes, it changes in one place, and forty reports update. Anyone who has ever chased an inconsistent margin definition across a folder of workbooks will understand what that is worth.</p>
+
+                <p>There is a pleasing historical depth here, too. Under the hood, CUBE formulas speak MDX &mdash; the query language of Analysis Services, the OLAP engine Microsoft has shipped since the late nineties &mdash; and the old literature is explicit that Excel was always meant to be the organization&rsquo;s &ldquo;core BI client,&rdquo; tightly integrated with the analytical engine behind it. The Wrox guide to Analysis Services 2008 reads today like a description of this exact architecture, written one corporate generation early. The tools I am wiring together were designed to be wired together; most organizations just never got around to it.</p>
+
+                <p>The honest ledger: the syntax is verbose, the learning curve is real, and it needs the data model to exist first. SUMIFS against a tidy table is the right first step &mdash; it works everywhere, everyone can audit it, and ninety percent of FP&amp;A reports in the wild are built this way for good reason. CUBE functions are what you graduate to once the model has earned the team&rsquo;s trust.</p>
+
+                <p>A footnote on the newer alternatives: the dynamic-array functions (<code>PIVOTBY</code>, <code>GROUPBY</code>, <code>FILTER</code>) are wonderful for live summary views that should update without a refresh click. But they resist the canonical P&amp;L: financial statements have a deliberate, non-alphabetical row order, and number formatting doesn&rsquo;t stick reliably to spilled arrays. Different tools, different jobs &mdash; a sentence I seem to write in every essay.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Shadow IT, reframed</div>
+
+                <p>There is a name for what I have described, and it is usually said with a sneer: shadow IT. Business users building their own solutions in Excel because the official systems don&rsquo;t deliver what they need, in the shape they need it.</p>
+
+                <p>I want to push back on the sneer. Deckler and Powell&rsquo;s <em>Mastering Microsoft Power BI</em> offers a better frame: deployment modes on a spectrum. At one end, corporate BI &mdash; IT owns everything; secure, governed, and slow to adapt. At the other, pure self-service &mdash; analysts own everything; responsive and fragile. In between sits <strong>managed self-service</strong>: the business owns the work, the platform provides governance, and both sides can see what is happening. Artifacts are not condemned to one mode forever &mdash; a workbook can start as one analyst&rsquo;s tool, mature into a team-owned model with schema discipline and validation, and eventually graduate into IT-supported infrastructure if it earns the right.</p>
+
+                <p>Through that lens, a finance team&rsquo;s Excel workarounds are not evidence of unsophistication. They are evidence that the team is competent at solving problems faster than the official channels can. The productive move is not to confiscate the spreadsheets; it is to migrate the load-bearing ones a step along the spectrum &mdash; add the schema, add the snapshots, add the single source of truth &mdash; while leaving everything else gloriously, usefully improvised.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">What survives</div>
+
+                <p>My last essay was about companies asking causal questions of data that could only answer descriptive ones &mdash; the analytics gap seen from the analyst&rsquo;s side of the interview table. This one is, in a sense, its sequel from inside: what it actually looks like to build the infrastructure layer that any serious analysis has to stand on, in an environment that hands you none of the standard tools.</p>
+
+                <p>The lesson I keep returning to is that the tools were never the point. Take away SQL, and dimensional modeling still holds. Take away Python, and tidy data, immutable snapshots, and provenance still hold. Kimball&rsquo;s star schema does not care whether it is materialized in a data warehouse or in a Power Pivot model wired to a folder of spreadsheets. A decade of the modern data stack turned out to be transferable precisely because what transferred was not the syntax &mdash; it was the discipline.</p>
+
+                <p>And there is real satisfaction in the constraint. Anyone can build a data platform with a platform team, a cloud budget, and a provisioned warehouse. Building one inside Excel &mdash; where your users already live, with tools they already trust, streaming back out into the P&amp;Ls and bridges they already know how to read &mdash; is a different kind of engineering problem, and I have come to think it is the more honest one. The next chapter is the visualization layer: Power BI proper, sitting on the same semantic model. I haven&rsquo;t earned an opinion on that yet. When I have, I&rsquo;ll write it down.</p>
+            </section>
+
+            <section class="story-chapter">
+                <div class="story-aside-label">Further reading</div>
+
+                <p>One promise of this essay is that the discipline is learnable from public sources. Here is the shelf, in roughly the order I would hand it to someone walking the same road &mdash; vocabulary first, then architecture, then each layer of the stack.</p>
+
+                <ul class="reference-list">
+                    <li>Berman, K., &amp; Knight, J. (2013). <em>Financial intelligence: A manager&rsquo;s guide to knowing what the numbers really mean</em> (rev. ed.). Harvard Business Review Press. &mdash; The P&amp;L vocabulary that every FP&amp;A conversation assumes. Readable in a weekend; read it before anything else.</li>
+                    <li>Kimball, R., &amp; Ross, M. (2013). <em>The data warehouse toolkit: The definitive guide to dimensional modeling</em> (3rd ed.). Wiley. &mdash; The architecture book. Grain, conformed dimensions, star schemas &mdash; nearly every design question in this essay has a named treatment here. This is the volume that survives the loss of the warehouse.</li>
+                    <li>Jelen, B. (2025). <em>Microsoft Excel pivot table data crunching</em>. Microsoft Press. &mdash; Pivot fluency from the designer&rsquo;s side: which data shapes make pivots work and which make them fight you. The source-data and data-model chapters directly motivate the long-format decision.</li>
+                    <li>Puls, K., &amp; Escobar, M. (2021). <em>Master your data with Power Query in Excel and Power BI</em>. Holy Macro! Books. &mdash; The practitioner&rsquo;s Power Query book, task-oriented. The right companion while building the ingestion layer; don&rsquo;t read it linearly, read it against real problems.</li>
+                    <li>Deckler, G., de Korte, M., &amp; de Groot, R. (2024). <em>The definitive guide to Power Query (M)</em>. Packt. &mdash; The M language itself, for the day the Power Query GUI hits its ceiling. A reference, not a primary read.</li>
+                    <li>Russo, M., &amp; Ferrari, A. (2019). <em>The definitive guide to DAX</em> (2nd ed.). Microsoft Press. &mdash; How the semantic model computes: evaluation contexts, filter context, measures. The evaluation-context and <code>CALCULATE</code> chapters are the core; everything else in the model makes sense once those click.</li>
+                    <li>Harinath, S., Carroll, M., Meenakshisundaram, S., Zare, R., &amp; Lee, D. (2009). <em>Professional Microsoft SQL Server Analysis Services 2008 with MDX</em>. Wrox. &mdash; MDX is the language Excel&rsquo;s CUBE functions actually speak to the model. Read it as a language book, not a server book: the MDX and Office-integration chapters explain what your CUBE formulas send; the DAX book explains how the model replies.</li>
+                    <li>Powell, B., &amp; Deckler, G. (2022). <em>Mastering Microsoft Power BI</em> (2nd ed.). Packt. &mdash; The working analyst&rsquo;s Power BI book: data modeling, the semantic layer, and the deployment-modes spectrum &mdash; corporate BI, managed self-service, self-service &mdash; borrowed gratefully above.</li>
+                    <li>Kolokolov, A., &amp; Zelensky, M. (2025). <em>Data visualization with Microsoft Power BI</em>. O&rsquo;Reilly. &mdash; The presentation craft, for the moment Power BI is used to present rather than to model. On my desk for the next chapter of this project.</li>
+                    <li>Withee, R., &amp; Withee, K. (2022). <em>SharePoint for Dummies</em>. Wiley. &mdash; Unglamorous and useful: sites, document libraries, permissions &mdash; the plumbing that makes the cloud-to-cloud loop possible.</li>
+                </ul>
+            </section>
+
+            <section class="story-chapter story-coda">
+                <div class="story-divider"></div>
+                <p>If you&rsquo;re wrestling with monster workbooks, planning data, or the strange and wonderful corner of Excel where CUBE functions live &mdash; reach out on <a href="https://www.linkedin.com/in/nail-hassairi-8722845a/" target="_blank" rel="noopener">LinkedIn</a> or at <a href="mailto:nail@hassairi.com">nail@hassairi.com</a>.</p>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="story-footer">
+        <div class="story-container">
+            <a href="index.html" class="back-link">&larr; All posts</a>
+            <span class="footer-note">&copy; 2025 Nail Hassairi &middot; Prague</span>
+        </div>
+    </footer>
+
+</body>
+</html>
