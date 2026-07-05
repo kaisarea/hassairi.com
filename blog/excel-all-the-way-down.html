@@ -86,7 +86,7 @@
 
                 <p>Two design choices matter more than the rest.</p>
 
-                <p><strong>Version is data, not structure.</strong> In the monster workbook, a new forecast version is a structural event &mdash; new columns, new sheets, new formula ranges. In the long format, a version is just another value in a column. Comparing budget to latest estimate is a filter on two values and a subtraction. The bridge &mdash; FP&amp;A&rsquo;s native artifact &mdash; stops being a hand-built sheet and becomes a query.</p>
+                <p><strong>Version is a dimension.</strong> In the monster workbook, a new forecast version is a structural event &mdash; new columns, new sheets, new formula ranges that ripple through dependent calculations. In the dimensional model, version is just another dimension: a column in the fact table that you can filter on or group by. The schema does not change when you add a new plan version; you add rows. Comparing budget to latest estimate is a filter on two version values and a subtraction. The bridge &mdash; FP&amp;A&rsquo;s native artifact &mdash; stops being a hand-built sheet and becomes a query.</p>
 
                 <p><strong>Snapshots, not overwrites.</strong> A team that forecasts monthly produces many versions of the same underlying fact, and the instinct is to keep only the latest. That destroys exactly the information a planning function should treasure: forecast drift. Every load appends rows stamped with a snapshot date; nothing is ever overwritten. The economist in me recognized this immediately &mdash; it is vintage data, the same discipline macroeconomists apply to real-time GDP revisions. You cannot audit how your view of the year evolved if you keep painting over it.</p>
 
