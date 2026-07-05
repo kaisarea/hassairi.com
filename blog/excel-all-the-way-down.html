@@ -82,7 +82,7 @@
             <section class="story-chapter">
                 <div class="story-aside-label">The shape of the fix</div>
 
-                <p>The fix is the oldest idea in data warehousing, and it survives the loss of the warehouse. Store everything as one tidy, long-format table, schema-locked: every single value gets its own row, with columns identifying what it is &mdash; market, product, P&amp;L line, period, plan version, value. Around that fact table, a small star of dimension tables in the Kimball fashion: one describing markets, one describing products, one describing metrics, one describing periods, one describing versions.</p>
+                <p>The fix is the oldest idea in data warehousing, and it survives the loss of the warehouse. The data warehouse community has debated several design philosophies: fully normalized relational schemas, Ralph Kimball&rsquo;s star-schema dimensional model, and Bill Inmon&rsquo;s data vault approach. For this context—constrained to Excel and Power Pivot, needing to balance analyst accessibility with analytical power—Kimball proved the right fit. Store everything as one tidy, long-format table, schema-locked: every single value gets its own row, with columns identifying what it is &mdash; market, product, P&amp;L line, period, plan version, value. Around that fact table, a small star of dimension tables in the Kimball fashion: one describing markets, one describing products, one describing metrics, one describing periods, one describing versions.</p>
 
                 <p>Two design choices matter more than the rest.</p>
 
