@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>From Building a Warehouse to Building a Governance System Around the Warehouse &mdash; Nail Hassairi</title>
+    <title>From Building a Data Warehouse to Building a Governance System Around It &mdash; Nail Hassairi</title>
     <meta name="description" content="What happens when your AI coding agent forgets what it is building. On context engineering, the books that explained it, and the moment I realized I had stopped writing code and started writing policy.">
     <link rel="canonical" href="https://hassairi.com/blog/governance-system.html">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <!-- Open Graph -->
-    <meta property="og:title" content="From Building a Warehouse to Building a Governance System Around the Warehouse">
+    <meta property="og:title" content="From Building a Data Warehouse to Building a Governance System Around It">
     <meta property="og:description" content="What happens when your AI coding agent forgets what it is building. On context engineering, the books that explained it, and the moment I realized I had stopped writing code and started writing policy.">
     <meta property="og:url" content="https://hassairi.com/blog/governance-system.html">
     <meta property="og:type" content="article">
@@ -19,7 +19,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@nhassairi">
-    <meta name="twitter:title" content="From Building a Warehouse to Building a Governance System Around the Warehouse">
+    <meta name="twitter:title" content="From Building a Data Warehouse to Building a Governance System Around It">
     <meta name="twitter:description" content="What happens when your AI coding agent forgets what it is building. On context engineering, the books that explained it, and the moment I realized I had stopped writing code and started writing policy.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,7 @@
     {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "From Building a Warehouse to Building a Governance System Around the Warehouse",
+        "headline": "From Building a Data Warehouse to Building a Governance System Around It",
         "description": "What happens when your AI coding agent forgets what it is building. On context engineering, the books that explained it, and the moment I realized I had stopped writing code and started writing policy.",
         "author": {
             "@type": "Person",
@@ -66,7 +66,7 @@
     <header class="story-hero">
         <div class="story-hero-inner">
             <p class="story-kicker">Essay &middot; August 2026</p>
-            <h1 class="story-title">From Building a Warehouse to Building a Governance System Around the Warehouse</h1>
+            <h1 class="story-title">From Building a Data Warehouse to Building a Governance System Around It</h1>
         </div>
     </header>
 
@@ -74,7 +74,7 @@
         <div class="story-container">
 
             <section class="story-chapter">
-                <p class="story-lede">Two months into building a data platform with an AI coding agent, a side-chat partner of mine offered a diagnosis I did not expect: &ldquo;The agent has crossed a line from &lsquo;building a warehouse&rsquo; into &lsquo;building a governance system around the warehouse.&rsquo;&rdquo; It was meant as a gentle warning. I took it as the title of this post.</p>
+                <p class="story-lede">Two months into building a data platform with an AI coding agent, an AI partner in a separate chat session offered a diagnosis I did not expect: &ldquo;The agent has crossed a line from &lsquo;building a warehouse&rsquo; into &lsquo;building a governance system around the warehouse.&rsquo;&rdquo; It was meant as amused commentary. I took it as the title of this post.</p>
             </section>
 
             <section class="story-chapter">
@@ -86,7 +86,7 @@
 
                 <p>What happened was not dramatic. It was gradual, which made it harder to diagnose. At some point &mdash; I could not pin down exactly when &mdash; the agent started losing the thread. It would forget decisions we had made three turns ago. It would propose schema changes that contradicted the dimensional model we had just agreed on. It would solve a problem, then re-introduce the same bug two exchanges later. The conversations became circular. I found myself re-explaining the project architecture from scratch in prompts that grew longer and longer, which only seemed to make things worse.</p>
 
-                <p>I had seen this pattern before, on a smaller scale, when I was building a flashcard application. But that project was simpler, and I could usually recover by starting a fresh conversation. The data platform was too complex for that. Starting over meant losing hours of accumulated context about table relationships, transformation logic, and design decisions. And yet staying in the same conversation meant watching the agent&rsquo;s performance degrade in real time.</p>
+                <p>I had seen this pattern before, on a smaller scale, when I was building a flashcard application. I never really recovered from it. My conclusion at the time was that I needed to step up my own learning so I could keep a better handle on the agent &mdash; understand the code well enough to catch its mistakes and steer it back on course. That was not wrong, but it slowed development dramatically. Instead of the virtuous cycle accelerating, I was spending most of my time studying rather than building. The data platform was too complex for that approach to scale. Starting over meant losing hours of accumulated context about table relationships, transformation logic, and design decisions. And yet staying in the same conversation meant watching the agent&rsquo;s performance degrade in real time.</p>
             </section>
 
             <section class="story-chapter">
@@ -134,7 +134,7 @@
 
                 <p>Applied to agentic coding, the checklist became something the agent would consult before making changes to the schema, before running a migration, before refactoring a module. One item on the checklist: check the error database for known failure patterns. Another: confirm that the proposed change is consistent with the dimensional model described in the CLAUDE.md. A third: if the context has been compressed, re-read the key architecture files before proceeding.</p>
 
-                <p>This was the moment the side-chat partner flagged. I had spent weeks building a data platform &mdash; tables, transformations, reporting layer. And now I was spending my time building governance infrastructure around the platform: configuration files, error databases, checklists, context management protocols. The warehouse was done, or close enough. What I was building now was the system that kept the warehouse from falling apart every time a new conversation started.</p>
+                <p>This was the moment the AI partner flagged. I had spent weeks building a data platform &mdash; tables, transformations, reporting layer. And now I was spending my time building governance infrastructure around the platform: configuration files, error databases, checklists, context management protocols. The warehouse was done, or close enough. What I was building now was the system that kept the warehouse from falling apart every time a new conversation started.</p>
             </section>
 
             <section class="story-chapter">
